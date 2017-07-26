@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>球员列表</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    
+
+   	<link href="../hplus/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="../hplus/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+	<link href="../hplus/css/animate.min.css" rel="stylesheet">
+    <link href="../hplus/css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/plugins/admin/amazeui.min.css" />
+    <link rel="stylesheet" href="../css/plugins/admin/app.css">
+    <!-- 分页样式 -->
+    <link rel="stylesheet" href="../css/plugins/pagination/normalize.css">
+    <link rel="stylesheet" href="../css/plugins/pagination/pagination.css">
+    <link rel="stylesheet" href="../css/plugins/pagination/common.css">
+    <link rel="stylesheet" href="../js/plugins/sweetalert/dist/sweetalert.css">
+</head>
+
+<body data-type="widgets">
+    <script src="../js/plugins/admin/theme.js"></script>
+    <div class="am-g tpl-g">
+        <!-- 头部 -->
+        <header>
+            <!-- logo -->
+            <div class="am-fl tpl-header-logo">
+                <a href="javascript:;"><img src="assets/img/logo.png" alt=""></a>
+            </div>
+            
+            <div class="tpl-header-fluid">
+                
+                <ul class="am-fl am-nav am-nav-pills am-topbar-nav">
+                    <li class="am-active"><a href="#">首页</a></li>
+                    <li><a href="#">我的球队</a></li>
+                    <li class="am-dropdown" data-am-dropdown>
+                    	<a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">我的职业生涯<span class="am-icon-caret-down"></span></a>
+				        <ul class="am-dropdown-content">
+				          <li class="am-dropdown-header">勇闯天涯</li>
+				          <li><a href="Team information.html">加入球队</a></li>
+				          <li><a href="#">创建球队</a></li>
+				          <li><a href="#">邀请教练</a></li>
+				          <li><a href="../hplus/personal_carchoice.html">个人信息</a></li>
+				        </ul>
+                    </li>
+                    <li class="am-disabled"><a href="#">赛事组织</a></li>
+                    <li class="am-dropdown" data-am-dropdown>
+                    	<a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">邀请<span class="am-icon-caret-down"></span></a>
+				        <ul class="am-dropdown-content">
+				          <li><a href="#">邀请教练员</a></li>
+				          <li><a href="#">邀请裁判员</a></li>
+				          <li><a href="#">邀请码管理</a></li>
+				        </ul>
+                    </li>
+                </ul>
+
+                <!-- 其它功能-->
+                <div class="am-fr tpl-header-navbar">
+                    <ul>
+                        <!-- 欢迎语 -->
+                        <li class="am-text-sm am-vertical-align" style="height: 56px;">
+                    <div class="tpl-user-panel-profile-picture am-fl am-vertical-align-middle">
+                        <img src="assets/img/user04.png" alt="">
+                    </div>
+                            <a class="am-fl" href="javascript:;"> Amaze UI </a>
+                        </li>
+                        
+                        <!-- 退出 -->
+                        <li class="am-text-sm">
+                            <a href="javascript:;">
+                                <span class="am-icon-sign-out"></span> 退出
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 搜索 -->
+                <div class="am-fr tpl-header-search">
+                    <form class="tpl-header-search-form" action="javascript:;">
+                        <button class="tpl-header-search-btn am-icon-search"></button>
+                        <input class="tpl-header-search-box" type="text" placeholder="搜索内容...">
+                    </form>
+                </div>
+            </div>
+
+        </header>
+        <!-- 风格切换 -->
+        <div class="tpl-skiner">
+            <div class="tpl-skiner-toggle am-icon-cog">
+            </div>
+            <div class="tpl-skiner-content">
+                <div class="tpl-skiner-content-title">
+                    选择主题
+                </div>
+                <div class="tpl-skiner-content-bar">
+                    <span class="skiner-color skiner-white" data-color="theme-white"></span>
+                    <span class="skiner-color skiner-black" data-color="theme-black"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 内容区域 -->
+        <div class="theme-white">
+            <div class="row-content am-cf">
+                <div class="row">
+                    <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                        <div class="widget am-cf">
+                            <div class="widget-head am-cf">
+                                <div class="widget-title  am-cf">
+									<h1>热门球员</h1>
+                                </div>
+							</div>
+                            <div class="widget-body  am-fr">
+
+                                <div class="row am-cf">
+                                <div class="am-u-sm-12 am-u-md-6 am-u-lg-6">
+                                    <div class="am-form-group">
+
+                                    </div>
+                                </div>
+                                <div class="am-u-sm-12 am-u-md-6 am-u-lg-3">
+										<div class="col-sm-4">
+											<select class="form-control" name="personOccupation" id="jobType">
+											</select>
+										</div>
+                                </div>
+                                <div class="am-u-sm-12 am-u-md-12 am-u-lg-3">
+                                    <div class="am-input-group am-input-group-sm tpl-form-border-form cl-p">
+                                        <input type="text" class="am-form-field " id="seek">
+                                        <span class="am-input-group-btn">
+            <button class="am-btn  am-btn-default am-btn-success tpl-table-list-field am-icon-search" type="button" id="seek_btn"></button>
+          </span>
+                                    </div>
+                                </div>
+                                </div>
+
+                                <div class="row am-cf gray-bg" id="more_person">
+<!--     <div class="wrapper wrapper-content animated fadeInRight"> -->
+<!--         <div class="row" id="more_person"> -->
+<!--         </div> -->
+<!--     </div> -->
+                                </div>
+                                
+
+                                    <div class="M-box3">
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+        
+    <script src="../js/plugins/admin/jquery.min.js"></script> 
+	<script src="../js/plugins/admin/amazeui.min.js"></script>
+    <script src="../hplus/js/jquery.min.js?v=2.1.4"></script>
+    <script src="../hplus/js/content.min.js?v=1.0.0"></script>
+    <script src="../team_management/mores.js"></script>
+    <script src="../js/common/common.js"></script>
+    <script src="../js/plugins/sweetalert/sweetalert.min.js"></script>
+    <!-- 分页js -->
+    <script src="../js/plugins/pagination/jquery.pagination.js"></script>
+    <script src="../team_management/players_list.js"></script>
+    <script>
+        $(document).ready(function(){$(".contact-box").each(function(){animationHover(this,"pulse")})});
+    </script>
+
+</body>
+
+</html>

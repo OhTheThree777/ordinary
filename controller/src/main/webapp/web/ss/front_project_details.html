@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>赛事详情</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../../css/plugins/teams_players.css" />
+    <link rel="stylesheet" href="../../css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/plugins/amazeUI/amazeui.min.css">
+    <link rel="stylesheet" href="../../hplus/css/style.min862f.css">
+	<link rel="stylesheet" href="//at.alicdn.com/t/font_11fmba9vv2kpgb9.css">
+	<link rel="stylesheet" href="../../hplus/css/plugins/chosen/chosen.css">
+	<link rel="stylesheet" href="../../js/plugins/sweetalert/dist/sweetalert.css">
+	<link href="../../css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+	
+	<link href="../../css/plugins/fileinput/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+	<!-- 地址 -->
+	<link rel="stylesheet" href="../../css/plugins/amazeUI/amazeui.min.css" />
+	<link rel="stylesheet" href="../../css/plugins/amazeUI/amazeui.address.min.css" />
+	<style>
+		.event_content .tab-content{min-height:200px;padding:20px;}
+		.carousel-inner .item img{width:100%;}
+	</style>
+</head>
+
+<body>
+<div id="Indivi_regist" style="display:block;">
+	<div class=" clearfix" style="padding:30px 0;background:#FFFFFF;">
+		<div class="container">
+			<h2 class="tit-text top_tit text-center"><i class="iconfont icon-wodebisai"></i>&nbsp;赛事比赛</h2>
+			<div class="clearfix pull-right" id="toolbar">
+				<button type="button" class="btn btn-white pull-right" onclick="retreat_a();"><i class="am-icon-reply-all"></i>&nbsp;返回列表</button>
+				
+			</div>
+			<div class="clearfix">
+			  <fieldset class="clearfix Essen-infor event_tip">
+			    <legend><i class="iconfont icon-xiangmu" style="font-size:20px;"></i>&nbsp;赛事项目</legend>
+					<div class="col-sm-5 text-center">
+						<div class="clearfix" >
+							<div id="carousel-example-generic1" class="carousel slide ss_xct" data-ride="carousel">
+							  <!-- Indicators -->
+							  <ol class="carousel-indicators">
+							    <li data-target="#carousel-example-generic1" data-slide-to="0" class="active"></li>
+							    <li data-target="#carousel-example-generic1" data-slide-to="1"></li>
+							  </ol>
+							
+							  <!-- 宣传图片 -->
+							  <div class="carousel-inner" role="listbox" id="advertising">
+<!-- 							    <div class="item active"> -->
+<!-- 							      <img src="../../img/1-1612.jpg"> -->
+<!-- 							    </div> -->
+<!-- 							    <div class="item"> -->
+<!-- 							      <img src="../../img/1-1612.jpg"> -->
+<!-- 							    </div> -->
+							  </div>
+							
+							  <!-- 箭头点击 -->
+							  <a class="left carousel-control" href="#carousel-example-generic1" role="button" data-slide="prev">
+							    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+							    <span class="sr-only">Previous</span>
+							  </a>
+							  <a class="right carousel-control" href="#carousel-example-generic1" role="button" data-slide="next">
+							    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+							    <span class="sr-only">Next</span>
+							  </a>
+							</div>
+						</div>
+<!-- 						<div class="clearfix"> -->
+<!-- 						<div class="event_sate">报名中</div> -->
+<!-- 						<div class="event_sate event_sate_over">报名结束</div> -->
+<!-- 						</div> -->
+					</div>
+					<div class="col-sm-7 event_profile">
+					<blockquote class="Start_registration start_border" id="blockquote">
+						<div id="top"></div>
+							<form class="form-horizontal" id="form-horizontal">
+								<input type="hidden" id="racingData" name="racingData" /> <input type="hidden" id="racingId" name="racingId" /> <input type="hidden" id="projectId" name="projectId" /> <input type="hidden" id="checkedId" name="checkedId" />
+								<div class="form-group" style="margin-top: 15px;">
+									<div class="col-sm-8">
+										<div class="Prefer">
+											<!-- 首选项 -->
+											<div class="btn-group" data-toggle="buttons" id="Prefer">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="specslist"></div>
+								<div class="text-center" id="div_invt_refferee">
+									<button type="button" class="btn btn-primary" id="AffirmApply">
+										<i class="glyphicon glyphicon-check glyphicon-icon-fw"></i>&nbsp;邀请裁判
+									</button>
+<!-- 									<button type="button" class="btn btn-primary" id="SeeApply"> -->
+<!-- 										<i class="glyphicon glyphicon-check glyphicon-icon-fw"></i>&nbsp;查看报名 -->
+<!-- 									</button> -->
+								</div>
+							</form>
+							<form id="form-horizontal1">
+								<input type="hidden" id="racingData1" name="racingData" /> <input type="hidden" name="addflag" value="0" />
+								<div id="div_form1"></div>
+							</form>
+					</blockquote>
+					</div>
+			  </fieldset>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix" style="margin: 30px 0; padding: 25px 0; background: #FFFFFF;">
+		<div class="clearfix container">
+			<fieldset class="clearfix Essen-infor event_tip" style="background: none;">
+				<legend>
+					<i class="iconfont icon-neirong"></i>&nbsp;赛事内容
+				</legend>
+				<div class="table-responsive event_content">
+
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs" role="tablist">
+						<li role="presentation" ><a href="#infor" aria-controls="home" role="tab" data-toggle="tab">基本信息</a></li>
+						<li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">参加的队伍</a></li>
+						<li role="presentation" ><a href="#inforReff" aria-controls="home" role="tab" data-toggle="tab">参加的裁判</a></li>
+						
+					</ul>
+
+					<!-- Tab panes -->
+					<div class="tab-content">
+						<!-- 基本信息内容 -->
+						<div role="tabpanel" class="tab-pane" id="infor"></div>
+						<!--  赛事说明内容-->
+						<div role="tabpanel" class="tab-pane active" id="description">
+							<div role="tabpanel" class="tab-pane" id="description">
+								<div class="clearfix">
+								 	<ul class="am-list am-list-border text-center pull-left  am-avg-sm-1 chan_list am-u-sm-3" id="productUl">
+									  <li class="chan_name">产品名称</li>
+									<!-- 加载产品名称  -->	
+									</ul>
+								 	<div class="pull-left am-avg-sm-1 am-u-sm-9">
+										<div class="text-center chan_name">报名队伍</div>
+										
+										<div class="tab-content" id="isDetails">
+											<!-- 加载队伍 -->
+										</div>
+									</div>	
+								</div>	
+							</div>
+						</div>
+						<!-- 参加的裁判-->
+						<div role="tabpanel" class="tab-pane" id="inforReff">
+							<div role="tabpanel" class="tab-pane" id="description2">
+								<div class="clearfix">
+								 	<ul class="am-list am-list-border text-center pull-left  am-avg-sm-1 chan_list am-u-sm-3" id="productUl2">
+									  <li class="chan_name">产品名称</li>
+									<!-- 加载产品名称  -->	
+									</ul>
+								 	<div class="pull-left am-avg-sm-1 am-u-sm-9">
+										<div class="text-center chan_name">裁判列表</div>
+										
+										<div class="tab-content" id="isDetails2">
+											<!-- 加载裁判 -->
+										</div>
+									</div>	
+								</div>	
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</fieldset>
+		</div>
+	</div>
+</div>
+<!-- 邀请裁判列表 -->
+	<div id="div_pick_players" class="ibox-content" style="display: none">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title text-center">
+					<i class="iconfont icon-xuanze"></i>&nbsp;选择参赛人员
+				</h4>
+			</div>
+			<div class="modal-body am-cf">
+				<div class="col-md-5 pull-left cyList">
+					<h4 class="text-center">
+						裁判列表*
+					</h4>
+					<div class="jumbotron cs_list cslist_l">
+						<form class="am-form" data-am-validator>
+							<ul class="am-list am-list-static am-list-border zxplayer_list" id="cyList">
+
+							</ul>
+						</form>
+					</div>
+				</div>
+				<div class="col-md-2 pull-left text-center" style="margin-top: 41px;">
+					<i class="xr_arrow iconfont icon-xiangyou"></i>
+					<div>
+						<b>请邀请裁判到右侧吧！</b>
+					</div>
+				</div>
+				<div class="col-md-5 pull-left cyList">
+					<h4 class="text-center">
+						已邀请人员
+					</h4>
+					<div class="jumbotron cs_list cslist_r">
+						<form id="form-person" class="am-form" data-am-validator>
+							<input type="hidden" id="teamNameStr" name="teamNameStr" value="" />
+							<input type="hidden" id="racingId" name="racingId" value="" />
+							<input type="hidden" id="productId" name="productId" value="" />
+							<ul class="am-list am-list-static am-list-border zxplayer_list" id="fcyList">
+							</ul>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="text-align: center !important;">
+				<button type="button" class="btn btn-default" data-dismiss="modal" id="btn_close">返回</button>
+				<button type="button" class="btn btn-primary" id="btn_addTeamPerson">确认人员</button>
+			</div>
+		</div>
+	</div>
+	
+	<div id="div_editCompetition" style="display: none;">
+		<div id="div_racing" class="ibox-content">
+			<div class="panel panel-primary" style="margin-bottom: -5px">
+				<div class="panel-heading">竞赛项目修改</div>
+				<div class="panel-body">
+					<form id="from_ss_racing" class="form-horizontal">
+						<div class="form-group">
+							<label class="col-sm-2 control-label">竞赛名称 </label>
+							<div class="col-sm-8">
+								<input type="hidden" name="projectId" id="projectId"> <input type="hidden" name="id"> <input type="text" name="racingName" class="form-control required" placeholder="竞赛名称">
+							</div>
+						</div>
+		
+						<div class="form-group" style="display: none">
+							<label class="col-sm-2 control-label">联系人姓名 </label>
+							<div class="col-sm-4">
+								<input type="text" name="mainOrganizersName" id="mainOrganizersName" class="form-control required" placeholder="主办方联系人姓名">
+							</div>
+							<label class="col-sm-2 control-label">联系人手机号码 </label>
+							<div class="col-sm-4">
+								<input type="text" name="mainOrganizersPhoneNumber" id="mainOrganizersPhoneNumber" class="form-control required" placeholder="主办方联系人电话">
+							</div>
+						</div>
+						<div  style="display: none">
+						<div id="div_tel">
+							<div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">主办方座机号码 </label>
+								<div class="col-sm-4">
+									<input type="text" name="specialPlane" id="specialPlane" class="form-control required" placeholder="主办方座机号码">
+								</div>
+							</div>
+						</div>
+						</div>
+						<div id="input_tel"></div>
+						<div class="hr-line-dashed"></div>
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-2 control-label">比赛地点</label>
+							<div class="col-sm-9" id="address_new">
+								<input type="text" class="form-control required" id="competitionSite" name="competitionSite" placeholder="请输入比赛地点">
+							</div>
+						</div>
+						<div class="hr-line-dashed"></div>
+						<div id="ZBF">
+						<div class="form-group">
+							<label class="col-sm-2 control-label">主办方名称</label>
+							<div class="col-sm-8" id="">
+								<input type="text" class="form-control required" id="sponsorName" name="sponsorName" placeholder="请输入主办方名称">
+							</div>
+							<small><i class="am-icon-exclamation-triangle"></i>&nbsp;多个请以逗号分隔</small>
+						</div>
+						</div>
+						<div class="form-group">
+							<div class="hr-line-dashed"></div>
+							<label class="col-sm-2 control-label">承办方名称</label>
+							<div class="col-sm-8">
+								<input type="text" name="organizer" class="form-control" placeholder="承办方">
+							</div>
+							<small><i class="am-icon-exclamation-triangle"></i>&nbsp;多个请以逗号分隔</small>
+						</div>
+						<div class="form-group">
+							<div class="hr-line-dashed"></div>
+							<label class="col-sm-2 control-label">协办方名称</label>
+							<div class="col-sm-8">
+								<input type="text" name="synergy" class="form-control" placeholder="协办方">
+							</div>
+							<small><i class="am-icon-exclamation-triangle"></i>&nbsp;多个请以逗号分隔</small>
+						</div>
+						<div class="form-group">
+							<div class="hr-line-dashed"></div>
+							<label class="col-sm-2 control-label">支持单位</label>
+							<div class="col-sm-8">
+								<input type="text" name="supportUnits" class="form-control" placeholder="支持单位">
+							</div>
+							<small><i class="am-icon-exclamation-triangle"></i>&nbsp;多个请以逗号分隔</small>
+						</div>
+						<div class="hr-line-dashed"></div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">报名截止时间 </label>
+							<div class="col-sm-4">
+								<input type="text" name="cutOffDate" id="cut_off_date" class="form-control required laydate-icon" readonly="readonly">
+							</div>
+						</div>
+						<div class="hr-line-dashed"></div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">开赛时间 </label>
+							<div class="col-sm-4">
+								<input type="text" name="racingBeginTime" id="racing_begin_time" class="form-control required laydate-icon" readonly="readonly">
+							</div>
+							<label class="col-sm-2 control-label">结束时间 </label>
+							<div class="col-sm-4">
+								<input type="text" name="racingEndTime" id="racing_end_time" class="form-control required laydate-icon" readonly="readonly">
+							</div>
+						</div>
+						<div class="hr-line-dashed"></div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">宣传图片 </label>
+							<div class="col-sm-8">
+								<input id="file_racing" type="file"> <input type="hidden" name="racingPic" id="hidRacingPic" />
+							</div>
+						</div>
+						<div class="hr-line-dashed"></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">项目介绍</label>
+								<div class="col-sm-8">
+									<script id="racingIntroduce" name="racingIntroduce" type="text/plain"></script>
+								</div>
+							</div>
+						</div>
+						<div class="form-group" style="margin-top:20px;">
+							<div class="col-sm-offset-4">
+								<button class="btn btn-primary col-sm-3" type="button" id="btn_add">
+									<i class="fa fa-check" aria-hidden="true"></i>保存
+								</button>
+								<button class="btn btn-white col-sm-3 col-sm-offset-1" type="button" id="btn_close">
+						<i class="fa fa-share" aria-hidden="true"></i> 关闭
+					</button>
+							</div>
+						</div>
+					</form>
+				</div>
+		
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="../../js/plugins/amazeUI/jquery.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/layer/layer.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/sweetalert/sweetalert.min.js"></script>
+<script type="text/javascript" src="../../js/common/common.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquerySession.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery.cookie.js"> </script>
+<script type="text/javascript" src="../../js/plugins/validate/jquery.validate.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/validate/additional-methods.js"></script>
+<script type="text/javascript" src="../../js/plugins/validate/messages_zh.min.js"></script>
+<script src="../../js/plugins/fileinput/fileinput.min.js" type="text/javascript"></script>
+<script src="../../js/plugins/fileinput/locales/zh.js" type="text/javascript"></script>
+<!-- 配置文件 -->
+<script type="text/javascript" src="../../ueditor/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="../../ueditor/ueditor.all.js"></script>
+<script type="text/javascript" src="../../ueditor/ueditor.parse.min.js"></script>
+<script type="text/javascript" src="../../ueditor/lang/zh-cn/zh-cn.js"></script>
+<!-- 地址 -->
+<script type="text/javascript" src="../../js/plugins/amazeUI/amazeui.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/amazeUI/address.js"></script>
+<script type="text/javascript" src="../../js/plugins/layer/laydate/laydate.js"></script>
+<script type="text/javascript" src="front_project_details.js"></script>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>球队详情</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../css/plugins/teams_players.css" />
+    <link rel="stylesheet" href="../css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/plugins/pic_tab.css" />
+    <link rel="stylesheet" href="../css/plugins/Iconfont/iconfont.css">
+
+</head>
+
+<body>
+	<div class="center2 container" style="background: #FFFFFF;">
+		<div class="clearfix">
+			<h2 class="tit-text text-center teamtit_bg"><div>队伍基本信息</div><div>TEAMINFO</div></h2>
+		</div>
+		<div class="row clearfix">
+			<ul class="list-unstyled clearfix col-xs-5 team_detail">
+				<li>
+					<dl class="clearfix">
+						<dt class="col-xs-4 text-right"  style="line-height: 100px;">队徽</dt>
+						<dd class="col-xs-8 pull-right"><img src="img/u305.png" style="height: 100px;width: 100px;"></dd>
+					</dl>
+				</li>
+				<li>
+					<dl class="clearfix">
+						<dt class="col-xs-4 text-right">名称</dt>
+						<dd class="col-xs-8 pull-right">巴萨罗那足球俱乐部</dd>
+					</dl>
+				</li>		
+				<li>
+					<dl class="clearfix">
+						<dt class="col-xs-4 text-right">领队人姓名</dt>
+						<dd class="col-xs-8 pull-right">安德雷斯·伊涅斯塔</dd>
+					</dl>
+				</li>
+				<li>
+					<dl class="clearfix">
+						<dt class="col-xs-4 text-right">成立时间</dt>
+						<dd class="col-xs-8 pull-right">1899年11月29日</dd>
+					</dl>
+				</li>
+				<li>
+					<dl class="clearfix">
+						<dt class="col-xs-4 text-right">运动项目</dt>
+						<dd class="col-xs-8 pull-right">足球</dd>
+					</dl>
+				</li>
+				<li>
+					<dl class="clearfix">
+						<dt class="col-xs-4 text-right">所在地区</dt>
+						<dd class="col-xs-8 pull-right">西班牙巴塞罗那</dd>
+					</dl>
+				</li>
+			</ul>
+			<div class="col-xs-7">
+				<div class="col-xs-10">
+					<div class="row clearfix team-intro">
+						<h4>队伍简介<a><button type="button" class="btn btn-success pull-right">申请加入</button></a></h4>
+					</div>
+				</div>
+				<div class="col-xs-12 clearfix" style="height: 288px;border:1px solid rgba(0, 204, 153, 1);padding-top: 20px;line-height: 22px;">				
+巴塞罗那足球俱乐部（Fútbol Club Barcelona），简称巴萨（Barca），是一家位于西班牙巴塞罗那市的足球俱乐部，西班牙足球甲级联赛传统豪门之一。1899年11月29日由瑞士人胡安·甘伯创立。[1]  球队主场诺坎普体育场可容纳接近十万名观众，是全欧洲最大及世界第二大的足球场。
+截至2016年8月，巴萨在西班牙国内，共赢得了24次西甲联赛冠军、28次国王杯（在国王杯历史上高居榜首）、12座西班牙超级杯、2座伊娃杯和2座西班牙联赛杯；在国际上，共赢得了5个欧洲冠军联赛奖杯、4个欧洲优胜者杯、3个国际城市博览会杯、4个欧洲超级杯和3个世俱杯。在IFFHS国际俱乐部排行榜中，巴萨在1997年、2009年、2011年和2012、2015年都排在第一位[2]  。
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- 已报名球员 -->
+	<div class="center2 container" style="background: #FFFFFF;margin-top:15px;">
+		<h2 class="tit-text text-center teamtit2_bg">
+			<div style="line-height: 46px;">已报名队员</div>
+			<i class="iconfont icon-qiudui teamtit2_jlbg"></i>
+			<i class="iconfont icon-qiudui teamtit2_jlbg2"></i>
+		</h2>
+<table class="table table-hover">
+  <thead>
+  	<tr class="warning">
+  		<th>队员</th>
+  		<th>位置</th>
+  		<th>队服编号</th>
+  		<th>报名时间</th>
+  	</tr>
+  </thead>
+  <tbody>
+  	<tr>
+  		<th><img class="img-circle img-thumbnail" style="margin-right:5px;" width="50" height="50" src="../img/tx.png">斯大林</th>
+  		<td>后卫</td>
+  		<td>5号</td>
+  		<td>2015-10-12</td>
+  	</tr>
+  </tbody>
+</table>
+
+
+	</div>
+	
+	<div class="clearfix" style="padding:15px 0;">
+		<div class="center2 container" style="background: #FFFFFF;">
+			<div class="row">
+				<h2 class="tit-text text-center teamtit2_bg"><div>球员信息</div><div>POPLE</div></h2>
+			</div>
+			<div class="btn-group btn-group-justified">
+			  <div class="btn-group">
+			    <button type="button" class="btn btn-default on2" id="service-player">在役队员</button>
+			  </div>
+			  <div class="btn-group">
+			    <button type="button" class="btn btn-default" id="new-player">新申请球员</button>
+			  </div>
+				<div class="btn-group">
+				    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+				      更多
+				      <span class="caret"></span>
+				    </button>
+				    <ul class="dropdown-menu col-lg-12" role="menu">
+				      <li class="text-center"><a href="#">邀请教练</a></li>
+				      <li class="text-center"><a href="#">邀请球员</a></li>
+				    </ul>
+				</div>
+			</div>
+
+			<div class="row" style="min-height:400px;">
+			<ul class="list-inline player-listing" style="display: block;">
+				<li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 text-center">
+					<div class="player-list">
+						<div class="player-tx img-circle">
+							<div class="img-circle"></div>
+							<img src="img/u10.png" class="img-circle">
+						</div>
+						<a class="btn btn-default cherk-detail" href="#" role="button">查看详情</a>
+						<h4>梅西</h4>
+						<p>组织前锋</p>
+					</div>
+				</li>
+				<li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 text-center">
+					<div class="player-list">
+						<div class="player-tx img-circle">
+							<div class="img-circle"></div>
+							<img src="img/u10.png" class="img-circle">
+						</div>
+						<a class="btn btn-default cherk-detail" href="#" role="button">查看详情</a>
+						<h4>梅西</h4>
+						<p>组织前锋</p>
+					</div>
+				</li>
+				<li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 text-center">
+					<div class="player-list">
+						<div class="player-tx img-circle">
+							<div class="img-circle"></div>
+							<img src="img/u10.png" class="img-circle">
+						</div>
+						<a class="btn btn-default cherk-detail" href="#" role="button">查看详情</a>
+						<h4>梅西</h4>
+						<p>组织前锋</p>
+					</div>
+				</li>
+				<li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 text-center">
+					<div class="player-list">
+						<div class="player-tx img-circle">
+							<div class="img-circle"></div>
+							<img src="img/u10.png" class="img-circle">
+						</div>
+						<a class="btn btn-default cherk-detail" href="#" role="button">查看详情</a>
+						<h4>梅西</h4>
+						<p>组织前锋</p>
+					</div>
+				</li>
+				<nav>
+  <ul class="pagination">
+    <li class="disabled"><a href="#">&laquo;</a></li>
+    <li class=""><a href="#">1 <span class="sr-only">(current)</span></a></li>
+    <li class="active"><a href="#">2 <span class="sr-only">(current)</span></a></li>
+    <li class="disabled"><a href="#">&raquo;</a></li>
+  </ul>
+</nav>
+			</ul>
+			<ul class="list-inline player-listing">
+				<li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 text-center">
+					<div class="player-list">
+						<div class="player-tx img-circle">
+							<div class="img-circle"></div>
+							<img src="img/u10.png" class="img-circle">
+						</div>
+						<a class="btn btn-default cherk-detail" href="#" role="button">查看详情</a>
+						<h4>梅西</h4>
+						<p>组织前锋</p>
+					</div>
+				</li>
+			</ul>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix">
+		<div class="center2 container" style="background: #FFFFFF;">
+			<div class="row">
+				<h2 class="tit-text text-center"><div>教练信息</div><div>POPLE</div></h2>
+			</div>
+			<ul class="list-inline clearfix coach-infor">
+				<li class="col-sm-6 col-xs-12 text-center">
+					<a href="">
+						<img src="img/u423.jpg">
+						<div class="coach-list text-center">
+							<h3>特赛普</h3>
+							<p>主教练</p><p>西班牙</p>
+						</div>
+					</a>
+				</li>
+				<li class="col-sm-6 col-xs-12 text-center">
+					<a href="">
+						<img src="img/u423.jpg">
+						<div class="coach-list text-center">
+							<h3>特赛普</h3>
+							<p>主教练</p><p>西班牙</p>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="clearfix">
+		<div class="center2 container" style="background: #FFFFFF;">
+			<div class="row">
+				<h2 class="tit-text text-center"><div>精彩瞬间</div><div>Marve</div></h2>
+			</div>
+<div class="ban" id="moment">
+	<div class="ban2" id="ban_pic1" style="display: none;">
+		<div class="prev1" id="prev1">
+			<img src="img/index_tab_l.png" width="28" height="51"  />
+		</div>
+		<div class="next1" id="next1">
+			<img src="img/index_tab_r.png" width="28" height="51"  />
+		</div>
+		<ul class="list-inline big-ban">
+			<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+			<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+			<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+			<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+			<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+			<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+			<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+			<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+			<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+			<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+		</ul>
+	</div>
+	<div class="min_pic">
+		<div class="prev_btn1" id="prev_btn1"><img src="img/feel3.png" width="9" height="18"  /></div>
+		<div class="num clearfix" id="ban_num1">
+			<ul class="list-inline small-ban">
+				<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+				<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+				<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+				<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+				<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+				<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+				<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+				<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+				<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+				<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+			</ul>
+		</div>
+		<div class="next_btn1" id="next_btn1"><img src="img/feel4.png" width="9" height="18"  /></div>
+	</div>
+</div>
+
+<div class="mhc"></div>
+
+<!--<div class="pop_up" id="moment2">
+	<div class="pop_up_xx"><img src="img/chacha3.png" width="40" height="40"  /></div>
+	<div class="pop_up2" id="ban_pic2">
+		<div class="prev1" id="prev2"><img src="img/index_tab_l.png" width="28" height="51"  /></div>
+		<div class="next1" id="next2"><img src="img/index_tab_r.png" width="28" height="51"  /></div>
+		<ul class="list-inline pop-ban">
+			<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+			<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+			<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+			<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+			<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+			<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+			<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+			<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+			<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+			<li><a href="javascript:;"><img src="img/u443.jpg"/></a></li>
+		</ul>
+	</div>
+</div>-->
+		</div>
+	</div>
+</body>
+	<script type="text/javascript" src="../js/plugins/jquery.min.js" ></script>
+	<script type="text/javascript" src="../js/common/tab.js" ></script>
+	<script type="text/javascript" src="../js/plugins/jquery.min.js" ></script>
+	<script type="text/javascript" src="../js/common/pic_tab.js" ></script>
+	<script type="text/javascript" src="../js/plugins/bootstrap.min.js" ></script>
+<script>
+jq(function(){
+	jq('#moment').banqh({
+		box:"#moment",//总框架
+		pic:"#ban_pic1",//大图框架
+		pnum:"#ban_num1",//小图框架
+		prev_btn:"#prev_btn1",//小图左箭头
+		next_btn:"#next_btn1",//小图右箭头
+		pop_prev:"#prev2",//弹出框左箭头
+		pop_next:"#next2",//弹出框右箭头
+		prev:"#prev1",//大图左箭头
+		next:"#next1",//大图右箭头
+		pop_div:"#moment2",//弹出框框架
+		pop_pic:"#ban_pic2",//弹出框图片框架
+		pop_xx:".pop_up_xx",//关闭弹出框按钮
+		mhc:".mhc",//朦灰层
+		autoplay:true,//是否自动播放
+		interTime:5000,//图片自动切换间隔
+		delayTime:400,//切换一张图片时间
+		pop_delayTime:400,//弹出框切换一张图片时间
+		order:0,//当前显示的图片（从0开始）
+		picdire:true,//大图滚动方向（true为水平方向滚动）
+		mindire:true,//小图滚动方向（true为水平方向滚动）
+		min_picnum:5,//小图显示数量
+		pop_up:true//大图是否有弹出框
+	})
+})
+</script>
+</html>

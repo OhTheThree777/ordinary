@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>主办方申请</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="../../css/plugins/teams_players.css" />
+<link rel="stylesheet" href="../../hplus/css/bootstrap.min14ed.css">
+<link rel="stylesheet" href="../../css/plugins/animate.min.css">
+<link rel="stylesheet" href="../../css/plugins/font-awesome.min93e3.css">
+<link rel="stylesheet" href="../../hplus/css/style.min862f.css">
+<link rel="stylesheet" href="../../hplus/css/plugins/chosen/chosen.css">
+<link rel="stylesheet" href="../../js/plugins/sweetalert/dist/sweetalert.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_jvs5z4algdl07ldi.css">
+<!-- 上传 -->
+<link href="../../css/plugins/fileinput/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+<style type="text/css">
+	#fshowsponsor_infor,#form_sponsor{display: none;}
+</style>
+</head>
+
+<body>
+	<div class="center container" style="background: #FFFFFF; margin-top: 20px;">
+		<div class="mail-box-header" id="sponsor_top">
+			<h2 class="text-center">主办方信息</h2>
+		</div>
+		<div class="mail-body" id="div_sponsor">
+			<form class="form-horizontal" method="" style="display: block;" id="showsponsor_infor">
+				<div class="form-group">
+					<label class="col-sm-3 control-label">单位LOGO：</label>
+					<div class="col-sm-8" id="approvalFlag">
+						<img alt="" src="../../img/tx.png" style="height: 120px; width: 120px; border-radius: 15px;vertical-align: top;" id="headportrait">
+					</div>
+				</div>
+				<div class="hr-line-dashed"></div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">主办方(单位名称)：</label>
+					<div class="col-sm-3">
+						<span class="infor_text" id="name"></span>
+					</div>
+				</div>
+				<div class="hr-line-dashed"></div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">单位性质：</label>
+					<div class="col-sm-3">
+						<span class="infor_text" id="types"></span>
+					</div>
+					<label class="col-sm-2 control-label">成立时间：</label>
+					<div class="col-sm-3">
+						<span class="infor_text" id="establishmentTime"></span>
+					</div>
+				</div>
+				<div class="hr-line-dashed"></div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">联系人姓名：</label>
+					<div class="col-sm-3">
+						<span class="infor_text" id="contacts"></span>
+					</div>
+					
+				</div>
+				
+				<div class="hr-line-dashed"></div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">联系人电话：</label>
+					<div class="col-sm-3">
+						<span class="infor_text" id="phone"></span>
+					</div>
+					<label class="col-sm-2 control-label">固定电话：</label>
+					<div class="col-sm-3">
+						<span class="infor_text" id="tel"></span>
+					</div>
+				</div>
+				<div class="hr-line-dashed"></div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">主办方官方网站：</label>
+					<div class="col-sm-3">
+						<span class="infor_text" id="url"></span>
+					</div>
+				</div>
+				<div class="hr-line-dashed"></div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">主办方地址：</label>
+					<div class="col-sm-8">
+						<span class="infor_text" id="address"></span>
+					</div>
+				</div>
+				
+				<div class="hr-line-dashed"></div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">主办方介绍：</label>
+					<div class="col-sm-8">
+						<span class="infor_text" id="introduce"></span>
+					</div>
+				</div>
+				<div class="hr-line-dashed"></div>
+				<div class="form-group text-center">
+					<button type="button" class="btn btn-primary" onclick="competition_manage()">创建赛事</button>
+					<button type="button" class="btn btn-success" onclick="editInit()">修改主办方信息</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+
+	<div class="center container" style="background: #FFFFFF; margin-top: 20px;display: none;" id="div_editSponsor">
+		<div class="mail-box-header" id="sponsor_top">
+			<h2 class="text-center">主办方修改</h2>
+		</div>
+		<form class="form-horizontal" method="get" id="formSponsor">
+			<div class="form-group">
+				<label class="col-sm-3 control-label">单位LOGO：</label>
+				<div class="col-sm-8">
+					<img alt="" src="../../img/tx.png" onclick="showPic(1);" style="height: 120px; width: 120px; border-radius: 15px;" id="add_pic"> <input type="hidden" name="headportrait" id="headportraitsq">
+				</div>
+			</div>
+			<div class="hr-line-dashed"></div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">主办方(单位名称)：</label>
+				<div class="col-sm-8">
+					<input type="text" id="namesq" name="name" value="" class="form-control required" placeholder="请输入主办方名称">
+				</div>
+			</div>
+			<div class="hr-line-dashed"></div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">单位性质：</label>
+				<div class="col-sm-3">
+					<select class="form-control " id="companyType" name="type">
+					</select>
+				</div>
+				<label class="col-sm-2 control-label">成立时间：</label>
+				<div class="col-sm-3">
+					<input type="text" id="establishmentTimes" name="establishmentTime" value="" readonly="readonly" class="form-control required laydate-icon" placeholder="请输入成立时间">
+				</div>
+			</div>
+			<div class="hr-line-dashed"></div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">联系人姓名：</label>
+				<div class="col-sm-3">
+					<input type="text" id="contactssq" name="contacts" value="" class="form-control required" placeholder="请输入联系人姓名">
+				</div>
+				
+			</div>
+			<div class="hr-line-dashed"></div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">主办方联系号码：</label>
+				<div class="col-sm-3">
+						<input type="text" class="form-control" id="phone" name="phone" value="" placeholder="请输入主办方手机号码">
+				</div>
+				<label class="col-sm-3 control-label">主办方座机号码：</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="tel" name="tel" value="" placeholder="请输入主办方座机号码">
+				</div>
+			</div>
+			
+			<div class="hr-line-dashed"></div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">主办方官方网站：</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" id="urlsq" name="url" value="" placeholder="请输入主办方官方网站">
+				</div>
+			</div>
+			<div class="hr-line-dashed"></div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">主办方地址：</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" id="addresssq" name="address" value="" placeholder="请输入主办方地址">
+				</div>
+			</div>
+			<div class="hr-line-dashed"></div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">主办方介绍：</label>
+				<div class="col-sm-8">
+					<script id="introduces" name="introduce" type="text/plain"></script>
+				</div>
+			</div>
+			<div class="hr-line-dashed"></div>
+			<div class="form-group text-center">
+				<button type="button" class="btn btn-primary" onclick="editSponsor()">确认</button>
+				<button type="button" class="btn btn-default" id="btn_edit_close">取消</button>
+			</div>
+		</form>
+	</div>
+
+	<div id="div_pic" class="ibox-content" style="display: none">
+		<div id="swfContainer">
+			本组件需要安装Flash Player后才可使用，请从<a href="http://www.adobe.com/go/getflashplayer">这里</a>下载安装。
+		</div>
+	</div>
+
+
+</body>
+<script type="text/javascript" src="../../js/plugins/jquery.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/admin/amazeui.min.js"></script>
+<!-- 头像图片上传 -->
+<script type="text/javascript" src="../../js/plugins/fullavatareditor/scripts/swfobject.js"></script>
+<script type="text/javascript" src="../../js/plugins/fullavatareditor/scripts/fullAvatarEditor.js"></script>
+<!-- 日期 -->
+<script type="text/javascript" src="../../js/plugins/layer/laydate/laydate.js"></script>
+<!-- 配置文件 -->
+<script type="text/javascript" src="../../ueditor/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="../../ueditor/ueditor.all.js"></script>
+<script type="text/javascript" src="../../ueditor/ueditor.parse.min.js"></script>
+<script type="text/javascript" src="../../ueditor/lang/zh-cn/zh-cn.js"></script>
+<!-- 弹出层 -->
+<script type="text/javascript" src="../../js/plugins/layer/layer.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/sweetalert/sweetalert.min.js"></script>
+<script type="text/javascript" src="../../js/common/common.js"></script>
+<script type="text/javascript" src="../../hplus/js/plugins/chosen/chosen.jquery.js"></script>
+<script type="text/javascript" src="../../hplus/js/plugins/validate/jquery.validate.min.js"></script>
+<script type="text/javascript" src="../../hplus/js/plugins/validate/messages_zh.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/validate/additional-methods.js"></script>
+<script type="text/javascript" src="sponsor_main.js"></script>
+<script>
+$(function() {
+	var temp = $("#showsponsor_infor").is(":hidden");/* 判断是否隐藏 */
+	
+	if(temp = true){
+		$("#sponsor_top h2").html("主办方信息");
+	}else{
+		$("#sponsor_top h2").html("主办方申请");
+	}
+});
+</script>
+</html>

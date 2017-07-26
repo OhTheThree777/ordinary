@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>消息列表</title>
+<link rel="stylesheet" href="../../css/plugins/admin/amazeui.min.css" />
+<link rel="stylesheet"
+	href="../../css/plugins/admin/amazeui.datatables.min.css" />
+<link rel="stylesheet" href="../../css/plugins/admin/app.css">
+<link rel="shortcut icon" href="favicon.ico">
+<link href="../../css/plugins/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+<link href="../../css/plugins/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+<link href="../../css/plugins/animate.min.css" rel="stylesheet">
+<link href="../../css/plugins/style.min862f.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../js/plugins/sweetalert/dist/sweetalert.css">
+
+<link href="../../css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+<script src="../../js/plugins/admin/jquery.min.js"></script>
+<script src="../../js/plugins/admin/theme.js"></script>
+<style>
+.container-fluid{padding:40px 0 0 0 !important;}
+#tab>li>a{display:inline-block !important;padding:0 !important;margin: 1rem 0 !important;}
+#tab>li>a>span{transition:all 0.4s ease-in-out;}
+#tab_list>div{display:none;}
+</style>
+</head>
+<body style="height: auto;">
+<div class="clearfix">
+	<div class="row-content am-cf" style="margin:20px;">
+		<div class="row">
+			<div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+				<div class="widget am-cf">
+					<div class="container-fluid am-cf">
+						<div class="row">
+							<div class="am-u-sm-12 am-u-md-12 am-u-lg-9">
+								<div class="page-header-heading">
+									<span class="am-icon-bell page-header-heading-icon"></span>
+									消息列表 <small>Message List</small>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div class="widget-body  am-fr">
+<!-- 						<div class="am-u-sm-12">
+							<div class="am-u-sm-2 text-center" style="margin-top:11px;">
+								<ul class="am-list" id="tab">
+								  <li><a href="javascript:;"><span class="btn btn-info">未读消息&nbsp;<span class="badge" id="badge"></span></span></a></li>
+								  <li><a href="javascript:;"><span class="btn">历史消息</span></a></li>
+								</ul>
+							</div>
+							<div class="am-u-sm-10" id="tab_list">
+								<div class="am-u-sm-12" style="display:block;">
+									<table id="table_nosee">
+									</table>
+								</div>
+								<div class="am-u-sm-12">
+									<table id="table_see">
+									</table>
+								</div>
+							</div>
+						</div> -->
+					<div class="am-u-sm-12 tabs-container">
+	                    <div class="tabs-left">
+	                        <ul class="nav nav-tabs">
+	                            <li class="active"><a data-toggle="tab" href="#tab-8">未读消息&nbsp;<span class="badge badge-danger" id="badge"></span></a>
+	                            </li>
+	                            <li class=""><a data-toggle="tab" href="#tab-9">历史消息</a>
+	                            </li>
+	                        </ul>
+	                        <div class="tab-content">
+	                            <div id="tab-8" class="tab-pane active">
+	                                <div class="panel-body">
+										<table id="table_nosee">
+										</table>
+	                            	</div>
+	                            </div>
+	                            <div id="tab-9" class="tab-pane">
+	                                <div class="panel-body">
+										<table id="table_see">
+										</table>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+
+<script src="../../js/plugins/bootstrap.min.js?v=3.3.6"></script>
+
+<script src="../../js/plugins/layer/layer.min.js"></script>
+
+<script src="../../js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+<script
+	src="../../js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+<script
+	src="../../js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="../../js/plugins/sweetalert/sweetalert.min.js"></script>
+<script src="../../js/common/common.js"></script>
+<script src="../../js/plugins/jquery.cookie.js"></script>
+<script src="../../js/plugins/jquerySession.js"></script>
+<script src="Messages_list.js"></script>
+<script src="../../js/plugins/admin/amazeui.min.js"></script>
+<script>
+	$(function() {
+		$(".bootstrap-table>.fixed-table-toolbar .search").addClass("pull-left").removeClass("pull-right");
+		$(".bootstrap-table>.fixed-table-toolbar .columns").removeClass("pull-right");
+/* 		$("#tab>li>a").click(function(){
+			$(this).children("span").addClass("btn-info").parent().parent().siblings().children("a").children("span").removeClass("btn-info");
+			var index=$(this).parent().index();
+			$("#tab_list>div").eq(index).fadeIn().siblings().fadeOut();
+		}); */
+	});
+</script>
+</html>

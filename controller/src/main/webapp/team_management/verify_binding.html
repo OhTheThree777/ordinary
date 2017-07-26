@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>体育赛事-用户绑定验证</title>
+<meta name="description" content="用户绑定验证">
+<meta name="keywords" content="index">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="apple-touch-icon-precomposed" href="../img/lrlogo.png">
+<meta name="apple-mobile-web-app-title" content="体育赛事" />
+<link rel="stylesheet" href="../css/plugins/admin/amazeui.min.css" />
+<link rel="stylesheet" href="../css/plugins/admin/app.css">
+<link href="../css/plugins/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+
+<link href="../css/plugins/animate.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../js/plugins/sweetalert/dist/sweetalert.css">
+<script src="../js/plugins/jquery.min.js"></script>
+</head>
+<body data-type="login">
+	<script src="../js/plugins/admin/theme.js"></script>
+	<div class="am-g tpl-g">
+
+		<div class="tpl-login">
+			<div class="tpl-login-content">
+				<div class="tpl-login-logo"></div>
+				<div class="tpl-login-title">用户绑定验证<span class="tpl-login-content-info" style="padding-left:3%;"> 绑定一个手机号 </span></div>
+				
+				<form class="am-form tpl-form-line-form" id="form_binding_user">
+					<div class="am-form-group">
+						<label class="am-u-sm-12 am-u-md-6 am-u-lg-3">手 机 号</label>
+						<div class="am-u-sm-12 am-u-md-6 am-u-lg-9">
+							<input type="text" class="tpl-form-input " id="" name="" placeholder="建议使用常用手机号">
+						</div>
+					</div>
+					<div class="am-form-group">
+						<label class="am-u-sm-12 am-u-md-6 am-u-lg-3">验 证 码</label>
+						<div class="am-u-sm-12 am-u-md-6 am-u-lg-9" style="position:relative;">
+							<input type="text" class="tpl-form-input " id="" name="" placeholder="请输入手机发送的验证码">
+						 	<input type="button" value="获取手机验证码" class="vcode-btn" onclick="settime(this)" />
+						</div>
+					</div>
+					<div class="am-form-group">
+
+						<button type="button" id="btn_reg_user"
+							class="am-btn am-btn-block am-btn-warning">立刻绑定</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="../js/plugins/admin/amazeui.min.js"></script>
+	<script src="../js/common/common.js"></script>
+	<script type="text/javascript"> 
+		var countdown=5; 
+		function settime(obj) { 
+		    if (countdown == 0) { 
+		        obj.removeAttribute("disabled"); 
+		        $(".vcode-btn").css('color','#0e90d2');
+		        obj.value="重新获取验证码"; 
+		        countdown = 5; 
+		        return;
+		    } else { 
+		        obj.setAttribute("disabled", true); 
+		        $(".vcode-btn").css('color','red');
+		        obj.value="稍后重新发送(" + countdown + ")"; 
+		        countdown--; 
+		    } 
+		setTimeout(function() { 
+		    settime(obj) }
+		    ,1000) 
+		} 
+</script>
+</body>
+</html>

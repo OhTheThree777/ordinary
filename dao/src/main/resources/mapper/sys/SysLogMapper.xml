@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.imfc.mapper.mapper.sys.SysLogMapper">
+  <resultMap id="BaseResultMap" type="cn.lr.mapper.model.sys.SysLog">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="log_id" jdbcType="BIGINT" property="logId" />
+    <result column="oper_type" jdbcType="VARCHAR" property="operType" />
+    <result column="oper_content" jdbcType="VARCHAR" property="operContent" />
+    <result column="oper_userId" jdbcType="BIGINT" property="operUserid" />
+    <result column="oper_time" jdbcType="TIMESTAMP" property="operTime" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+</mapper>

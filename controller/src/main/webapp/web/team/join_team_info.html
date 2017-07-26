@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>球队详情</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../../css/plugins/teams_players.css" />
+    <link rel="stylesheet" href="../../css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/plugins/pic_tab.css" />
+    <link rel="stylesheet" href="../../css/plugins/Iconfont/iconfont.css">
+
+</head>
+
+<body>
+	<div class="center2 container" style="background: #FFFFFF;">
+		<div class="clearfix">
+			<h2 class="tit-text text-center teamtit_bg"><div>队伍基本信息</div><div>TEAMINFO</div></h2>
+		</div>
+		<div class="row clearfix" id="div_team">
+			<ul class="list-unstyled clearfix col-xs-6 team_detail">
+				<li>
+					<dl class="clearfix">
+						<dt class="col-xs-4 text-right"  style="line-height: 100px;">队徽</dt>
+						<dd class="col-xs-8 pull-right"><img src="../../img/zanwu.jpg" style="height: 100px;width: 100px;" id="teamEmblem"></dd>
+					</dl>
+				</li>
+				<li>
+					<dl class="clearfix">
+						<dt class="col-xs-4 text-right">名称</dt>
+						<dd class="col-xs-8 pull-right"><span id="teamName"></span></dd>
+					</dl>
+				</li>		
+				<li>
+					<dl class="clearfix">
+						<dt class="col-xs-4 text-right">领队人姓名</dt>
+						<dd class="col-xs-8 pull-right"><span id="teamLeader"></span></dd>
+					</dl>
+				</li>
+				<li>
+					<dl class="clearfix">
+						<dt class="col-xs-4 text-right">领队人电话</dt>
+						<dd class="col-xs-8 pull-right"><span id="teamLeaderNumber"></span></dd>
+					</dl>
+				</li>
+				<li>
+					<dl class="clearfix">
+						<dt class="col-xs-4 text-right">队医</dt>
+						<dd class="col-xs-8 pull-right"><span id="teamDoctor"></span></dd>
+					</dl>
+				</li>
+				<li>
+					<dl class="clearfix">
+						<dt class="col-xs-4 text-right">赛风监督员</dt>
+						<dd class="col-xs-8 pull-right"><span id="teamEthos"></span></dd>
+					</dl>
+				</li>
+				<li>
+					<dl class="clearfix">
+						<dt class="col-xs-4 text-right">成立时间</dt>
+						<dd class="col-xs-8 pull-right"><span id="teamBulidTime"></span></dd>
+					</dl>
+				</li>
+				<li>
+					<dl class="clearfix">
+						<dt class="col-xs-4 text-right">运动项目</dt>
+						<dd class="col-xs-8 pull-right"><span id="teamtype"></span></dd>
+					</dl>
+				</li>
+				<li>
+					<dl class="clearfix">
+						<dt class="col-xs-4 text-right">所在地区</dt>
+						<dd class="col-xs-8 pull-right"><span id="areaCode"></span></dd>
+					</dl>
+				</li>
+			</ul>
+			<div class="col-xs-6">
+				<div class="col-xs-12">
+					<div class="row clearfix team-intro">
+						<h4>队伍简介</h4>
+					</div>
+				</div>
+				<div class="col-xs-12 clearfix" style="height: 288px;border:1px solid rgba(0, 204, 153, 1);padding-top: 20px;line-height: 22px;">	
+					<span id="teamIntroduction"></span>		
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- 已报名球员 -->
+	<div style="background: #FFFFFF ; padding: 20px 0;" id="table-responsive">
+		<div class="center2 container">
+			<h2 class="tit-text text-center teamtit2_bg">
+				<div style="line-height: 46px;">已报名队员</div>
+				<i class="iconfont icon-qiudui teamtit2_jlbg"></i>
+				<i class="iconfont icon-qiudui teamtit2_jlbg2"></i>
+			</h2>
+			<table class="table table-hover">
+			  <thead>
+			  	<tr class="warning">
+			  		<th>队员</th>
+			  		<th>位置</th>
+			  		<th>队服编号</th>
+			  	</tr>
+			  </thead>
+			  <tbody class="ybm_list" id="ybm_list">
+			  	<!-- 参赛的球员 -->
+			  </tbody>
+			</table>
+	
+	
+		</div>
+	</div>
+	
+	
+	<!-- 已报名教练-->
+	<div style="background: #FFFFFF ; padding: 20px 0;" id="table-coach">
+		<div class="center2 container">
+			<h2 class="tit-text text-center teamtit2_bg">
+				<div style="line-height: 46px;">已报名教练</div>
+				<i class="iconfont icon-jiaolian1 teamtit2_jlbg"></i>
+				<i class="iconfont icon-jiaolian1 teamtit2_jlbg2"></i>
+			</h2>
+			<ul class="list-inline clearfix" id="list-inline">
+			</ul>
+	
+	
+		</div>
+	</div>
+
+</body>
+	<script type="text/javascript" src="../../js/plugins/jquery.min.js" ></script>
+	<script src="../../js/common/common.js"></script>
+	<script src="../../js/plugins/jquerySession.js"></script>
+	<script src="../../js/plugins/jquery.cookie.js"> </script>
+	<script type="text/javascript" src="../../js/common/tab.js" ></script>
+	<script type="text/javascript" src="../../js/plugins/jquery.min.js" ></script>
+	<script type="text/javascript" src="../../js/common/pic_tab.js" ></script>
+	<script type="text/javascript" src="../../js/plugins/bootstrap.min.js" ></script>
+	<script type="text/javascript" src="../../web/team/join_team_info.js" ></script>
+</html>

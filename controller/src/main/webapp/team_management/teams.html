@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>热门球队</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <script src="../js/plugins/admin/echarts.min.js"></script>
+    <link rel="stylesheet" href="../css/plugins/admin/amazeui.min.css" />
+    <link rel="stylesheet" href="../css/plugins/admin/amazeui.datatables.min.css" />
+    <link rel="stylesheet" href="../css/plugins/admin/app.css">
+    <link href="../css/plugins/bootstrap.min14ed.css?v=3.3.6"
+	rel="stylesheet">
+	<link href="../css/plugins/bootstrap-table/bootstrap-table.min.css"
+	rel="stylesheet">
+    <script src="../js/plugins/admin/jquery.min.js"></script>
+    <script src="../team_management/mores.js"></script>
+    <script src="../team_management/teams.js"></script>
+</head>
+
+<body data-type="widgets">
+    <script src="../js/plugins/admin/theme.js"></script>
+    <div class="am-g tpl-g" id="more_team_page">
+        <!-- 头部 -->
+        <header>
+            <!-- logo -->
+            <div class="am-fl tpl-header-logo">
+                <a href="javascript:;"><img src="../img/lrlogo.png" alt=""></a>
+            </div>
+            <!-- 右侧内容 -->
+            <div class="tpl-header-fluid">
+                <!-- 侧边切换 -->
+                <ul class="am-fl am-nav am-nav-pills am-topbar-nav">
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">我的球队</a></li>
+                    <li class="am-dropdown" data-am-dropdown>
+                    	<a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">我的职业生涯<span class="am-icon-caret-down"></span></a>
+				        <ul class="am-dropdown-content">
+				          <li class="am-dropdown-header">勇闯天涯</li>
+				          <li><a href="Team information.html">加入球队</a></li>
+				          <li><a href="#">创建球队</a></li>
+				          <li><a href="#">邀请教练</a></li>
+				          <li><a href="#">个人信息</a></li>
+				        </ul>
+                    </li>
+                    <li class="am-disabled"><a href="#">赛事组织</a></li>
+                    <li class="am-dropdown" data-am-dropdown>
+                    	<a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">邀请<span class="am-icon-caret-down"></span></a>
+				        <ul class="am-dropdown-content">
+				          <li><a href="#">邀请教练员</a></li>
+				          <li><a href="#">邀请裁判员</a></li>
+				          <li><a href="#">邀请码管理</a></li>
+				        </ul>
+                    </li>
+                </ul>
+
+                <!-- 其它功能-->
+                <div class="am-fr tpl-header-navbar">
+                    <ul>
+                        <!-- 欢迎语 -->
+                        <li class="am-text-sm am-vertical-align" style="height: 56px;">
+                    <div class="tpl-user-panel-profile-picture am-fl am-vertical-align-middle">
+                        <img src="../img/user04.png" alt="">
+                    </div>
+                            <a class="am-fl" href="javascript:;"> Amaze UI </a>
+                        </li>
+                        
+                        <!-- 退出 -->
+                        <li class="am-text-sm">
+                            <a href="javascript:;">
+                                <span class="am-icon-sign-out"></span> 退出
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 搜索 -->
+                <div class="am-fr tpl-header-search">
+                    <form class="tpl-header-search-form" action="javascript:;">
+                        <button class="tpl-header-search-btn am-icon-search"></button>
+                        <input class="tpl-header-search-box" type="text" placeholder="搜索内容...">
+                    </form>
+                </div>
+            </div>
+
+        </header>
+        <!-- 风格切换 -->
+        <div class="tpl-skiner">
+            <div class="tpl-skiner-toggle am-icon-cog">
+            </div>
+            <div class="tpl-skiner-content">
+                <div class="tpl-skiner-content-title">
+                    选择主题
+                </div>
+                <div class="tpl-skiner-content-bar">
+                    <span class="skiner-color skiner-white" data-color="theme-white"></span>
+                    <span class="skiner-color skiner-black" data-color="theme-black"></span>
+                </div>
+            </div>
+        </div>
+        <table id="table">
+						</table>
+        <!-- 侧边导航栏 -->
+
+        <!-- 内容区域 -->
+        <div class="row">
+            <div class="row-content am-cf">
+                <div class="row">
+                    <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                        <div class="widget am-cf">
+                            <div class="widget-head am-cf">
+                                <div class="widget-title  am-cf">
+                                	<h1><span class="am-icon-plus am-icon-fw"></span>热门球队</h1><span class="am-icon-envelope am-icon-fw"></span><span>可以查看球队详情和加入球队</span>
+                                </div>
+
+
+                            </div>
+                            <div class="widget-body  am-fr">
+
+                                <div class="am-u-sm-12 am-u-md-6 am-u-lg-6">
+                                    <div class="am-form-group">
+
+                                    </div>
+                                </div>
+                                <div class="am-u-sm-12 am-u-md-6 am-u-lg-3">
+                                    <div class="am-form-group tpl-table-list-select">
+                                        <select data-am-selected="{btnSize: 'sm'}">
+              <option value="option1">所有类别</option>
+              <option value="option2">足球队</option>
+              <option value="option3">篮球队</option>
+              <option value="option3">羽毛球队</option>
+              <option value="option3">乒乓球队</option>
+              <option value="option3">自行车队</option>
+              <option value="option3">马拉松队</option>
+            </select>
+                                    </div>
+                                </div>
+                                <div class="am-u-sm-12 am-u-md-12 am-u-lg-3">
+                                    <div class="am-input-group am-input-group-sm tpl-form-border-form cl-p">
+                                        <input type="text" class="am-form-field ">
+                                        <span class="am-input-group-btn">
+            <button class="am-btn  am-btn-default am-btn-success tpl-table-list-field am-icon-search" type="button"></button>
+          </span>
+                                    </div>
+                                </div>
+<style>.qd_list tr td{vertical-align: middle !important;}.qd_list tr td img{margin-right: 15px;width: 50px;height: 50px;}.qd_list tr td>div{display: inline-block;}</style>
+                                    <table id="example-r">
+                                    </table>
+                                <div class="am-u-lg-12 am-cf">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="../js/plugins/admin/amazeui.min.js"></script>
+    <script src="../js/plugins/admin/amazeui.datatables.min.js"></script>
+    <script src="../js/plugins/admin/dataTables.responsive.min.js"></script>
+    <script src="../js/plugins/admin/app.js"></script>
+    <script src="../js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+	<script
+		src="../js/plugins/bootstrap-table/extensions/toolbar/bootstrap-table-toolbar.js"></script>
+	<script
+		src="../js/plugins/bootstrap-table/extensions/export/bootstrap-table-export.js"></script>
+	<script
+		src="../js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+
+	<script
+		src="../js/plugins/bootstrap-table/extensions/export/tableExport.js"></script>
+	<script
+		src="../js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+	<script src="../js/common/common.js"></script>
+	
+</body>
+
+</html>

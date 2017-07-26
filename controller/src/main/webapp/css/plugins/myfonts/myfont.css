@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+@font-face {
+ font-family: MyCustomFont;
+ src: url("DS-DIGIT.TTF") /* EOT file for IE */
+}
+@font-face {
+ font-family: MyCustomFont;
+ src: url("DS-DIGIT.TTF") /* TTF file for CSS3 browsers */
+}

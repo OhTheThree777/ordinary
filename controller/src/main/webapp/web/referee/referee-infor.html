@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>运动员详情</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../../css/plugins/teams_players.css" />
+    <link rel="stylesheet" href="../../css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="../../js/plugins/sweetalert/dist/sweetalert.css">
+
+</head>
+
+<body>
+	<div class="clearfix" style="background: #FFFFFF;padding:20px 0;">
+		<div class="container">
+			<div class="clearfix">
+				<h2 class="tit-text" id="h2-btn">人员信息
+					<div id="toolbar" class="btn-group pull-right">
+					<!-- 按钮 -->
+						<button type="button" class="btn btn-default"onclick="retreat_a()">返回列表</button>
+					</div>
+				</h2>
+			</div>
+			<div class="clearfix">
+			  <fieldset class="clearfix Essen-infor">
+			    <legend>基本信息</legend>
+					<div class="col-sm-2 text-center" id="basic_message">
+						<!-- 基本信息 -->
+					</div>
+					<div class="col-sm-10 ">
+						<div class="table-responsive">
+							<table class="table infor-table" id="basic_messages">
+								<!-- 基本信息2 -->
+							</table>
+						</div>
+					</div>
+			  </fieldset>
+			</div>
+		</div>
+	</div>
+<!-- 	<div class="clearfix" style="padding:20px 0;"> -->
+<!-- 		<div class="clearfix container" > -->
+<!-- 			<fieldset class="clearfix Essen-infor" style="background:none;"> -->
+<!-- 			  	<legend>扩展信息</legend> -->
+<!-- 					<div class="table-responsive" style="padding:0 135px;"> -->
+<!-- 						<table class="table extend-table" id="extend_message" style="margin-bottom:0;"> -->
+<!-- 							扩展信息 -->
+<!-- 						</table> -->
+<!-- 					</div> -->
+<!-- 			  </fieldset> -->
+<!-- 		 </div> -->
+<!-- 	</div> -->
+	<div class="clearfix" style="background: #FFFFFF;padding:20px 0;">
+		<div class="clearfix container">
+			<fieldset class="clearfix Essen-infor">
+				<legend>个人履历</legend>
+				<div id="body">
+				</div>
+			</fieldset>
+		</div>
+	</div>
+</body>
+<script src="../../js/plugins/admin/jquery.min.js"></script> 
+<script src="../../js/common/common.js"></script>
+<script  src="../../js/plugins/jquery.cookie.js"> </script>
+<script src="../../js/plugins/jquerySession.js"></script>
+ <!-- alert -->
+<script src="../../js/plugins/sweetalert/sweetalert.min.js"></script>
+
+	<script src="../../js/plugins/layer/layer.min.js"></script>
+<script src="referee-infor.js"></script>
+  
+
+</html>

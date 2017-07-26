@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit">
+
+<title>对阵列表</title>
+<meta name="keywords" content="对阵管理-赛事编排">
+<meta name="description" content="对阵管理-赛事编排">
+<link rel="shortcut icon" href="favicon.ico">
+<link href="../../css/plugins/bootstrap.min14ed.css?v=3.3.6"
+	rel="stylesheet">
+<link href="../../css/plugins/font-awesome.min93e3.css?v=4.4.0"
+	rel="stylesheet">
+<link href="../../css/plugins/animate.min.css" rel="stylesheet">
+<link href="../../css/plugins/style.min862f.css?v=4.1.0"
+	rel="stylesheet">
+
+<link rel="stylesheet"
+	href="../../js/plugins/sweetalert/dist/sweetalert.css">
+
+<link href="../../css/plugins/bootstrap-table/bootstrap-table.min.css"
+	rel="stylesheet">
+
+</head>
+<body class="gray-bg">
+	<div class="animated fadeInRight">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox" style="margin-bottom: 0px; height: 100%;">
+					<div class="ibox-title">
+						<h5>
+							<ol class="breadcrumb">
+								<li><a href="#">体育赛事</a></li>
+								<li class="active">对阵管理</li>
+							</ol>
+						</h5>
+					</div>
+					<div class="ibox-content">
+						<div id="toolbar" class="btn-group">
+
+							<button type="button" id="add"
+								class="btn btn-outline btn-primary">
+								<i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
+							</button>
+
+							<button type="button" id="update"
+								class="btn btn-outline btn-warning">
+								<i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+
+							</button>
+							<button type="button" id="del" class="btn btn-outline btn-danger">
+								<i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
+							</button>
+						</div>
+						<table id="table">
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- 详细信息 -->
+	<div id="div_against" class="ibox-content" style="display: none">
+		<form id="form_personInfo" class="form-horizontal">
+			<div class="panel panel-primary" style="margin-bottom: -5px">
+				<div class="panel-heading">对阵基本信息</div>
+				<div class="panel-body">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">竞赛设置</label>
+						<div class="col-sm-4">
+							<input class="laydate-icon form-control  required layer-date"
+								id="matchId">
+						</div>
+						<label class="col-sm-2 control-label">场地名称</label>
+						<div class="col-sm-4">
+							<select name="racingType" class="form-control required">
+								<option value="1">场地一</option>
+								<option value="2">场地二</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-4">
+							<label class="col-sm-2 control-label">主队</label>
+							<button class="btn btn-danger btn-circle btn-lg btn-outline"
+								type="button">选择主队</button>
+						</div>
+						<label class="col-sm-2 control-label">客队</label>
+						<div class="col-sm-4">
+							<button class="btn btn-info btn-circle btn-lg" type="button"
+								id="">选择客队</button>
+						</div>
+					</div>
+
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">开始时间 </label>
+						<div class="col-sm-4">
+							<input id="beginTime"
+								class="laydate-icon form-control  requiredlayer-date"
+								name="beginTime">
+						</div>
+						<label class="col-sm-2 control-label">赛事类型</label>
+						<div class="col-sm-4">
+							<select name="racingType" class="form-control required">
+								<option value="1">小组赛</option>
+								<option value="2">淘汰赛</option>
+							</select>
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+
+
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<div class="col-sm-offset-4">
+							<button class="btn btn-primary col-sm-3" type="button"
+								id="btn_add">
+								<i class="fa fa-check" aria-hidden="true"></i>保存
+							</button>
+							<button style="display: none;" class="btn btn-primary col-sm-3"
+								type="button" id="btn_update">
+								<i class="fa fa-check" aria-hidden="true"></i>保存
+							</button>
+							<button class="btn btn-white col-sm-3 col-sm-offset-1"
+								type="button" id="btn_close">
+								<i class="fa fa-share" aria-hidden="true"></i> 关闭
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<!-- 报名队伍选择信息 -->
+	<div id="div_team_info" class="ibox-content" style="display: none">
+		<div class="panel panel-info" id="panel_team_data">
+			<div class="panel-body"></div>
+		</div>
+	</div>
+	<!--  报名裁判信息  -->
+	<div id="div_referee_info" class="ibox-content" style="display: none">
+		<div class="panel panel-info" id="panel_team_data">
+			<div class="panel-body"></div>
+		</div>
+	</div>
+	<!-- 开始比赛人员修改 -->
+	<div id="div_begin_person_info" class="ibox-content" style="display: none">
+		<div class="panel panel-info" id="panel_team_data">
+			<div class="panel-body">
+				
+			</div>
+		</div>
+	</div>
+	
+	<!-- 结束比赛人员修改 -->
+	<div id="div_end_person_info" class="ibox-content" style="display: none">
+		<div class="panel panel-info" id="panel_team_data">
+			<div class="panel-body">
+				
+			</div>
+		</div>
+	</div>
+	
+	
+	<script src="../../js/plugins/jquery.min.js?v=2.1.4"></script>
+	<script src="../../js/plugins/bootstrap.min.js?v=3.3.6"></script>
+
+	<script src="../../js/plugins/layer/layer.min.js"></script>
+
+	<script src="../../js/plugins/layer/laydate/laydate.js"></script>
+
+	<script src="../../js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+	<script
+		src="../../js/plugins/bootstrap-table/extensions/toolbar/bootstrap-table-toolbar.js"></script>
+	<script
+		src="../../js/plugins/bootstrap-table/extensions/export/bootstrap-table-export.js"></script>
+	<script
+		src="../../js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+
+	<script
+		src="../../js/plugins/bootstrap-table/extensions/export/tableExport.js"></script>
+	<script
+		src="../../js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+
+	<script src="../../js/plugins/sweetalert/sweetalert.min.js"></script>
+	<script src="../../js/common/common.js"></script>
+	<script src="../../js/plugins/validate/jquery.validate.min.js"></script>
+	<script src="../../js/plugins/validate/messages_zh.min.js"></script>
+
+
+	<script src="against_main.js"></script>
+
+</body>
+</html>

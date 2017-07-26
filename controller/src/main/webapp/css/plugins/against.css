@@ -1,0 +1,463 @@
+        body,h1,h2,h3,ul,ol,p,figure {  
+            margin: 0;  
+            padding: 0;  
+        }  
+        body {  
+            background-color: #fff;  
+            font-family: "Helvetica Neue",Helvetica,Arial,"Microsoft YaHei UI","Microsoft YaHei",SimHei,"宋体",SimSun,Sans-Serif;  
+        }  
+        ul,ol {  
+            list-style: outside none none;  
+        }  
+        a {  
+            text-decoration: none;  
+        }  
+        .none {  
+            display: none;  
+        }  
+        #header {  
+            width: 100%;  
+            min-width: 1263px;  
+            height: 70px;  
+            background-color: #333;  
+            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);  
+            position: relative;  
+            z-index: 9999;  
+        }  
+        #header .against_center {  
+            width: 1263px;  
+            height: 70px;  
+            margin: 0 auto;  
+        }  
+        #header .logo {  
+            width: 230px;  
+            height: 70px;  
+            background-image: url(../../img/2.png);  
+            text-indent: -9999px;  
+            float: left;  
+            background-size:100% ;
+        }  
+        #header .link {  
+            width: 650px;  
+            height: 70px;  
+            line-height: 70px;  
+            color: #eee;  
+            float: right;  
+        }  
+        #header .link li {  
+            width: 120px;  
+            text-align: center;  
+            float: right;  
+        }  
+        #header .link a {  
+            color: #eee;  
+            display: block;  
+        }  
+        #header .link a:hover,  
+        #header .active a {  
+            background-color: #000; 
+            text-decoration:none; 
+        }  
+  
+        #headline {  
+            width: 100%;  
+            min-width: 1263px;  
+            min-height: 300px;  
+            background: linear-gradient(to right bottom, rgba(0,0,0,0.7), rgba(0,0,0,0));  
+        }  
+        #headline .center {  
+            width: 1263px;  
+            height: 300px;  
+            margin: 0 auto;  
+        }  
+        #headline hgroup{  
+            /* padding: 100px 0 0 50px;   */
+            padding:50px 0 50px 50px;
+        }  
+        #headline h2 {  
+            color: #eee;  
+            font-size: 36px;  
+            letter-spacing: 1px;  
+        }  
+        #headline h3 {  
+            color: #eee;  
+            font-size: 20px;  
+            letter-spacing: 1px;  
+        }  
+        #container {  
+            width: 1263px;  
+            margin: 30px auto;  
+        }  
+  
+        #container .playoff{  
+            width: 900px;  
+            height: 800px;  
+            position: relative;  
+        }  
+  
+        #container .playoff .background{  
+            margin-top: 50px;  
+        }  
+  
+        #container .playoff .background img{  
+            width: 100%;  
+        }  
+  
+        #container .playoff .POLOGO{  
+            position: absolute;  
+            left: 330px;  
+            top: 60px;  
+        }  
+  
+        #container .playoff a:hover{  
+            color: red;  
+        }  
+  
+        #container .playoff .round1{  
+            position: absolute;  
+            left: 25px;  
+            top: 85px;  
+        } 
+         
+        #container .playoff .playbg{  
+            width: 130px;  
+            height: 155px; 
+            border: 1px solid #cecece; 
+        }  
+  
+  
+  
+        #container .playoff .playbg .west1{  
+            position: absolute;  
+            left: 10px;  
+            top: 5px;  
+        }  
+  
+        #container .playoff .playbg .west1 img{  
+            width: 60px;  
+            height: 60px;  
+            vertical-align:middle;  
+        }  
+  
+        #container .playoff .playbg .west2{  
+            position: absolute;  
+            left: 10px;  
+            top: 65px;  
+        }  
+  
+        #container .playoff .playbg .west2 img{  
+            width: 60px;  
+            height: 50px;  
+            vertical-align:middle;  
+        }  
+  
+        #container .playoff .playbg p{  
+            position: absolute;  
+            left: 10px;  
+            top: 120px;  
+            width: 110px;
+            border-top: 1px solid #cecece;
+            text-align: center;
+        }  
+  
+        #container .playoff .round2{  
+            position: absolute;  
+            left: 25px;  
+            top: 245px;  
+        }  
+   
+        #container .playoff .round3{  
+            position: absolute;  
+            left: 25px;  
+            top: 420px;  
+        }  
+   
+        #container .playoff .round4{  
+            position: absolute;  
+            left: 25px;  
+            top: 580px;  
+        }  
+  
+        #container .playoff .round5{  
+            position: absolute;  
+            left: 178px;  
+            top: 160px;  
+        }  
+   
+        #container .playoff .round6{  
+            position: absolute;  
+            left: 178px;  
+            top: 515px;  
+        }  
+  
+        #container .playoff .round7{  
+            position: absolute;  
+            left: 240px;  
+            top: 335px;  
+        }  
+   
+        #container .playoff .round8{  
+            position: absolute;  
+            left: 530px;  
+            top: 335px;  
+        }  
+  
+        #container .playoff .round9{  
+            position: absolute;  
+            left: 593px;  
+            top: 160px;  
+        }  
+  
+        #container .playoff .round10{  
+            position: absolute;  
+            left: 593px;  
+            top: 515px;  
+        }  
+  
+        #container .playoff .round11{  
+            position: absolute;  
+            left: 745px;  
+            top: 85px;  
+        }  
+
+        #container .playoff .round12{  
+            position: absolute;  
+            left: 745px;  
+            top: 245px;  
+        }    
+  
+        #container .playoff .round13{  
+            position: absolute;  
+            left: 745px;  
+            top: 420px;  
+        }    
+  
+        #container .playoff .round14{  
+            position: absolute;  
+            left: 745px;  
+            top: 580px;  
+        }   
+  
+        #container .playoff .round15{  
+            position: absolute;  
+            left: 386px;  
+            top: 255px;  
+        }  
+  
+        #container {  
+            width: 1263px;  
+            margin: 30px auto;  
+        }  
+        #container .sidebar {  
+            width: 340px;  
+            float: right;  
+        }  
+  
+        #container .sidebox{  
+            margin: 0 0 10px 0;  
+            text-align: center;  
+            border: 1px solid green;  
+        }  
+  
+        #container .sidebox h2{  
+            font-size: 20px;  
+            font-weight: normal;  
+            letter-spacing: 1px;  
+            text-indent: 8px;  
+            height: 40px;  
+            line-height: 40px;  
+            background-color: #fafafa;  
+            color: #666;  
+            text-align: left;  
+        }  
+  
+        #container .figure{  
+            padding: 10px 0;  
+  
+        }  
+  
+        #container figure img{  
+            width: 100%;  
+            height:70px;
+        }  
+  
+        #container figure{  
+            display: inline-block;  
+            padding: 4px;  
+            color: #666;  
+            width: 70px;  
+            height: 70px;  
+            margin: 0 0 30px 0;  
+        }  
+  
+        #container figure a:hover{  
+            color: #00A000;  
+        }  
+  
+        #container .rule{  
+            line-height: 30px;  
+        }  
+  
+  
+  
+        #footer {  
+            height: 360px;  
+            background-color: #222;  
+            clear: both;  
+            position: relative;  
+            top:20px;  
+        }  
+        #footer .top {  
+            width: 1263px;  
+            height: 281px;  
+            margin: 0 auto;  
+            text-align: center;  
+        }  
+        #footer .block {  
+            width: 410px;  
+            height: 280px;  
+            display: inline-block;  
+            text-align: left;  
+            color: #ccc;  
+            vertical-align: top;  
+        }  
+        #footer h2 {  
+            font-size: 24px;  
+            font-weight: normal;  
+            padding: 20px 0 0 20px;  
+        }  
+        #footer hr {  
+            width: 90%;  
+            border: 1px dashed #333;  
+        }  
+        #footer ul {  
+            font-size: 18px;  
+            color: #777;  
+            text-indent: 20px;  
+            line-height: 2;  
+        }  
+  
+        #footer a{  
+            color: #777;  
+        }  
+  
+        #footer a:hover{  
+            color: green;  
+        }  
+  
+        #footer .bottom {  
+            height: 80px;  
+            line-height: 80px;  
+            text-align: center;  
+            color: #777;  
+            background-color: #000;  
+            border-top: 1px solid #444;  
+        }  
+                
+        #container .playoff .eli{
+        	position: absolute;
+        	width: 12px;
+        	height: 160px;
+        	border: 2px solid #c2a255;
+        	border-left: none;
+        	box-shadow:0 2px 8px -2px rgba(0,0,0,.6);
+        }
+        
+        #container .playoff .eli>div{
+        	position: absolute;
+        	width: 6px;
+        	border: 1px solid #c2a255;
+        	top: 50%;
+        	right:-10px;
+        	box-shadow:0 2px 8px -2px rgba(0,0,0,.6);
+        }
+        
+        #container .playoff .elimi4{
+        	position: absolute;
+        	width: 158px;
+        	border: 1px solid #c2a255;
+        	right: -160px;
+        	top: 97px;
+        }
+        
+        #container .playoff .elimi4>div{
+        	position: absolute;
+        	height: 20px;
+        	border: 1px solid #c2a255;
+        	left: 76px;
+        	top: -23px;
+        }
+        
+        #container .playoff .elimi{
+        	position: absolute;
+        	width: 12px;
+        	height: 90px;
+        	border: 2px solid #c2a255;
+        	border-left: none;
+        	border-bottom: none;
+        	right: -14px;
+        	top: 82px;
+        }
+        
+        #container .playoff .elimi1{
+        	position: absolute;
+        	width: 12px;
+        	height: 90px;
+        	border: 2px solid #c2a255;
+        	border-left: none;
+        	border-top: none;
+        	right: -14px;
+        	top: -25px;
+        }
+        
+        #container .playoff .elimi2{
+        	position: absolute;
+        	width: 12px;
+        	height: 90px;
+        	border: 2px solid #c2a255;
+        	border-right: none;
+        	border-bottom: none;
+        	left: -14px;
+        	top: 83px;
+        }
+        
+        #container .playoff .elimi3{
+        	position: absolute;
+        	width: 12px;
+        	height: 90px;
+        	border: 2px solid #c2a255;
+        	border-right: none;
+        	border-top: none;
+        	left: -14px;
+        	top: -25px;
+        }
+        
+        #container .playoff .elimi4{
+        	position: absolute;
+        	width: 66px;
+        	border: 1px solid #c2a255;
+        	left: -66px;
+        	top: 75px;
+        }
+        
+        #container .playoff .elimi5{
+        	position: absolute;
+        	width: 66px;
+        	border: 1px solid #c2a255;
+        	right: -66px;
+        	top: 75px;
+        }
+        
+        #container .playoff .eli1{
+			right: -14px;
+        	top: 74px;
+        }
+        
+        #container .playoff .eli.eli2{
+			left: -14px;
+        	top: 74px;
+			transform:rotate(180deg);
+			-ms-transform:rotate(180deg); /* Internet Explorer */
+			-moz-transform:rotate(180deg); /* Firefox */
+			-webkit-transform:rotate(180deg); /* Safari 和 Chrome */
+        }

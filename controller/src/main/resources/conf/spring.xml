@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+			http://www.springframework.org/schema/tx 
+			http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context-4.1.xsd
+		    http://www.springframework.org/schema/aop 
+		    http://www.springframework.org/schema/aop/spring-aop-4.1.xsd">
+
+	<!-- 引入jdbc配置文件 -->
+	<context:property-placeholder location="classpath:conf/dbconfig.properties" />
+
+	<bean id="commonRealm" class="controller.shiro.CommonRealm"></bean>
+
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<!-- 单realm应用。如果有多个realm，使用‘realms’属性代替 -->
+		<property name="realm" ref="commonRealm" />
+		<!-- <property name="cacheManager" ref="cacheManager" /> -->
+	</bean>
+
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<property name="securityManager" ref="securityManager" />
+
+		<property name="loginUrl" value="/user_login.html" />
+		<property name="successUrl" value="/consoleTabs.html" />
+		<property name="unauthorizedUrl" value="/" />
+		<property name="filterChainDefinitions">
+			<value>
+				/hplus/** = anon
+				/img/** = anon
+				/js/** = anon
+				/hplus/** = anon
+				/ueditor/** = anon
+				/retrieve_pwd.js = anon
+				/css/** =anon
+				/oAuth2/** =anon
+				/wecharPay/** =anon
+				/app/** =anon
+				/appInterface/**=anon
+				/login.json=anon
+				/logout.json=anon
+				/user_login.html=anon
+				/login.html=anon
+				/retrieve_pwd.html=anon
+				/reg_prop.html=anon
+				/team_reg_user.html=anon
+				/reg_user.html=anon
+				/web/ss/sponsor_reg_user.html=anon
+				/verify_binding.html=anon
+				/userAction/regUser.json=anon
+				/userAction/eqUser.json=anon
+				/userAction/loginType=anon
+				/userAction/loginSuccess=anon
+				/userAction/loginUser.json=anon
+				/userAction/sendCaptcha.json=anon
+				/userAction/regPhoneUser.json=anon
+				/userAction/eqPhone.json=anon
+				/userAction/retrievePwd.json=anon
+				/userAction/amendPwd.json=anon
+				/userAction/logout=anon
+				/homeController/main=anon
+				/common/upload/upPic.json=anon
+				/userAction/sendCaptcha.json=anon
+				/ssSponsorController/addSponsor.json=anon
+				/ssSponsorController/eqUser.json=anon
+				/sysCodeDictController/getCodes=anon
+				/** = authc
+			</value>
+		</property>
+	</bean>
+
+	<aop:aspectj-autoproxy />
+	<!-- 在Controller中使用事物回滚 -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<tx:annotation-driven transaction-manager="transactionManagerDede" />
+	<!--自动扫描含有@Service将其注入为bean -->
+	<context:component-scan base-package="common" />
+	<context:component-scan base-package="component" />
+	<context:component-scan base-package="aspect" />
+</beans>

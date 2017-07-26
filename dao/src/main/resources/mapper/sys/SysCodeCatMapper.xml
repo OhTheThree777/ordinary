@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.imfc.mapper.mapper.sys.SysCodeCatMapper" >
+  <resultMap id="BaseResultMap" type="cn.lr.mapper.model.sys.SysCodeCat" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="cat_code" property="catCode" jdbcType="VARCHAR" />
+    <result column="cat_name" property="catName" jdbcType="VARCHAR" />
+    <result column="reamk" property="reamk" jdbcType="VARCHAR" />
+  </resultMap>
+
+</mapper>

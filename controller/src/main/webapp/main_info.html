@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>体育赛事管理平台</title>
+<meta name="description" content="用户主页">
+<meta name="keywords" content="index">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="apple-mobile-web-app-title" content="用户主页" />
+<link rel="apple-touch-icon-precomposed" href="img/lrlogo.png">
+<meta name="apple-mobile-web-app-title" content="体育赛事" />
+<link rel="stylesheet" href="css/plugins/teams_players.css">
+<link rel="stylesheet" href="css/plugins/bootstrap.min.css" />
+<link rel="stylesheet" href="css/plugins/admin/amazeui.min.css" />
+<link rel="stylesheet" href="js/plugins/sweetalert/dist/sweetalert.css">
+<link rel="stylesheet" href="css/plugins/font-awesome.min93e3.css">
+<link rel="stylesheet" href="css/plugins/admin/app.css">
+<link rel="stylesheet" href="css/plugins/Iconfont/iconfont.css">
+<script src="js/plugins/jquery.min.js"></script>
+<style>
+a:-webkit-any-link {
+    text-decoration: none;
+</style>
+</head>
+
+<body data-type="index">
+	<script src="js/plugins/admin/theme.js"></script>
+	<div class="row-content am-cf index-content-wrapper">
+		<div class="row  am-cf" id="datubiao"></div>
+
+		<div class="row am-cf">
+
+			<div class="am-u-sm-12 am-u-md-7">
+				<div class="widget am-cf">
+					<div class="widget-head am-cf">
+						<div class="widget-title am-fl"><a href="web/team/team-list.html"><i class="am-icon-users"></i>&nbsp;热门球队</a></div>
+						<div class="widget-function am-fr">
+							<a href="javascript:;" data-am-popover="{theme: 'sm',content: '更多', trigger: 'hover focus'}" class="am-icon-list" id="more_pop_team"></a>
+						</div>
+					</div>
+					<div class="widget-body widget-body-md am-fr">
+						<div class="am-scrollable-horizontal ">
+							<table width="100%"w
+								id="example-r">
+								<thead>
+									<tr>
+										<th>队徽</th>
+										<th>球队名称</th>
+										<th>建队时间</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody id="main_team">
+									<!-- 											
+											<!-- 热门球队 -->
+								</tbody>
+							</table>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="am-u-sm-12 am-u-md-5">
+				<div class="widget am-cf">
+					<div class="widget-head am-cf">
+						<div class="widget-title am-fl" ><a href="javascript:;" onclick="morePerson();"><i class="iconfont icon-zuqiu_football118"></i>&nbsp;热门球员</a></div>
+						<div class="widget-function am-fr">
+							<a href="javascript:;" data-am-popover="{theme: 'sm',content: '更多', trigger: 'hover focus'}" class="am-icon-list" id="" onclick="morePerson();"></a>
+						</div>
+					</div>
+					<div class=" widget-body-md am-fr  hot-pople">
+
+						<ul id="main_pople">
+							<!-- 热门球员 -->
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--赛事信息 -->
+		<div class="row am-cf ">
+			<div class="part-title">
+				<a href="javascript:;" onclick="hot_competition()"> <i class="iconfont icon-wodebisai part-title-i"></i> <span class="part-title-span">赛事活动</span>
+					<p>Event Activities</p>
+				</a>
+			</div>
+		<div class="clearfix">
+			<ul id="main_project" class="list-inline clearfix events_list">
+				<!-- 赛事列表 -->
+			</ul>
+		</div>
+		</div>
+		
+		<!-- 教练员裁判信息 -->
+		<div class="row am-cf" style="background:#ffffff;padding-top:22px;margin-top:10px;">
+			<div class="part-title">
+				<a href="javascript:;" id="coach-list"><i class="iconfont icon-jiaolian part-title-i"></i> <span class="part-title-span">最佳教练</span>
+					<p>Coach Member</p>
+				</a>
+			</div>
+			<ul data-am-widget="gallery" class="am-gallery am-avg-sm-1 am-avg-md-3 am-avg-lg-6 am-gallery-bordered customer-case-ul" data-am-gallery="{ }" id="main_coach">
+
+			</ul>
+		</div>
+		
+		<!--独立项目信息
+		<div class="row am-cf ">
+			<div class="part-title">
+				<a onclick="single_project()"> <i class="iconfont icon-wodebisai part-title-i"></i> <span class="part-title-span">热门项目</span>
+					<p>Single Project</p>
+				</a>
+			</div>
+		<div class="clearfix">
+			<ul id="main_racing" class="list-inline clearfix events_list">
+			
+			</ul>
+		</div>
+		</div>
+		 -->
+	</div>
+	<script src="js/common/common.js"></script>
+	<script src="js/plugins/admin/amazeui.min.js"></script>
+	<!-- 表格分页 -->
+	<script src="js/plugins/admin/amazeui.datatables.min.js"></script>
+	<script src="js/plugins/admin/dataTables.responsive.min.js"></script>
+	<!-- 弹出框 -->
+	<script src="js/plugins/layer/layer.min.js"></script>
+	<script type="text/javascript" src="main_team.js"></script>
+	<!-- 更多 -->
+	<script type="text/javascript" src="main_info.js"></script>
+	<script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+	<script src="js/plugins/jquery.cookie.js"></script>
+	<script src="js/plugins/jquerySession.js"></script>
+</body>
+</html>

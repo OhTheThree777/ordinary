@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>主办方申请</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="../../css/plugins/amazeUI/amazeui.min.css">
+<link rel="stylesheet" href="../../css/plugins/teams_players.css" />
+<link rel="stylesheet" href="../../hplus/css/bootstrap.min14ed.css">
+<link rel="stylesheet" href="../../css/plugins/animate.min.css">
+<link rel="stylesheet" href="../../css/plugins/font-awesome.min93e3.css">
+<link rel="stylesheet" href="../../hplus/css/style.min862f.css">
+<link rel="stylesheet" href="../../hplus/css/plugins/chosen/chosen.css">
+<link rel="stylesheet" href="../../js/plugins/sweetalert/dist/sweetalert.css">
+<link rel="stylesheet" href="../../css/plugins/admin/app.css">
+<link rel="stylesheet" href="../../css/plugins/Iconfont/iconfont.css">
+<!-- 上传 -->
+<link href="../../css/plugins/fileinput/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+<style type="text/css">
+#fshowsponsor_infor, #form_sponsor {
+	display: none;
+}
+</style>
+</head>
+
+<body>
+		<header style="background: #fff;">
+			<div class="am-fl tpl-header-logo" style="width: 347px;">
+				<a href="javascript:;"><img src="../../img/logo_main.png" alt=""></a>
+			</div>
+			<div class="am-container">
+				<!--导航头部-->
+				<div class="am-fr tpl-header-navbar">
+					<ul>
+						<li class="am-text-sm">
+							<a href="../../reg_prop.html"> 其他注册</a>
+						</li>
+						<li class="am-text-sm">
+							<a href="../../retrieve_pwd.html"> 密码找回</a>
+						</li>
+						<li class="am-text-sm">
+							<a href="../../user_login.html"> 登录</a>
+						</li>
+						<li class="am-text-sm">
+							<a href="###"> <span class="am-icon-send-o"></span>&nbsp;体育赛事官网首页</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</header>
+	<div class="center container" style="background: #FFFFFF; margin-top: 20px;">
+		<div class="mail-box-header" id="sponsor_top">
+			<h2 class="text-center">主办方注册</h2>
+		</div>
+		<form class="form-horizontal" method="get" id="formSponsor">			
+			<input type="hidden" name="sponsorFlag" value="1" />
+			<div class="mail-box-header">
+				<h3 class="clearfix"><span class="label label-success pull-left" style="margin-right: 6px;margin-left: 15px;">1.</span><span class="pull-left">主办方基本信息</span></h3>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">单位LOGO：</label>
+				<div class="col-sm-8">
+					<img alt="" src="../../img/tx.png" onclick="showPic(1);" style="height: 120px; width: 120px; border-radius: 15px;" id="add_pic"> <input type="hidden" name="headportrait" id="headportraitsq">
+				</div>
+			</div>
+			<div class="hr-line-dashed"></div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">主办方(单位名称)：</label>
+				<div class="col-sm-8">
+					<input type="text" id="namesq" name="name" value="" class="form-control required" placeholder="请输入主办方名称">
+				</div>
+			</div>
+			<div class="hr-line-dashed"></div>
+			<div class="form-group">
+
+				<label class="col-sm-3 control-label">单位性质：</label>
+				<div class="col-sm-3">
+					<select class="form-control " id="companyType" name="type">
+					</select>
+				</div>
+				<label class="col-sm-2 control-label">成立时间：</label>
+				<div class="col-sm-3">
+					<input type="text" id="establishmentTimes" name="establishmentTime" value="" readonly="readonly" class="form-control required laydate-icon" placeholder="请输入成立时间">
+				</div>
+			</div>
+			<div class="hr-line-dashed"></div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">主办方官方网站：</label>
+				<div class="col-sm-8">
+					<input type="url" class="form-control" id="urlsq" name="url" value="" placeholder="请输入主办方官方网站,前面带&nbsp;'http://'">
+				</div>
+			</div>
+			<div class="hr-line-dashed"></div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">主办方地址：</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" id="addresssq" name="address" value="" placeholder="请输入主办方地址">
+				</div>
+			</div>
+			
+			
+			<div class="mail-box-header">
+				<h3 class="clearfix"><span class="label label-success pull-left" style="margin-right: 6px;margin-left: 15px;">2.</span><span class="pull-left">主办方帐号</span></h3>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">联系人姓名：</label>
+				<div class="col-sm-3">
+					<input type="text" id="contactssq" name="contacts" value="" class="form-control required" placeholder="请输入联系人姓名">
+				</div>
+				<label class="col-sm-2 control-label">主办方座机号码：</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="tels" name="tels" value="" placeholder="请输入主办方座机号码">
+				</div>
+			</div>
+			<div class="hr-line-dashed"></div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">主办方介绍：</label>
+				<div class="col-sm-8">
+					<script id="introduces" name="introduce" type="text/plain"></script>
+				</div>
+			</div>
+			<div class="hr-line-dashed"></div>
+			<div class="form-group text-center">
+				<button type="button" class="btn btn-primary" onclick="addSponsor()">注册主办方</button>
+			</div>
+		</form>
+	</div>
+
+
+
+	<div id="div_pic" class="ibox-content" style="display: none">
+		<div id="swfContainer">
+			本组件需要安装Flash Player后才可使用，请从<a href="http://www.adobe.com/go/getflashplayer">这里</a>下载安装。
+		</div>
+	</div>
+		<footer class="footer" style="margin:0;">
+			<ul>
+				<li class="am-u-lg-4 am-u-md-4 am-u-sm-12 part-5-li2">
+					<div class="part-5-title">联系我们</div>
+					<div class="part-5-words2">
+						<span>地址:内蒙古呼和浩特市回民区电子商务园区</span> <span>电话:18147103381</span> <span>传真:0471-3985885</span>
+						<span>邮箱:lr.kepuonline.com</span> <span><i
+							class="am-icon-phone"></i><em>0471-3985995</em></span>
+					</div>
+				</li>
+				<li class="am-u-lg-4 am-u-md-4 am-u-sm-12 ">
+					<div class="part-5-title">相关链接</div>
+					<div class="part-5-words2">
+						<ul class="part-5-words2-ul">
+							<li class="am-u-lg-4 am-u-md-6 am-u-sm-4"><a
+								href="solutions.html">国家体育总局</a></li>
+							<li class="am-u-lg-4 am-u-md-6 am-u-sm-4"><a
+								href="product-show.html">内蒙古体育局</a></li>
+							<li class="am-u-lg-4 am-u-md-6 am-u-sm-4"><a
+								href="cust^omer-case.html">内蒙古教练员协会</a></li>
+							<li class="am-u-lg-4 am-u-md-6 am-u-sm-4"><a
+								href="service-center.html">内蒙古自治区政府</a></li>
+							<li class="am-u-lg-4 am-u-md-6 am-u-sm-4"><a
+								href="about-us.html">关于我们</a></li>
+							<li class="am-u-lg-4 am-u-md-6 am-u-sm-4"><a
+								href="recruit.html">招贤纳士</a></li>
+							<div class="clear"></div>
+						</ul>
+					</div>
+				</li>
+				<div class="clear"></div>
+			</ul>
+
+		</footer>
+
+</body>
+<script type="text/javascript" src="../../js/plugins/jquery.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/admin/amazeui.min.js"></script>
+<script>
+	$(function () {
+			/* title提示 */
+		  $('[data-toggle="tooltip"]').tooltip()
+		})
+</script>
+<!-- 头像图片上传 -->
+<script type="text/javascript" src="../../js/plugins/fullavatareditor/scripts/swfobject.js"></script>
+<script type="text/javascript" src="../../js/plugins/fullavatareditor/scripts/fullAvatarEditor.js"></script>
+<!-- 日期 -->
+<script type="text/javascript" src="../../js/plugins/layer/laydate/laydate.js"></script>
+<!-- 配置文件 -->
+<script type="text/javascript" src="../../ueditor/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="../../ueditor/ueditor.all.js"></script>
+<script type="text/javascript" src="../../ueditor/ueditor.parse.min.js"></script>
+<script type="text/javascript" src="../../ueditor/lang/zh-cn/zh-cn.js"></script>
+<!-- 弹出层 -->
+<script type="text/javascript" src="../../js/plugins/layer/layer.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/sweetalert/sweetalert.min.js"></script>
+<script type="text/javascript" src="../../js/common/common.js"></script>
+<script type="text/javascript" src="../../js/plugins/chosen/chosen.jquery.js"></script>
+<script type="text/javascript" src="../../js/plugins/validate/jquery.validate.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/validate/messages_zh.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/validate/additional-methods.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquerySession.js"></script>
+<script type="text/javascript" src="sponsor_user.js"></script>
+</html>

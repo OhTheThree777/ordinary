@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+/* 11    下面三个css 为自写微调控件位置用 */
+.div_height190 {
+	height: 190px
+}
+
+.div_height {
+	height: 238px
+}
+
+.addfont_big {
+	font-size: 50px
+}
+</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit">
+<title>赛事管理</title>
+<meta name="keywords" content="蓝睿UI">
+<meta name="description" content="蓝睿UI">
+<link rel="shortcut icon" href="favicon.ico">
+<link href="../../css/plugins/bootstrap.min14ed.css?v=3.3.6"
+	rel="stylesheet">
+<link href="../../css/plugins/font-awesome.min93e3.css?v=4.4.0"
+	rel="stylesheet">
+<link href="../../css/plugins/animate.min.css" rel="stylesheet">
+<link href="../../css/plugins/style.min862f.css?v=4.1.0"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="../../js/plugins/sweetalert/dist/sweetalert.css">
+<link href="../../css/plugins/bootstrap-table/bootstrap-table.min.css"
+	rel="stylesheet">
+
+<link href="../../css/plugins/fileinput/fileinput.min.css" media="all"
+	rel="stylesheet" type="text/css" />	
+</head>
+<body class="gray-bg">
+
+<!-- 	<div class="row"> -->
+<!-- 		<div id="table_add" class="racing_main"> -->
+<!-- 			<div class="col-sm-3" style="margin-right: 0px;" id="add"> -->
+<!-- 				<div class="contact-box racing"> -->
+<!-- 					<i class="glyphicon glyphicon-plus rracing_add"></i> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+<div class="ibox-content">
+		<div class="jqGrid_wrapper">
+			<div id="toolbar" class="btn-group">
+				<button type="button" id="add"
+					class="btn btn-outline btn-primary">
+					<i class="glyphicon glyphicon-plus" aria-hidden="true"></i> 增加
+				</button>
+				<button type="button" id="publish" class="btn btn-outline btn-primary">
+					<i class="fa fa-paper-plane-o" aria-hidden="true"></i>发布
+				</button>
+				<button type="button" id="del"
+					class="btn btn-outline btn-danger">
+					<i class="glyphicon glyphicon-trash" aria-hidden="true"></i> 删除
+				</button>
+			</div>
+			<table id="table">
+			</table>
+		</div>
+	</div>
+	<table id="table">
+	</table>
+	<!-- 添加详细信息弹框表格 -->
+	<div id="div_racing" class="ibox-content" style="display: none">
+
+		<div class="panel panel-primary" style="margin-bottom: -5px">
+			<div class="panel-heading">竞赛项目</div>
+			<div class="panel-body">
+				<form id="from_ss_racing" class="form-horizontal">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">竞赛名称 </label>
+						<div class="col-sm-8">
+							<input type="hidden" name="projectId" id="projectId"> <input
+								type="hidden" name="id"> <input type="text"
+								name="racingName" class="form-control required"
+								placeholder="竞赛名称">
+						</div>
+					</div>
+
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">开始时间 </label>
+						<div class="col-sm-4">
+							<input type="text" name="racingBeginTime" id="racing_begin_time"
+								class="form-control required laydate-icon">
+						</div>
+						<label class="col-sm-2 control-label">结束时间 </label>
+						<div class="col-sm-4">
+							<input type="text" name="racingEndTime" id="racing_end_time"
+								class="form-control required laydate-icon">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">宣传图片 </label>
+						<div class="col-sm-8">
+							<input id="file_racing" type="file" >
+							<input type="hidden" name="racingPic" id="hidRacingPic"/>
+						</div>
+						
+					</div>
+					
+
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">竞赛模型</label>
+						<div class="col-sm-6">
+							<select class="form-control" name="modelId" id="modelid">
+							</select>
+						</div>
+						<!-- 这个就是竞赛模型后面跳转到模型管理的按钮，因为存在bug所以注释掉  js中的事件在28行 -->
+						<!-- 						<button  id='btn_model_prop'    class="btn btn-outline  btn-primary" type="button"> -->
+						<!-- 							<i class="glyphicon glyphicon-plus" aria-hidden="true"></i> -->
+						<!-- 						</button> -->
+					</div>
+
+					<div id="model_app"></div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">竞赛规格</label>
+						<div class="col-sm-6">
+							<button class="btn btn-outline btn-success" type="button"
+								id="btn_model_spec">
+								<i class="glyphicon glyphicon-plus" aria-hidden="true">添加规格</i>
+							</button>
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">基本信息</label>
+						<div id="spec_view" class="col-sm-9">
+							<div class="panel panel-info "
+								style="border: 1px solid #1a7bb9; border-radius: 0px; padding: 15px 15px 15px 0px;">
+								<div class="panel-body">
+									<table class="table table-striped ">
+										<thead id="spec_thead">
+											
+										</thead>
+										<tbody id="specjsonstr_append">
+
+										</tbody>
+									</table>
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-4">
+							<button class="btn btn-primary col-sm-3" type="button"
+								id="btn_add">
+								<i class="fa fa-check" aria-hidden="true"></i>保存
+							</button>
+							<button class="btn btn-primary col-sm-3" type="button"
+								id="btn_update_submit" style="display: none;">
+								<i class="fa fa-check" aria-hidden="true"></i>保存
+							</button>
+							<button class="btn btn-white col-sm-3 col-sm-offset-1"
+								type="button" id="btn_close">
+								<i class="fa fa-share" aria-hidden="true"></i> 关闭
+							</button>
+						</div>
+
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+	<!-- 规格信息 -->
+	<div id="div_spec" style="display: none;">
+		<div class="row">
+			<div class="col-sm-3"
+				style="margin-top: 15px; margin-left: 15px; margin-right: -10px;">
+				<div class="panel panel-info">
+					<div class="panel-heading">规格名称</div>
+					<div class="panel-body" style="height: 220px">
+						<ul class="tag-list" id="spec_list" style="padding: 0">
+
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-9" spellcheck="false"
+				style="margin-top: 15px; margin-left: -15px;">
+				<div class="panel panel-info">
+					<div class="panel-heading">规格列表</div>
+					<div class="panel-body">
+						<ul class="tag-list" id="spec_data" style="padding: 0">
+
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-info" style="display: none;"
+					id="panel_sel_sepc_data">
+					<div class="panel-body">
+						<table class="table table-striped" id="sel_spec_data">
+							<thead>
+								<tr>
+									<th>名称</th>
+									<th>规格植</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody id="tbody_spec_data">
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="row">
+			<form id="from_spec" class="form-horizontal">
+				<div class="col-sm-offset-4">
+					<input type="hidden" id="spec_id" name="specId"> <input
+						type="hidden" id="spec_id" name="specId">
+					<button class="btn btn-primary col-sm-3" type="button"
+						id="btn_spec_add">
+						<i class="fa fa-check" aria-hidden="true"></i>保存
+					</button>
+
+					<button class="btn btn-white col-sm-3 col-sm-offset-1"
+						type="button" id="btn_spec_close">
+						<i class="fa fa-share" aria-hidden="true"></i> 关闭
+					</button>
+				</div>
+			</form>
+		</div>
+
+	</div>
+	<!-- 	script id="table-template" type="text/x-handlebars-template" -->
+	<!-- 	1   下面是主界面显示竞赛的 -->
+<!-- 	<script id="racing-table-add" type="text/x-handlebars-template">
+
+				{{#each this}}
+				<div class="col-sm-4 div_height">
+				<div class="ibox float-e-margins">
+                <div class="ibox-title">
+                <h5>{{racingName}}</h5>
+				<div id="racing-table-id"   value="{{id}} " ></div>
+				
+                 <div class="ibox-tools">  
+                  
+                 <a class="close-link" id="delete_racing" value="{{id}}">        <i class="fa fa-times "></i>        </a>
+                </div>
+                </div> 
+                <div class="ibox-content div_height190">
+                <div>          
+                </div>
+                 所属赛事:{{project_id}}              
+                  <ul class="unstyled">
+                <li> 添加时间:{{racingAddDate}}</li>
+                <li> 开始时间:{{racingBeginTime}}</li>
+                <li> 结束时间:{{racingEndTime}}</li>
+                <li> 对应赛事id:{{projectId}}</li>
+                 </li> 
+                </ul>
+                </div>
+                </div>
+                </div>
+				{{/each}}
+	
+		</script>-->
+	<!-- 1下面是添加规格时左面选择规格的按钮 -->
+	<script id="spec-model" type="text/x-handlebars-template">
+			{{#each this}}
+				<li><a onclick="selSpec('{{specData}}','{{specName}}','{{id}}')">{{specName}}</a></li>
+            {{/each}}
+	 </script>
+
+	<script id="productHeadTemplate" type='text/html'>
+		<tr>
+		<th>禁赛编号</th>
+		{{#each this}}
+		{specName}}
+		{{/each}}
+		<th>可参加人数</th>
+		<th>报名费用</th>
+		<th>操作</th>
+	</tr>											
+	</script>
+	<script src="../../js/plugins/jquery.min.js?v=2.1.4"></script>
+	<script src="../../js/plugins/bootstrap.min.js?v=3.3.6"></script>
+	<script src="../../js/plugins/jquery.cookie.js"></script>
+	<script src="../../js/plugins/jquerySession.js"></script>
+	<script src="../../js/plugins/amazeUI/handlebars.min.js"></script>
+	<script src="../../js/plugins/layer/layer.min.js"></script>
+	<script src="../../js/plugins/layer/laydate/laydate.js"></script>
+	<script src="../../js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+	<script
+		src="../../js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+	<script
+		src="../../js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+	<script src="../../js/plugins/sweetalert/sweetalert.min.js"></script>
+	<script src="../../js/common/common.js"></script>
+	<script src="../../js/plugins/validate/jquery.validate.min.js"></script>
+	<script src="../../js/plugins/validate/messages_zh.min.js"></script>
+		<script src="../../js/plugins/fileinput/fileinput.min.js"
+		type="text/javascript"></script>
+	<script src="../../js/plugins/fileinput/locales/zh.js"
+		type="text/javascript"></script>
+	<script src="racing_main.js"></script>
+</body>
+</html>

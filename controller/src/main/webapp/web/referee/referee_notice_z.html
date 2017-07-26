@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>赛事详情</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../../css/plugins/teams_players.css" />
+    <link rel="stylesheet" href="../../css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/plugins/amazeUI/amazeui.min.css">
+    <link rel="stylesheet" href="../../hplus/css/style.min862f.css">
+	<link rel="stylesheet" href="//at.alicdn.com/t/font_11fmba9vv2kpgb9.css">
+	<link rel="stylesheet" href="../../hplus/css/plugins/chosen/chosen.css">
+	<link rel="stylesheet" href="../../js/plugins/sweetalert/dist/sweetalert.css">
+	<link href="../../css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+	
+	<link href="../../css/plugins/fileinput/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+	<!-- 地址 -->
+	<link rel="stylesheet" href="../../css/plugins/amazeUI/amazeui.min.css" />
+	<link rel="stylesheet" href="../../css/plugins/amazeUI/amazeui.address.min.css" />
+	<link rel="stylesheet" href="../../css/plugins/admin/amazeui.min.css" />
+	<link rel="stylesheet" href="../../css/plugins/admin/amazeui.datatables.min.css" />
+	<link rel="stylesheet" href="../../css/plugins/admin/app.css">
+	<link rel="shortcut icon" href="favicon.ico">
+	<link href="../../css/plugins/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+	<link href="../../css/plugins/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+	<link href="../../css/plugins/animate.min.css" rel="stylesheet">
+	<link href="../../css/plugins/style.min862f.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../js/plugins/sweetalert/dist/sweetalert.css">
+
+<link href="../../css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+<style type="text/css">
+	.layui-layer.layui-anim.layui-layer-page {
+	z-index:990!important;
+</style>
+</head>
+
+<body>
+<div id="Indivi_regist" style="display:block;">
+	<div class=" clearfix" style="padding:30px 0;background:#FFFFFF;">
+		<div class="container">
+			<div class="clearfix">
+			  <fieldset class="clearfix Essen-infor event_tip">
+			    <legend><i class="iconfont icon-xiangmu" style="font-size:20px;"></i>&nbsp;赛事项目</legend>
+					<div class="col-sm-5 text-center">
+						<div class="clearfix" >
+							<div id="carousel-example-generic1" class="carousel slide ss_xct" data-ride="carousel">
+							  <!-- Indicators -->
+							  <ol class="carousel-indicators">
+							    <li data-target="#carousel-example-generic1" data-slide-to="0" class="active"></li>
+							    <li data-target="#carousel-example-generic1" data-slide-to="1"></li>
+							  </ol>
+							
+							  <!-- 宣传图片 -->
+							  <div class="carousel-inner" role="listbox" id="advertising">
+<!-- 							    <div class="item active"> -->
+<!-- 							      <img src="../../img/1-1612.jpg"> -->
+<!-- 							    </div> -->
+<!-- 							    <div class="item"> -->
+<!-- 							      <img src="../../img/1-1612.jpg"> -->
+<!-- 							    </div> -->
+							  </div>
+							
+							  <!-- 箭头点击 -->
+							  <a class="left carousel-control" href="#carousel-example-generic1" role="button" data-slide="prev">
+							    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+							    <span class="sr-only">Previous</span>
+							  </a>
+							  <a class="right carousel-control" href="#carousel-example-generic1" role="button" data-slide="next">
+							    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+							    <span class="sr-only">Next</span>
+							  </a>
+							</div>
+						</div>
+<!-- 						<div class="clearfix"> -->
+<!-- 						<div class="event_sate">报名中</div> -->
+<!-- 						<div class="event_sate event_sate_over">报名结束</div> -->
+<!-- 						</div> -->
+					</div>
+					<div class="col-sm-7 event_profile">
+					<blockquote class="Start_registration start_border" id="blockquote">
+						<div id="top"></div>
+							<form class="form-horizontal" id="form-horizontal">
+								<div class="form-group" style="margin-top: 15px;">
+									<div class="col-sm-8">
+										<div class="Prefer">
+											<!-- 首选项 -->
+											<div class="btn-group" data-toggle="buttons" id="Prefer">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="specslist"></div>
+								<div class="text-center" id="div_invt_refferee">
+								</div>
+							</form>
+							<form id="form-horizontal1">
+								<input type="hidden" id="racingData1" name="racingData" /> <input type="hidden" name="addflag" value="0" />
+								<div id="div_form1"></div>
+							</form>
+					</blockquote>
+					</div>
+			  </fieldset>
+			</div>
+			
+<div class="clearfix">
+		<fieldset class="clearfix Essen-infor event_tip">
+			<legend>
+										<div class="page-header-heading" style="font-size:inherit;">
+											<span class="am-icon-bars"></span> 公告列表 <small>Bulletin List</small>
+										</div>
+			</legend>
+			<div class="clearfix">
+				<div class="row">
+					<div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+						<div class="am-cf">
+						<div class="widget-body  am-fr">
+							
+							<div class="am-u-sm-12 tabs-container">
+								<div class="tabs-left">
+									<ul class="nav nav-tabs">
+										<li class="active"><a data-toggle="tab" href="#tab-8">未发布&nbsp;</a></li>
+										<li class=""><a data-toggle="tab" href="#tab-9">已发布</a></li>
+									</ul>
+									<div class="tab-content">
+										<div id="tab-8" class="tab-pane active">
+											<div class="panel-body">
+											<div id="toolbar1" class="btn-group">
+												<button type="button" id="add" class="btn btn-outline btn-primary">
+													<i class="glyphicon glyphicon-plus" aria-hidden="true"></i> 新增发布
+												</button>
+											</div>
+												<table id="table_noissue">
+												</table>
+											</div>
+										</div>
+										<div id="tab-9" class="tab-pane">
+											<div class="panel-body">
+												<table id="table_issue">
+												
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>				
+</fieldset>
+</div>
+			
+		</div>
+	</div>
+</div>
+	
+	<div class="main-floor" style="display: none; position: relative;" id="notice_id">
+		<form id="EssentialInformationForm" role="form"
+			class="form-horizontal container center infor clearfix"
+			style="background: #FFFFFF;">
+			<div class="form-group">
+				<label  class="col-sm-2 control-label">公告标题</label>
+				<div class="col-sm-8">
+					<input type="hidden" name="id"><input type="text" class="form-control" id="title" name="title"
+						placeholder="请输入标题">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">公告内容</label>
+				<div class="col-sm-9">
+				<input type="hidden" name="racingId" id="racingId" value="" />
+				<input type="hidden" name="productId" id="productId" value="" />
+					<input type="hidden" name="id"><script id="info" name="info" type="text/plain"></script>
+				</div>
+			</div>
+			<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<div class="col-sm-offset-4">
+							<button class="btn btn-primary col-md-2 col-sm-3" type="button"
+								id="btn_add_submit" >
+								<i class="fa fa-check" aria-hidden="true"></i>保存
+							</button>
+							<button class="btn btn-white col-md-2 col-sm-3 col-sm-offset-1"
+								type="button" id="btn_close">
+								<i class="fa fa-share" aria-hidden="true"></i> 关闭
+							</button>
+						</div>
+					</div>
+		</form>
+	</div>
+	<!-- 未发布修改 -->
+	<div class="main-floor" style="display: none; position: relative;" id="notice_id_update">
+		<form id="EssentialInformationFormUpdate" role="form"
+			class="form-horizontal container center infor clearfix"
+			style="background: #FFFFFF;">
+			<div class="form-group">
+				<label  class="col-sm-2 control-label">公告标题</label>
+				<div class="col-sm-8">
+					<input type="hidden" name="id"><input type="text" class="form-control" id="title_s" name="title"
+						placeholder="请输入标题">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">公告内容</label>
+				<div class="col-sm-9">
+					<script id="info_update" name="info" type="text/plain"></script>
+				</div>
+			</div>
+			<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<div class="col-sm-offset-4">
+							<button class="btn btn-primary col-md-2 col-sm-3" type="button"
+								id="btn_update_submit" >
+								<i class="fa fa-check" aria-hidden="true"></i>保存
+							</button>
+							<button class="btn btn-white col-md-2 col-sm-3 col-sm-offset-1"
+								type="button" id="btn_close_a">
+								<i class="fa fa-share" aria-hidden="true"></i> 关闭
+							</button>
+						</div>
+					</div>
+		</form>
+	</div>
+	
+	<!-- 详情DIv -->
+	<div class="main-floor" style="display: none; position: relative;" id="details_div">
+		<form id="" role="form"
+			class="form-horizontal container center infor clearfix"
+			style="background: #FFFFFF;">
+			<div class="form-group">
+				<label  class="col-sm-2 control-label">公告标题</label>
+				<div class="col-sm-8">
+						<span id="title_span"></span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">公告内容</label>
+				<div id="body_div"></div>
+				<div class="col-sm-9">
+					<input type="hidden" name="id">
+				</div>
+			</div>
+			<div class="hr-line-dashed"></div>
+		</form>
+	</div>
+	
+</body>
+	<script src="../../js/plugins/jquery.min.js"></script>
+	<script src="../../js/plugins/bootstrap.min.js"></script>
+	<script src="../../js/plugins/amazeUI/amazeui.min.js"></script>
+	<script src="../../js/plugins/jquery.min.js?v=2.1.4"></script>
+	<script src="../../js/plugins/bootstrap.min.js?v=3.3.6"></script>
+
+	<script src="../../js/plugins/layer/layer.min.js"></script>
+
+	<script src="../../js/plugins/layer/laydate/laydate.js"></script>
+
+	<script src="../../js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+	<script
+		src="../../js/plugins/bootstrap-table/extensions/toolbar/bootstrap-table-toolbar.js"></script>
+	<script
+		src="../../js/plugins/bootstrap-table/extensions/export/bootstrap-table-export.js"></script>
+	<script
+		src="../../js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+	<script
+		src="../../js/plugins/bootstrap-table/bootstrap-editable.js"></script>
+	<script
+		src="../../js/plugins/bootstrap-table/extensions/export/tableExport.js"></script>
+	<script
+		src="../../js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+	<script
+		src="../../js/plugins/bootstrap-table/bootstrap-table-editable.js"></script>
+
+	<script src="../../js/plugins/sweetalert/sweetalert.min.js"></script>
+	<script src="../../js/common/common.js"></script>
+	<script src="../../js/plugins/validate/jquery.validate.min.js"></script>
+	<script src="../../js/plugins/validate/messages_zh.min.js"></script>
+	<script src="../../js/plugins/jquerySession.js"></script>
+<!-- 配置文件 -->
+<script type="text/javascript" src="../../ueditor/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="../../ueditor/ueditor.all.js"></script>
+<script type="text/javascript" src="../../ueditor/ueditor.parse.min.js"></script>
+<script type="text/javascript" src="../../ueditor/lang/zh-cn/zh-cn.js"></script>
+<!-- 地址 -->
+<script type="text/javascript" src="../../js/plugins/amazeUI/amazeui.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/amazeUI/address.js"></script>
+<script type="text/javascript" src="../../js/plugins/layer/laydate/laydate.js"></script>
+<script type="text/javascript" src="referee_notice_z.js"></script>
+</html>

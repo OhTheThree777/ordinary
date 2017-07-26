@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>职业信息</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../../css/plugins/teams_players.css" />
+    <link rel="stylesheet" href="../../css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_ipm4yqb3t7m5z5mi.css" />
+
+</head>
+
+<body>
+	<div class="container">
+		<div class="clearfix text-center step_tit">
+			<h5 class="col-sm-3 tit_bg">1.基本信息</h5>
+			<h5 class="col-sm-3">2.职业选择</h5>
+			<h5 class="col-sm-3">3.职业信息</h5>
+			<h5 class="col-sm-3">4.完成</h5>
+		</div>
+		<!--基本信息-->
+		<div class="main clearfix">
+			<div class="main-floor" style="display: block;">
+				<form role="form" action="choice.html" class="form-horizontal container center infor clearfix" style="background: #FFFFFF;">
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-2 control-label portrait-tit">头像</label>
+					    <div class="col-sm-4">
+							<img alt="" src="../../img/tx.png" onclick="showPic(1);"
+								style="height: 100px; width: 100px;" id="add_pic"> <input
+								type="hidden" name="headPortrait" id="headPortrait">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-2 control-label">姓名</label>
+					    <div class="col-sm-3">
+							<input type="text" class="form-control" id="" placeholder="输入姓名">	
+						</div>
+						<label for="inputEmail3" class="col-sm-2 control-label">性别</label>
+					    <div class="col-sm-4">
+							<label class="radio-inline">
+							  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1"> 男
+							</label>
+							<label class="radio-inline">
+							  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2"> 女
+							</label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-2 control-label">民族</label>
+					    <div class="col-sm-3">
+							<select class="form-control" name="nation" id="nation">
+							</select>
+						</div>
+						<label for="inputEmail3" class="col-sm-2 control-label">联系电话</label>
+					    <div class="col-sm-4">
+							<input type="text" class="form-control" id="" placeholder="请输入电话">	
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-2 control-label">家庭地址</label>
+					    <div class="col-sm-9">
+							<input type="text" class="form-control" id="" placeholder="请输入家庭住址">	
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-2 control-label">政治面貌</label>
+					    <div class="col-sm-3">
+							<select class="form-control" name="politicalLandscape" id="politicalLandscape">
+							</select>
+						</div>
+						<label for="inputEmail3" class="col-sm-2 control-label">学历</label>
+					    <div class="col-sm-4">
+							<select class="form-control" name="education" id="education">
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-2 control-label">身高<small>(厘米/cm)</small></label>
+					    <div class="col-sm-3">
+							<input type="text" class="form-control" id="" placeholder="输入身高">	
+						</div>
+						<label for="inputEmail3" class="col-sm-2 control-label">体重<small>(千克/kg)</small></label>
+					    <div class="col-sm-4">
+							<input type="text" class="form-control" id="" placeholder="输入体重">	
+						</div>
+					</div>
+				</form>
+				<div class="text-right clearfix">
+					<button id="" type="submit" class="btn btn-info Next" style="margin-top:30px;">下一步</button>		
+				</div>
+			</div>
+		<!--基本信息结束-->
+		<!--职业选择-->
+			<div class="main-floor">
+				<div class="container center clearfix" style="background: #FFFFFF;">
+					<div class="clearfix categor_list" style="margin-top: 25px;">
+						<div class="col-sm-4">
+							<div class="profess-tit on" id="profess-tit1">
+								<i class="iconfont icon-yundong"></i>
+								<p>运动员</p>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="profess-tit" id="profess-tit2">
+								<i class="iconfont icon-jiaolian"></i>
+								<p>教练</p>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="profess-tit" id="profess-tit3">
+								<i class="iconfont icon-yuyuecaipan"></i>
+								<p>裁判</p>
+							</div>
+						</div>
+					</div>
+					<div class="tab_box">
+						<div class="clearfix profess-list" style="display: block;">
+							<div class="btn-group col-sm-12 clearfix" style="margin: 30px 0;">
+							  <button type="button" class="col-sm-4 btn btn-default category on3">球类</button>
+							  <button type="button" class="col-sm-4 btn btn-default category">田径</button>
+							  <button type="button" class="col-sm-4 btn btn-default category">游泳</button>
+							</div>
+							<div class="clearfix">
+								<ul class="cat-item list-inline clearfix col-sm-12" style="display: block;">
+									<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+										<div class="profess-tit">
+											<i class="iconfont icon-lanqiu"></i>
+											<p>篮球</p>
+										</div>
+									</li>
+									<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+										<div class="profess-tit">
+											<i class="iconfont icon-zuqiu"></i>
+											<p>足球</p>
+										</div>
+									</li>
+								</ul>
+								<ul class="cat-item list-inline clearfix col-sm-12">
+									<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+										<div class="profess-tit">
+											<i class="iconfont icon-icon"></i>
+											<p>田径</p>
+										</div>
+									</li>
+								</ul>
+								<ul class="cat-item list-inline clearfix col-sm-12">
+									<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+										<div class="profess-tit">
+											<i class="iconfont icon-youyong4"></i>
+											<p>自由泳</p>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="clearfix profess-list">
+							<div class="btn-group col-sm-12 clearfix" style="margin: 30px 0;">
+							  <button type="button" class="col-sm-4 btn btn-default category on3">球类</button>
+							  <button type="button" class="col-sm-4 btn btn-default category">田径</button>
+							  <button type="button" class="col-sm-4 btn btn-default category">游泳</button>
+							</div>
+							<div class="clearfix" id="jiaolian">
+								<ul class="cat-item list-inline clearfix col-sm-12" style="display: block;">
+									<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+										<div class="profess-tit">
+											<i class="iconfont icon-lanqiu"></i>
+											<p>篮球教练</p>
+										</div>
+									</li>
+									<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+										<div class="profess-tit">
+											<i class="iconfont icon-zuqiu"></i>
+											<p>足球教练</p>
+										</div>
+									</li>
+								</ul>
+								<ul class="cat-item list-inline clearfix col-sm-12">
+									<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+										<div class="profess-tit">
+											<i class="iconfont icon-icon"></i>
+											<p>田径教练</p>
+										</div>
+									</li>
+								</ul>
+								<ul class="cat-item list-inline clearfix col-sm-12">
+									<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+										<div class="profess-tit">
+											<i class="iconfont icon-youyong4"></i>
+											<p>自由泳教练</p>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="clearfix profess-list">
+							<div class="clearfix" id="caipan">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="text-right clearfix">
+					<button id="" type="button" class="btn btn-default Prev2" style="margin-top:30px;">上一步</button>	
+					<button id="" type="button" class="btn btn-info Next2" style="margin-top:30px;">下一步</button>		
+				</div>
+			</div>
+		<!--职业选择结束-->
+		<!--职业信息-->
+			<div class="main-floor">
+				<form role="form" class="form-horizontal container infor center clearfix" style="background: #FFFFFF;">
+					<div class="row infor_line">
+						<div class="form-group">
+							<div class="col-sm-4 text-right">
+								<label class="control-label">进攻</label>
+							</div>
+							<div class="col-sm-4"><input type="text" class="form-control" id="" placeholder="带球速度"></div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-4 text-right">
+								<label class="control-label">进攻</label>
+							</div>
+							<div class="col-sm-4"><input type="text" class="form-control" id="" placeholder="带球速度"></div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-4 text-right">
+								<label class="control-label">进攻</label>
+							</div>
+							<div class="col-sm-4"><input type="text" class="form-control" id="" placeholder="带球速度"></div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-4 text-right">
+								<label class="control-label">进攻</label>
+							</div>
+							<div class="col-sm-4"><input type="text" class="form-control" id="" placeholder="带球速度"></div>
+						</div>
+					</div>
+				</form>
+				<div class="text-right clearfix">
+					<button id="" type="button" class="btn btn-default Prev3" style="margin-top:30px;">上一步</button>	
+					<button type="button" class="btn btn-info Next3" style="margin-top:30px;">下一步</button>		
+				</div>
+			</div>
+		<!--职业信息结束-->
+		<!--完成-->
+			<div class="main-floor">
+				<div class="create_team center clearfix" style="margin-top: 45px;cursor: default;background: #FFFFFF;">
+					<div class="form-group text-center">
+						<h2>职业选择完成</h2>
+					</div>
+					<div class="form-group col-sm-12">
+						<div class="profess-tit finish_icon">
+							<i class="glyphicon glyphicon-ok"></i>
+						</div>
+					</div>
+					<div class="form-group text-center">
+						<h3>您已成功选择职业，现在就开启您的职业生涯！</h3>
+					</div>
+					<div class="form-group text-center">
+						<button type="button" class="btn btn-primary">&nbsp;&nbsp;&nbsp; 确定 &nbsp;&nbsp;&nbsp;</button>
+					</div>
+				</div>
+			</div>
+		<!--完成结束-->
+		</div>
+	</div>
+	
+	<div id="div_pic" class="ibox-content" style="display: none">
+		<div id="swfContainer">
+			本组件需要安装Flash Player后才可使用，请从<a
+				href="http://www.adobe.com/go/getflashplayer">这里</a>下载安装。
+		</div>
+
+	</div>
+
+</body>
+	<script type="text/javascript" src="../../js/plugins/jquery.min.js" ></script>
+	<script type="text/javascript" src="../../js/common/tab.js" ></script>
+<!-- 头像图片上传 -->
+<script type="text/javascript" src="../../js/plugins/fullavatareditor/scripts/swfobject.js"></script>
+<script type="text/javascript" src="../../js/plugins/fullavatareditor/scripts/fullAvatarEditor.js"></script>
+<!-- 弹出层 -->
+<script src="../../js/plugins/layer/layer.min.js"></script>
+<script src="../../js/common/common.js"></script>
+<!-- 页面js -->
+<script type="text/javascript" src="../../team_management/personage_message/personageMessage.js"></script>
+<script>
+	$(function(){
+		$(".main .main-floor .Next").click(function(){
+			$(".main .main-floor").eq(1).fadeIn().siblings().fadeOut();
+			$(".step_tit h5").eq(1).addClass("tit_bg").siblings().removeClass("tit_bg");
+			$(".step_tit h5").eq(0).css("background","#F7F7F7");
+		});
+		$(".main .main-floor .Next2").click(function(){
+			$(".main .main-floor").eq(2).fadeIn().siblings().fadeOut();
+			$(".step_tit h5").eq(2).addClass("tit_bg").siblings().removeClass("tit_bg");
+			$(".step_tit h5").eq(1).css("background","#F7F7F7");
+		});
+		$(".main .main-floor .Next3").click(function(){
+			$(".main .main-floor").eq(3).fadeIn().siblings().fadeOut();
+			$(".step_tit h5").eq(3).addClass("tit_bg").siblings().removeClass("tit_bg");
+			$(".step_tit h5").eq(2).css("background","#F7F7F7");
+		});
+		$(".main .main-floor .Prev2").click(function(){
+			$(".main .main-floor").eq(0).fadeIn().siblings().fadeOut();
+			$(".step_tit h5").eq(0).addClass("tit_bg").siblings().removeClass("tit_bg");
+			$(".step_tit h5").eq(1).css("background","");
+		});
+		$(".main .main-floor .Prev3").click(function(){
+			$(".main .main-floor").eq(1).fadeIn().siblings().fadeOut();
+			$(".step_tit h5").eq(1).addClass("tit_bg").siblings().removeClass("tit_bg");
+			$(".step_tit h5").eq(2).css("background","");
+		});
+	});
+</script>
+</html>

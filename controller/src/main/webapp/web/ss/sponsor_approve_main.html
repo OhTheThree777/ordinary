@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit">
+
+<title>主办方管理</title>
+<meta name="keywords" content="蓝睿UI">
+<meta name="description" content="蓝睿UI">
+
+<!-- <link rel="shortcut icon" href="favicon.ico"> -->
+<link href="../../css/plugins/bootstrap.min14ed.css" rel="stylesheet">
+<link href="../../css/plugins/font-awesome.min93e3.css" rel="stylesheet">
+<link href="../../css/plugins/animate.min.css" rel="stylesheet">
+<link href="../../css/plugins/style.min862f.css" rel="stylesheet">
+<link href="../../css/plugins/zTree/zTreeStyle/zTreeStyle.css" rel="stylesheet">
+<link href="../../js/plugins/sweetalert/dist/sweetalert.css" rel="stylesheet">
+<link href="../../css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+
+<!-- Ztree -->
+<script src="../../js/plugins/jquery.min.js"></script>
+<script src="../../js/plugins/zTree/jquery.ztree.all.min.js"></script>
+
+
+</head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content  animated fadeInRight">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox" style="margin-bottom: 0px">
+					<div class="ibox-title">
+						<h5>
+							<ol class="breadcrumb">
+								<li><a href="#">主办方</a></li>
+								<li class="active">主办方申请</li>
+							</ol>
+						</h5>
+					</div>
+					<div class="ibox-content">
+						<div class="jqGrid_wrapper">
+							<table id="table"></table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 详细信息 -->
+	<div id="div_sponsor" class="ibox-content" style="display: none">
+		<div class="panel panel-primary" style="margin-bottom: -5px">
+			<div class="panel-heading">主办方信息</div>
+			<div class="panel-body">
+				<div class="form-group clearfix">
+					<label class="col-sm-3 control-label">官方LOGO</label>
+					<div class="col-sm-6">
+						<div class="tpl-user-panel-profile-picture">
+							<img id="headportrait" src="">
+						</div>
+					</div>
+				</div>
+				<div class="hr-line-dashed"></div>
+				<div class="form-group clearfix">
+					<label class="col-sm-3 control-label">主办方名称</label>
+					<div class="col-sm-6"><span id="name"></span></div>
+				</div>
+				<div class="hr-line-dashed"></div>
+				<div class="form-group clearfix">
+					<label class="col-sm-3 control-label">主办方用户名</label>
+					<div class="col-sm-6"><span id="userName"></span></div>
+				</div>
+				<div class="hr-line-dashed"></div>
+				<div class="form-group clearfix">
+					<label class="col-sm-3 control-label">主办方联系人</label>
+					<div class="col-sm-6"><span id="contacts"></span></div>
+				</div>
+				<div class="hr-line-dashed"></div>
+				<div class="form-group clearfix">
+					<label class="col-sm-3 control-label">主办方联系电话</label>
+					<div class="col-sm-6"><span id="phone"></span></div>
+				</div>
+				<div class="hr-line-dashed"></div>
+				<div class="form-group clearfix">
+					<label class="col-sm-3 control-label">主办方官方网站</label>
+					<div class="col-sm-6"><span id="url"></span></div>
+				</div>
+				<div class="hr-line-dashed"></div>
+				<div class="form-group clearfix">
+					<label class="col-sm-3 control-label">主办方介绍</label>
+					<div class="col-sm-6"><span id="introduce"></span></div>
+				</div>
+				<div class="hr-line-dashed"></div>
+				<div class="form-group clearfix">
+					<div class="col-sm-offset-4">
+						<button class="btn btn-primary col-md-2 col-sm-3" type="button"
+							id="btn_pass">
+							<i class="fa fa-check" aria-hidden="true"></i>通过
+						</button>
+						<button class="btn btn-primary col-md-2 col-sm-3 col-sm-offset-1" type="button"
+							id="btn_no_pass">
+							<i class="fa fa-check" aria-hidden="true"></i>不通过
+						</button>
+						<button class="btn btn-white col-md-2 col-sm-3 col-sm-offset-1 pull-right" type="button" id="btn_close">
+							<i class="fa fa-share" aria-hidden="true"></i> 关闭
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="../../js/plugins/bootstrap.min.js"></script>
+	<script src="../../js/plugins/layer/layer.min.js"></script>
+	<script src="../../js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+	<script src="../../js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+	<script src="../../js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+	<script src="../../js/plugins/sweetalert/sweetalert.min.js"></script>
+	<script src="../../js/common/common.js"></script>
+	<script src="../../js/plugins/validate/jquery.validate.min.js"></script>
+	<script src="../../js/plugins/validate/messages_zh.min.js"></script>
+	<script src="sponsor_approve_main.js"></script>
+</body>
+</html>

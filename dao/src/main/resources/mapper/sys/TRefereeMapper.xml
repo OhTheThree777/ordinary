@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.imfc.mapper.mapper.sys.TRefereeMapper" >
+  <resultMap id="BaseResultMap" type="cn.lr.mapper.model.sys.TReferee" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="referee_id" property="refereeId" jdbcType="INTEGER" />
+    <result column="referee_name" property="refereeName" jdbcType="VARCHAR" />
+    <result column="referee_sex" property="refereeSex" jdbcType="VARCHAR" />
+    <result column="referee_age" property="refereeAge" jdbcType="INTEGER" />
+    <result column="referee_birthplace" property="refereeBirthplace" jdbcType="VARCHAR" />
+    <result column="referee_phone" property="refereePhone" jdbcType="INTEGER" />
+    <result column="referee_occupation" property="refereeOccupation" jdbcType="VARCHAR" />
+    <result column="referee_times" property="refereeTimes" jdbcType="INTEGER" />
+    <result column="referee_number" property="refereeNumber" jdbcType="INTEGER" />
+    <result column="referee_start_time" property="refereeStartTime" jdbcType="DATE" />
+    <result column="referee_pract_time" property="refereePractTime" jdbcType="INTEGER" />
+    <result column="referee_andrank" property="refereeAndrank" jdbcType="VARCHAR" />
+    <result column="referee_wage" property="refereeWage" jdbcType="REAL" />
+    <result column="referee_remark" property="refereeRemark" jdbcType="LONGVARCHAR" />
+  </resultMap>
+</mapper>

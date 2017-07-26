@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.imfc.mapper.mapper.sys.SysUserMapper">
+  <resultMap id="BaseResultMap" type="cn.lr.mapper.model.sys.SysUser">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="pid" jdbcType="BIGINT" property="pid" />
+    <result column="fid" jdbcType="BIGINT" property="fid" />
+    <result column="loginName" jdbcType="VARCHAR" property="loginname" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="pwdText" jdbcType="VARCHAR" property="pwdtext" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
+    <result column="phoneNo" jdbcType="VARCHAR" property="phoneno" />
+    <result column="webChatNo" jdbcType="VARCHAR" property="webchatno" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="loginTime" jdbcType="TIMESTAMP" property="logintime" />
+    <result column="lastLoginTime" jdbcType="TIMESTAMP" property="lastlogintime" />
+    <result column="loginCount" jdbcType="BIGINT" property="logincount" />
+    <result column="isLock" jdbcType="SMALLINT" property="islock" />
+    <result column="userDesc" jdbcType="VARCHAR" property="userdesc" />
+    <result column="user_job" jdbcType="VARCHAR" property="userJob" />
+    <result column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="id_delete" jdbcType="VARCHAR" property="idDelete" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="head_portrait" jdbcType="VARCHAR" property="headPortrait" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="is_job" jdbcType="VARCHAR" property="isJob" />
+    <result column="personflag" jdbcType="VARCHAR" property="personflag" />
+    <result column="occupation_id" jdbcType="VARCHAR" property="occupationId" />
+    <result column="baidu_id" jdbcType="VARCHAR" property="baiduId" />
+    <result column="weixin_id" jdbcType="VARCHAR" property="weixinId" />
+    <result column="xinlang_id" jdbcType="VARCHAR" property="xinlangId" />
+    <result column="qq_id" jdbcType="VARCHAR" property="qqId" />
+    <result column="team_sign" jdbcType="VARCHAR" property="teamSign" />
+    <result column="person_registration" jdbcType="VARCHAR" property="personRegistration" />
+    <result column="racing_id" jdbcType="INTEGER" property="racingId" />
+    <result column="product_id" jdbcType="INTEGER" property="productId" />
+    <result column="main_state" jdbcType="VARCHAR" property="mainState" />
+    <result column="state" jdbcType="VARCHAR" property="state" />
+  </resultMap>
+</mapper>

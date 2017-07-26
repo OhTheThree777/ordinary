@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>创建球队</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../../css/plugins/teams_players.css" />
+    <link rel="stylesheet" href="../../css/plugins/bootstrap.min.css">
+    <!-- 上传 -->
+    <link href="../../css/plugins/fileinput/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+	<!-- 地址 -->
+	<link rel="stylesheet" href="../../css/plugins/amazeUI/amazeui.min.css" />
+	<link rel="stylesheet" href="../../css/plugins/amazeUI/amazeui.address.min.css" />
+	<link href="../../css/plugins/bootstrap.min14ed.css" rel="stylesheet">
+	<link href="../../css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="../../js/plugins/sweetalert/dist/sweetalert.css">
+	<link rel="stylesheet" href="../../css/plugins/Iconfont/iconfont.css">
+	<style>
+	.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control{
+		background-color:#fff;
+	}
+	</style>
+</head>
+<body class="gray-bg">
+	<div class="center container" style="background:#ffffff;">
+		<div class="clearfix">
+			<h2 class="tit-text"><i class="glyphicon glyphicon glyphicon-align-center glyphicon-icon-fw"></i>创建球队</h2>
+			<div class="tit-text2"><i class="glyphicon glyphicon-info-sign glyphicon-icon-fw"></i>创建一个属于自己的队伍</div>
+		</div>
+		<form  class="form-horizontal create_team clearfix" id="form_teamInfo_add">
+			<div class="form-group">
+						<label class="col-sm-2 control-label" style="line-height:112px;">队徽 </label>
+						<div class="col-sm-8 text-center">
+							<img alt="" src="../../img/tx.png" onclick="showPic(1,1);"
+								style="height: 120px; width: 120px; border-radius: 15px;"
+								id="add_pic1"> <input type="hidden" name="teamEmblem"
+								id="teamEmblem">
+						</div>
+					</div>
+			<div class="form-group clearfix must_fill">
+				<input type="text" class="form-control required" id="" placeholder="给队伍起个名称" name="teamName">			
+			</div>
+<!-- 			<div class="form-group clearfix must_fill"> -->
+<!-- 				<input type="hidden" name="teamLeaderPic" id="lingduiPic"> -->
+<!-- 				<input type="text" class="form-control required" id="teamLeader" placeholder="领队人员姓名" name="teamLeader" readonly="true" data-toggle="modal" data-target="#myModal3">		 -->
+<!-- 				<input type="hidden" name="teamLeaderIdentity" class="form-control required" id=teamLeaderIdentity placeholder="请输入身份证号" required:true/>	 -->
+<!-- 			</div> -->
+<!-- 			<div class="form-group clearfix must_fill"> -->
+<!-- 			  	<input type="hidden" name="teamDoctorPic" id="duiyiPic"> -->
+<!-- 				<input type="text" name="teamDoctor" class="form-control required" id="teamDoctor" placeholder="队医姓名" readonly="true" data-toggle="modal" data-target="#myModal1"> -->
+<!-- 				<input type="hidden" name="teamDoctorIdentity" class="form-control required" id=teamDoctorIdentity placeholder="请输入身份证号" required:true/> -->
+<!-- 			</div> -->
+<!-- 			<div class="form-group clearfix must_fill"> -->
+<!-- 				<input type="text" class="form-control required" name="teamEthos" id="teamEthos" placeholder="赛风监督员姓名" readonly="true" data-toggle="modal" data-target="#myModal2">	 -->
+<!-- 				<input type="hidden" name="teamEthosPic" id="jianduyuanPic"> -->
+<!-- 				<input type="hidden" name="teamEthosIdentity" class="form-control required" id=teamEthosIdentity placeholder="请输入身份证号"> -->
+<!-- 			</div> -->
+			<div class="form-group clearfix must_fill" style="position:relative;">
+				<input type="text" class="form-control required am-fl" id="teamBulidTime" placeholder="球队建队时间" readonly="readonly" name="teamBulidTime">
+				<i class="am-fl am-icon-calendar" style="position:absolute;top:27px;right:13px;"></i>
+			</div>
+			<div class="form-group">
+			   			<input type="text" margin-top: 0;cursor: pointer;" name="teamType_z" class="form-control required" id="team_type" placeholder="请选择队伍类型" value="" readonly="true" data-toggle="modal" data-target="#sport1">
+			   	 		<input type="hidden" class="form-control required" name="teamType" id="teamType">
+			</div>
+			<div class="form-group clearfix must_fill" id="address">
+				<input type="text" class="form-control required" id="" placeholder="所属地区" readonly="readonly" name="areaCode">			
+			</div>
+			<div class="text-center clearfix">
+				<button type="button" class="btn btn-success" style="margin-top:30px;" id="btn_add">创建球队</button>		
+			</div>
+		</form>
+	</div>
+<div id="div_pic" class="ibox-content" style="display: none">
+				<div id="swfContainer">
+				本组件需要安装Flash Player后才可使用，请从<a
+				href="http://www.adobe.com/go/getflashplayer">这里</a>下载安装。
+		</div>
+</div>
+		<!-- 队伍类型弹出项 -->
+		<div class="modal fade" tabindex="-1" id="sport1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="gridSystemModalLabel">队伍类型分类</h4>
+		      </div>
+		      <div class="modal-body">
+		  <!-- Nav tabs -->
+		  <ul class="nav nav-tabs" role="tablist" id="team_type_ul">
+			<!-- 球队分类 -->
+		  </ul>
+		
+		  <!-- Tab panes -->
+		  <div class="tab-content Team_selec" id="team_type_div">
+			<!-- 球队类型 -->
+		  </div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		<!-- 队医弹出项 -->
+			<!-- 模态框（Modal） -->
+		<form id="form_teamDoctor">
+			<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								&times;
+							</button>
+							<h4 class="modal-title" id="myModalLabel">
+								请填写内容
+							</h4>
+						</div>
+						<div class="modal-body">
+							<div class="form-group">
+								<label class="col-sm-2 control-label">头像 </label>
+								<div class="col-sm-4">
+									<img alt="" src="../../img/tx.png" onclick="showPic(1,2);"
+										style="height: 100px; width: 100px;" id="add_pic2">
+										<input type="hidden" name="teamDoctorPic" id="teamDoctorPic"> 
+								</div>
+							</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label">姓名 </label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control required" placeholder="请输入姓名" id="xin1">
+									</div>
+									<label class="col-sm-2 control-label">身份证号</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control required" id="xin2" name="xin2" placeholder="请输入身份证号">
+									</div>
+	
+								</div>
+						</div>
+						
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+							</button>
+							<button id="btn_D" type="button" class="btn btn-primary" onclick="btn_Doctor();">
+								确定
+							</button>
+						</div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal -->
+			</div>
+		</form>
+			
+	<!-- 赛风监督员弹出项 -->
+	<!-- 模态框（Modal） -->
+		<form id="form_teamEthos">
+			<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								&times;
+							</button>
+							<h4 class="modal-title" id="myModalLabel">
+								请填写内容
+							</h4>
+						</div>
+						<div class="modal-body">
+							<div class="form-group">
+								<label class="col-sm-2 control-label">头像 </label>
+								<div class="col-sm-4">
+									<img alt="" src="../../img/tx.png" onclick="showPic(1,3);"
+										style="height: 100px; width: 100px;" id="add_pic3">
+										<input type="hidden" name="teamEthosPic" id="teamEthosPic">
+								</div>
+							</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label">姓名 </label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control required" placeholder="请输入姓名" id="hai1">
+									</div>
+									<label class="col-sm-2 control-label">身份证号</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control required" id="hai2" name="hai2" placeholder="请输入身份证号">
+									</div>
+	
+								</div>
+						</div>
+						
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+							</button>
+							<button type="button" id="btn_E" class="btn btn-primary" onclick="btn_Ethos();">
+								确定
+							</button>
+						</div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal -->
+			</div>
+		</form>
+		
+		<!-- 领队弹出项 -->
+		<!-- 模态框（Modal） -->
+		<form id="form_Leader">
+			<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								&times;
+							</button>
+							<h4 class="modal-title" id="myModalLabel">
+								请填写内容
+							</h4>
+						</div>
+						<div class="modal-body">
+							<div class="form-group">
+								<label class="col-sm-2 control-label">头像 </label>
+								<div class="col-sm-4">
+									<img alt="" src="../../img/tx.png" onclick="showPic(1,4);"
+										style="height: 100px; width: 100px;" id="add_pic4">
+										<input type="hidden" name="teamLeaderPic" id="teamLeaderPic">
+								</div>
+							</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label">姓名 </label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control required" placeholder="请输入姓名" id="ling1">
+									</div>
+									<label class="col-sm-2 control-label">身份证号</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control required" id="ling2" name="ling2" placeholder="请输入身份证号">
+									</div>
+								</div>
+						</div>
+						
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+							</button>
+							<button type="button" id="btn_T" class="btn btn-primary" onclick="btn_Leader();">
+								确定
+							</button>
+						</div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal -->
+			</div>
+		</form>
+</body>
+	<script src="../../js/plugins/jquery.min.js"></script>
+	<script src="../../js/common/common.js"></script>
+	<script src="../../js/common/tab.js" ></script>
+	<script src="../../js/plugins/jquerySession.js"></script>
+	<script src="../../js/plugins/bootstrap.min.js"></script>
+	<script src="../../js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+	<script
+		src="../../js/plugins/bootstrap-table/extensions/toolbar/bootstrap-table-toolbar.js"></script>
+	<script
+		src="../../js/plugins/bootstrap-table/extensions/export/bootstrap-table-export.js"></script>
+	<script
+		src="../../js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+
+	<script
+		src="../../js/plugins/bootstrap-table/extensions/export/tableExport.js"></script>
+	<script
+		src="../../js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+	<!-- 验证 -->
+	<script src="../../js/plugins/validate/jquery.validate.min.js"></script>
+	<script src="../../js/plugins/validate/messages_zh.min.js"></script>
+	<script src="../../js/plugins/validate/additional-methods.js"></script>
+	<!-- 头像图片上传 -->
+	<script type="text/javascript"
+		src="../../js/plugins/fullavatareditor/scripts/swfobject.js"></script>
+	<script type="text/javascript"
+		src="../../js/plugins/fullavatareditor/scripts/fullAvatarEditor.js"></script>
+	<!-- 地址 -->
+	<script src="../../js/plugins/amazeUI/amazeui.min.js"></script>
+	<script src="../../js/plugins/amazeUI/address.js"></script>
+	<!-- 日期 -->
+	<script src="../../js/plugins/layer/laydate/laydate.js"></script>
+	<!-- 弹出层 -->
+	<script src="../../js/plugins/layer/layer.min.js"></script>
+	<!-- alert -->
+	<script src="../../js/plugins/sweetalert/sweetalert.min.js"></script>
+	<script type="text/javascript" src="../team/create_team.js"></script>
+
+</html>

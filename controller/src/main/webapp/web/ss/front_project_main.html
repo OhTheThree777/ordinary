@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit">
+<title>赛事管理</title>
+<meta name="keywords" content="蓝睿UI">
+<meta name="description" content="蓝睿UI">
+<link rel="shortcut icon" href="favicon.ico">
+<link href="../../css/plugins/bootstrap.min14ed.css?v=3.3.6"
+	rel="stylesheet">
+<link href="../../css/plugins/font-awesome.min93e3.css?v=4.4.0"
+	rel="stylesheet">
+<link href="../../css/plugins/animate.min.css" rel="stylesheet">
+<link href="../../css/plugins/style.min862f.css?v=4.1.0"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="../../js/plugins/sweetalert/dist/sweetalert.css">
+<link href="../../css/plugins/bootstrap-table/bootstrap-table.min.css"
+	rel="stylesheet">
+
+<link href="../../css/plugins/fileinput/fileinput.min.css" media="all"
+	rel="stylesheet" type="text/css" />
+</head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content  animated fadeInRight">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox" style="margin-bottom: 0px">
+					<div class="ibox-title">
+						<h5>
+							<ol class="breadcrumb">
+								<li class="active">赛事管理</li>
+							</ol>
+						</h5>
+						<div class="ibox-tools">
+                            <a  id ="add"  class="btn btn-primary btn-xs">创建新赛事</a>
+                        </div>
+					</div>
+					<div class="ibox-content">
+						<div class="jqGrid_wrapper">
+							<div class="row m-b-sm m-t-sm">
+	                            <div class="col-md-1">
+	                                <button type="button" id="loading-example-btn" class="btn btn-white btn-sm"><i class="fa fa-refresh"></i> 刷新</button>
+	                            </div>
+	                            <div class="col-md-11">
+	                                <div class="input-group">
+	                                    <input type="text" placeholder="请输入项目名称" class="input-sm form-control" id="seek"> <span class="input-group-btn">
+	                                        <button type="button" class="btn btn-sm btn-primary" id="btn_seek"> 搜索</button> </span>
+	                                </div>
+	                            </div>
+	                        </div>
+                       		 <div id="project-where-table-add"></div>
+							 
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 添加详细信息弹框表格 -->
+	<div id="div_project" class="ibox-content" style="display: none">
+		<form id="from_ss_project_add" class="form-horizontal">
+			<div class="panel panel-primary" style="margin-bottom: -5px">
+				<div class="panel-heading">添加-赛事信息</div>
+				<input type="hidden" name="id">
+				<div class="panel-body">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">赛事名称 </label>
+						<div class="col-sm-8">
+							<input type="text" name="projectName"
+								class="form-control required" placeholder="赛事名称">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">联系人姓名 </label>
+						<div class="col-sm-4">
+							<input type="text" name="mainOrganizersName"
+								class="form-control required" placeholder="主办方联系人姓名">
+						</div>
+						<label class="col-sm-2 control-label">联系人电话 </label>
+						<div class="col-sm-4">
+							<input type="text" name="mainOrganizersPhoneNumber" id="mainOrganizersPhoneNumber"
+								class="form-control required" placeholder="主办方联系人电话">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="hr-line-dashed"></div>
+						<label class="col-sm-2 control-label">协办方与承办方</label>
+						<div class="col-sm-8">
+							<input type="text" name="otherOrganizers"
+								class="form-control required" placeholder="协办方与承办方">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">赛事开始日期</label>
+						<div class="col-sm-4">
+							<input type="text" id="match_begin_date" name="matchBeginDate"
+								class="form-control required laydate-icon" placeholder="赛事开始日期">
+						</div>
+						<label class="col-sm-2 control-label">赛事结束日期</label>
+						<div class="col-sm-4">
+							<input type="text" name="matchEndDate" id="match_end_date"
+								class="form-control required laydate-icon" placeholder="赛事结束日期">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">宣传图片</label>
+						<div class="col-sm-10">
+							
+							<input id="fileinput_add" type="file" >
+							<input type="hidden" name="propagateUrlPhoto" id="add_file_propagate"/>
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">赛事类型 </label>
+						<div class="col-sm-4">
+							<select class="form-control required" name="matchType" validate="required:true"
+								id="match_type">
+							</select>
+						</div>
+						<label class="col-sm-2 control-label">赛制</label>
+						<div class="col-sm-4">
+							<select class="form-control required" name="matchSystem" validate="required:true"
+								id="match_system">
+							</select>
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">赛事介绍</label>
+						<div class="col-sm-8">
+							<script id="matchIntroduce" name="matchIntroduce" type="text/plain"></script>
+						</div>
+
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-4">
+						<button class="btn btn-primary col-sm-3" type="button"
+							id="btn_add">
+							<i class="fa fa-check" aria-hidden="true"></i>保存
+						</button>
+						<button class="btn btn-primary col-sm-3" style="display: none;" type="button"
+							id="btn_update_submit">
+							<i class="fa fa-check" aria-hidden="true"></i>修改
+						</button>
+						<button class="btn btn-white col-sm-3 col-sm-offset-1"
+							type="button" id="btn_close">
+							<i class="fa fa-share" aria-hidden="true"></i> 关闭
+						</button>
+					</div>
+
+				</div>
+			</div>
+		</form>
+	</div>
+
+<!-- 	下面是主界面的赛事的显示，修改和删除被注释，感觉不能有删除和修改功能，因为这个地方误删或者误修可能会影响很多地方，还有待考量 -->
+	<script  id="project-table-add"  type="text/x-handlebars-template">
+		{{#each this}}
+				<div class="project-list">
+
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr>
+                                       <td class="project-status"> 
+                                             <span class="label label-primary">进行中
+                                         </span></td> 
+										
+                                        <td class="project-title">
+   												<a href="javascript:;" onclick="subproject({{id}})">{{projectName}}</a>
+                                            <br>
+										<!--
+										<small>{{mainOrganizers}}</small> -->
+                                            <small>赛事开始于{{matchBeginDate}}</small>
+                                        </td>
+<!--
+										<td>
+											<button type="button" class="btn btn-sm btn-success">开始报名</button>
+										</td>
+-->
+										<td class="project-completion">
+                                                <small>当前进度： 48%</small>
+                                                <div class="progress progress-mini">
+                                                    <div style="width: 48%;" class="progress-bar"></div>
+                                                </div>
+                                        </td>
+                                      
+                                        <td class="project-actions">
+											<div class="btn btn-white btn-sm"id="project-add-racing" name="{{id}}"><i class="fa fa-folder"></i> 添加项目 </div>
+											<div class="btn btn-white btn-sm"id="project-add-team" name="{{id}}"><i class="fa fa-folder"></i> 邀请球队 </div>
+											
+                                            <div class="btn btn-white btn-sm"id="edit-project" name="{{id}}"><i class="glyphicon glyphicon-pencil"></i> 编辑赛事 </div>
+											<div class="btn btn-outline btn-danger btn-sm"  id="delete-project" name="{{id}}"><i class="glyphicon glyphicon-trash"></i> 删除赛事 </div>
+                                        </td>
+                                    </tr>                                    
+                                    </tbody>
+                                </table>
+                            </div>
+		{{/each}}
+	
+	
+	
+	
+	</script>
+	<script src="../../js/plugins/amazeUI/handlebars.min.js"></script>
+	<script src="../../js/plugins/jquery.min.js?v=2.1.4"></script>
+	<script src="../../js/plugins/bootstrap.min.js?v=3.3.6"></script>
+	<script src="../../js/plugins/layer/layer.min.js"></script>
+	<script src="../../js/plugins/layer/laydate/laydate.js"></script>
+	<script  src="../../js/plugins/jquery.cookie.js"> </script>
+	<script src="../../js/plugins/jquerySession.js"></script>
+	<script src="../../js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+	<script
+		src="../../js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+	<script
+		src="../../js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+	<script src="../../js/plugins/sweetalert/sweetalert.min.js"></script>
+	<script src="../../js/common/common.js"></script>
+	<script src="../../js/plugins/validate/jquery.validate.min.js"></script>
+	<script src="../../js/plugins/validate/messages_zh.min.js"></script>
+
+	<script src="../../js/plugins/fileinput/fileinput.min.js"
+		type="text/javascript"></script>
+	<script src="../../js/plugins/fileinput/locales/zh.js"
+		type="text/javascript"></script>
+	<script src="../../js/plugins/validate/messages_zh.min.js"></script>
+	<script src="../../js/plugins/validate/additional-methods.js"></script>
+	
+	<!-- 配置文件 -->
+	<script type="text/javascript" src="../../ueditor/ueditor.config.js"></script>
+	<!-- 编辑器源码文件 -->
+	<script type="text/javascript" src="../../ueditor/ueditor.all.js"></script>
+	<script type="text/javascript" src="../../ueditor/ueditor.parse.min.js"></script>
+	<script type="text/javascript" src="../../ueditor/lang/zh-cn/zh-cn.js"></script>
+	
+		
+	<script src="front_project_main.js"></script>
+</body>
+</html>

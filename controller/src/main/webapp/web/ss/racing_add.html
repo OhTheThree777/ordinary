@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+/* 11    下面三个css 为自写微调控件位置用 */
+.div_height190 {
+	height: 190px
+}
+
+.div_height {
+	height: 238px
+}
+
+.addfont_big {
+	font-size: 50px
+}
+</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit">
+<title>赛事管理</title>
+<meta name="keywords" content="蓝睿UI">
+<meta name="description" content="蓝睿UI">
+<!-- <link rel="shortcut icon" href="favicon.ico"> -->
+<link href="../../css/plugins/bootstrap.min14ed.css" rel="stylesheet">
+<link href="../../css/plugins/font-awesome.min93e3.css" rel="stylesheet">
+<link href="../../css/plugins/animate.min.css" rel="stylesheet">
+<link href="../../css/plugins/style.min862f.css" rel="stylesheet">
+<link rel="stylesheet" href="../../js/plugins/sweetalert/dist/sweetalert.css">
+<link href="../../css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+
+<link href="../../css/plugins/fileinput/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+<!-- 地址 -->
+<link rel="stylesheet" href="../../css/plugins/amazeUI/amazeui.min.css" />
+<link rel="stylesheet" href="../../css/plugins/amazeUI/amazeui.address.min.css" />
+</head>
+<body>
+	<!-- 添加详细信息弹框表格 -->
+	<div id="div_racing" class="ibox-content">
+		<div class="panel panel-primary" style="margin-bottom: -5px">
+			<div class="panel-heading">竞赛项目</div>
+			<div class="panel-body">
+				<form id="from_ss_racing" class="form-horizontal">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">竞赛名称 </label>
+						<div class="col-sm-8">
+							<input type="hidden" name="projectId" id="projectId"> <input type="hidden" name="id"> <input type="text" name="racingName" class="form-control required" placeholder="竞赛名称">
+						</div>
+					</div>
+
+<!-- 					<div class="hr-line-dashed"></div> -->
+					<div class="form-group" style="display: none">
+						<label class="col-sm-2 control-label">联系人姓名 </label>
+						<div class="col-sm-4">
+							<input type="text" name="mainOrganizersName" id="mainOrganizersName" class="form-control required" placeholder="主办方联系人姓名">
+						</div>
+						<label class="col-sm-2 control-label">联系人手机号码 </label>
+						<div class="col-sm-4">
+							<input type="text" name="mainOrganizersPhoneNumber" id="mainOrganizersPhoneNumber" class="form-control required" placeholder="主办方联系人电话">
+						</div>
+					</div>
+<!-- 					<div class="hr-line-dashed"></div> -->
+<!-- 					<div class="form-group"> -->
+<!-- 						<label class="col-sm-2 control-label"><button type="button" class="btn btn-sm btn-primary pull-right m-t-n-xs" id="sendTel"> -->
+<!-- 								<strong>添加座机号码&nbsp;<i class="fa fa-arrow-circle-right"></i></strong> -->
+<!-- 							</button></label> -->
+<!-- 					</div> -->
+					<div  style="display: none">
+					<div id="div_tel">
+						<div class="hr-line-dashed"></div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">主办方座机号码 </label>
+							<div class="col-sm-4">
+								<input type="text" name="specialPlane" id="specialPlane" class="form-control required" placeholder="主办方座机号码">
+							</div>
+						</div>
+					</div>
+					</div>
+					<div id="input_tel"></div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-2 control-label">比赛地点</label>
+						<div class="col-sm-9" id="address_new">
+							<input type="text" class="form-control required" id="competitionSite" name="competitionSite" placeholder="请输入比赛地点">
+						</div>
+					</div>
+					
+					<div class="hr-line-dashed"></div>
+					<div id="ZBF">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">主办方名称</label>
+						<div class="col-sm-8" id="">
+							<input type="text" class="form-control required" id="sponsorName" name="sponsorName" placeholder="请输入主办方名称">
+						</div>
+							<small><i class="am-icon-exclamation-triangle"></i>&nbsp;多个请以逗号分隔</small>
+<!-- 						<button id="btn_add_sponsorName" class="btn btn-outline btn-primary" type="button"> -->
+<!-- 							<i class="glyphicon glyphicon-plus" aria-hidden="true"></i> -->
+<!-- 						</button> -->
+					</div>
+					</div>
+					<div class="form-group">
+						<div class="hr-line-dashed"></div>
+						<label class="col-sm-2 control-label">承办方名称</label>
+						<div class="col-sm-8">
+							<input type="text" name="organizer" class="form-control" placeholder="承办方">
+						</div>
+						<small><i class="am-icon-exclamation-triangle"></i>&nbsp;多个请以逗号分隔</small>
+					</div>
+					
+					<div class="form-group">
+						<div class="hr-line-dashed"></div>
+						<label class="col-sm-2 control-label">协办方名称</label>
+						<div class="col-sm-8">
+							<input type="text" name="synergy" class="form-control" placeholder="协办方">
+						</div>
+						<small><i class="am-icon-exclamation-triangle"></i>&nbsp;多个请以逗号分隔</small>
+					</div>
+					
+					<div class="form-group">
+						<div class="hr-line-dashed"></div>
+						<label class="col-sm-2 control-label">支持单位</label>
+						<div class="col-sm-8">
+							<input type="text" name="supportUnits" class="form-control" placeholder="支持单位">
+						</div>
+						<small><i class="am-icon-exclamation-triangle"></i>&nbsp;多个请以逗号分隔</small>
+					</div>
+					
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">报名截止时间 </label>
+						<div class="col-sm-4">
+							<input type="text" name="cutOffDate" id="cut_off_date" class="form-control required laydate-icon" readonly="readonly">
+						</div>
+					</div>
+					
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">开赛时间 </label>
+						<div class="col-sm-4">
+							<input type="text" name="racingBeginTime" id="racing_begin_time" class="form-control required laydate-icon" readonly="readonly">
+						</div>
+						<label class="col-sm-2 control-label">结束时间 </label>
+						<div class="col-sm-4">
+							<input type="text" name="racingEndTime" id="racing_end_time" class="form-control required laydate-icon" readonly="readonly">
+						</div>
+					</div>
+				
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">宣传图片 </label>
+						<div class="col-sm-8">
+							<input id="file_racing" type="file"> <input type="hidden" name="racingPic" id="hidRacingPic" />
+						</div>
+
+					</div>
+
+
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">竞赛类型</label>
+						<div class="col-sm-6">
+							<select class="form-control required" name="modelId" id="modelid">
+							</select>
+						</div>
+						<!-- 这个就是竞赛模型后面跳转到模型管理的按钮，因为存在bug所以注释掉  js中的事件在28行 -->
+						<!-- 						<button  id='btn_model_prop'    class="btn btn-outline  btn-primary" type="button"> -->
+						<!-- 							<i class="glyphicon glyphicon-plus" aria-hidden="true"></i> -->
+						<!-- 						</button> -->
+					</div>
+
+<!-- 					<div class="hr-line-dashed"></div> -->
+<!-- 					<div class="form-group"> -->
+<!-- 						<label class="col-sm-2 control-label">赛事类型 </label> -->
+<!-- 						<div class="col-sm-6"> -->
+<!-- 							<select class="form-control required" name="racingType" id="racing_type"> -->
+<!-- 							</select> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+
+					<div id="model_app"></div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">竞赛规格</label>
+						<div class="col-sm-6">
+							<button class="btn btn-outline btn-success" type="button" id="btn_model_spec">
+								<i class="glyphicon glyphicon-plus" aria-hidden="true">添加规格</i>
+							</button>
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">基本信息</label>
+						<div id="spec_view" class="col-sm-9">
+							<div class="panel panel-info " style="border: 1px solid #1a7bb9; border-radius: 0px; padding: 15px 15px 15px 0px;">
+								<div class="panel-body">
+									<table class="table table-striped ">
+										<thead id="spec_thead">
+
+										</thead>
+										<tbody id="specjsonstr_append">
+
+										</tbody>
+									</table>
+								</div>
+
+							</div>
+
+						</div>
+						<div class="hr-line-dashed"></div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">项目介绍</label>
+							<div class="col-sm-8">
+								<script id="racingIntroduce" name="racingIntroduce" type="text/plain"></script>
+							</div>
+
+						</div>
+					</div>
+					<div class="form-group" style="margin-top:20px;">
+						<div class="col-sm-offset-4">
+							<button class="btn btn-primary col-sm-3" type="button" id="btn_add">
+								<i class="fa fa-check" aria-hidden="true"></i>保存
+							</button>
+							<button class="btn btn-primary col-sm-3" type="button" id="btn_update_submit" style="display: none;">
+								<i class="fa fa-check" aria-hidden="true"></i>保存
+							</button>
+							<!-- 							<button class="btn btn-white col-sm-3 col-sm-offset-1" -->
+							<!-- 								type="button" id="btn_closeRacing"> -->
+							<!-- 								<i class="fa fa-share" aria-hidden="true"></i> 关闭 -->
+							<!-- 							</button> -->
+						</div>
+
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+	
+	<!-- 规格信息 -->
+	<div id="div_spec" style="display: none;">
+		<div class="row">
+			<div class="col-sm-3" style="margin-top: 15px; margin-left: 15px; margin-right: -10px;">
+				<div class="panel panel-info">
+					<div class="panel-heading">规格名称</div>
+					<div class="panel-body" style="height: 220px">
+						<ul class="tag-list" id="spec_list" style="padding: 0">
+
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-9" spellcheck="false" style="margin-top: 15px; margin-left: -15px;">
+				<div class="panel panel-info">
+					<div class="panel-heading">规格列表</div>
+					<div class="panel-body">
+						<ul class="tag-list" id="spec_data" style="padding: 0">
+
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-info" style="display: none;" id="panel_sel_sepc_data">
+					<div class="panel-body">
+						<table class="table table-striped" id="sel_spec_data">
+							<thead>
+								<tr>
+									<th>名称</th>
+									<th>规格植</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody id="tbody_spec_data">
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="row">
+			<form id="from_spec" class="form-horizontal">
+				<div class="col-sm-offset-4">
+					<input type="hidden" id="spec_id" name="specId"> <input type="hidden" id="spec_id" name="specId">
+					<button class="btn btn-primary col-sm-3" type="button" id="btn_spec_add">
+						<i class="fa fa-check" aria-hidden="true"></i>保存
+					</button>
+
+					<button class="btn btn-white col-sm-3 col-sm-offset-1" type="button" id="btn_spec_close">
+						<i class="fa fa-share" aria-hidden="true"></i> 关闭
+					</button>
+				</div>
+			</form>
+		</div>
+
+	</div>
+	<!-- 	script id="table-template" type="text/x-handlebars-template" -->
+	<!-- 	1   下面是主界面显示竞赛的 -->
+	<!-- 	<script id="racing-table-add" type="text/x-handlebars-template">
+
+				{{#each this}}
+				<div class="col-sm-4 div_height">
+				<div class="ibox float-e-margins">
+                <div class="ibox-title">
+                <h5>{{racingName}}</h5>
+				<div id="racing-table-id"   value="{{id}} " ></div>
+				
+                 <div class="ibox-tools">  
+                  
+                 <a class="close-link" id="delete_racing" value="{{id}}">        <i class="fa fa-times "></i>        </a>
+                </div>
+                </div> 
+                <div class="ibox-content div_height190">
+                <div>          
+                </div>
+                 所属赛事:{{project_id}}              
+                  <ul class="unstyled">
+                <li> 添加时间:{{racingAddDate}}</li>
+                <li> 开始时间:{{racingBeginTime}}</li>
+                <li> 结束时间:{{racingEndTime}}</li>
+                <li> 对应赛事id:{{projectId}}</li>
+                 </li> 
+                </ul>
+                </div>
+                </div>
+                </div>
+				{{/each}}
+	
+		</script>-->
+	<!-- 1下面是添加规格时左面选择规格的按钮 -->
+	<script id="spec-model" type="text/x-handlebars-template">
+			{{#each this}}
+				<li><a onclick="selSpec('{{specData}}','{{specName}}','{{id}}')">{{specName}}</a></li>
+            {{/each}}
+	 </script>
+
+	<script id="productHeadTemplate" type='text/html'>
+		<tr>
+		<th>禁赛编号</th>
+		{{#each this}}
+		{specName}}
+		{{/each}}
+		<th>可参加人数</th>
+		<th>报名费用</th>
+		<th>操作</th>
+	</tr>											
+	</script>
+	<script src="../../js/plugins/jquery.min.js"></script>
+	<script src="../../js/plugins/bootstrap.min.js"></script>
+	<script src="../../js/plugins/jquery.cookie.js">
+        
+    </script>
+	<script src="../../js/plugins/amazeUI/handlebars.min.js"></script>
+	<script src="../../js/plugins/layer/layer.min.js"></script>
+	<script src="../../js/plugins/layer/laydate/laydate.js"></script>
+	<script src="../../js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+	<script src="../../js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+	<script src="../../js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+	<script src="../../js/plugins/sweetalert/sweetalert.min.js"></script>
+	<script src="../../js/common/common.js"></script>
+	<script src="../../js/plugins/jquerySession.js"></script>
+	<script src="../../js/plugins/validate/jquery.validate.min.js"></script>
+	<script src="../../js/plugins/validate/additional-methods.js"></script>
+	<script src="../../js/plugins/validate/messages_zh.min.js"></script>
+	<script src="../../js/plugins/fileinput/fileinput.min.js" type="text/javascript"></script>
+	<script src="../../js/plugins/fileinput/locales/zh.js" type="text/javascript"></script>
+	<!-- 配置文件 -->
+	<script type="text/javascript" src="../../ueditor/ueditor.config.js"></script>
+	<!-- 编辑器源码文件 -->
+	<script type="text/javascript" src="../../ueditor/ueditor.all.js"></script>
+	<script type="text/javascript" src="../../ueditor/ueditor.parse.min.js"></script>
+	<script type="text/javascript" src="../../ueditor/lang/zh-cn/zh-cn.js"></script>
+	<!-- 地址 -->
+	<script src="../../js/plugins/amazeUI/amazeui.min.js"></script>
+	<script src="../../js/plugins/amazeUI/address.js"></script>
+	<script src="../../js/plugins/layer/laydate/laydate.js"></script>
+	<script src="racing_add.js"></script>
+</body>
+</html>

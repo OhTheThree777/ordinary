@@ -1,0 +1,17 @@
+#schoolName{cursor:pointer;background-color:#ffffff;}
+.provinceSchool{display:none;position:absolute;height:auto;border:1px solid #72B9D7;z-index:9999;background:#ffffff;}
+.provinceSchool .title{width:100%;height:30px;background:#72B9D7;cursor:move;}
+.provinceSchool .title span{margin-left:10px;font-weight:600;color:#FFF;line-height:30px;}
+.provinceSchool .proSelect{text-align:center;padding:15px 0;}
+.provinceSchool .proSelect select{width:136px;border-radius:6px;}
+.provinceSchool .proSelect span{padding-left:10px;}
+.provinceSchool .proSelect input{display:none;}
+.provinceSchool .schoolList{min-height:180px;max-height:320px;padding:10px 0;overflow-y:auto;overflow-x:hidden;border:1px solid #ddd;}
+.provinceSchool .schoolList ul{width:510px;clear:both;}
+.provinceSchool .schoolList ul span.entertext{display:block;height:180px;font:normal 16px/180px 'microsoft yahei';color:#999;}
+.provinceSchool .schoolList ul li{float:left;text-align:center;width:160px;margin:5px;margin-left:30px;height:25px;line-height:25px;cursor:pointer;background:#fafafa;border-radius:3px;list-style:none;-webkit-transition:all .3s;-moz-transition:all .3s;}
+.provinceSchool .schoolList ul li.DoubleWidthLi{overflow:hidden;}
+.provinceSchool .schoolList ul li:hover{background:#72B9D7;color:#fff;}
+.provinceSchool .button{width:100%;height:40px;margin-top:8px;}
+.provinceSchool .button button{float:right;height:30px;margin-right:15px;padding:2px 15px;background:#72B9D7;border:none;color:#FFF;font-weight:600;cursor:pointer;border-radius:3px;}
+.provinceSchool .button button:hover{background:#2e90bd;}

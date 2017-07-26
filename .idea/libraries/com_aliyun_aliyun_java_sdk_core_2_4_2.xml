@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="com.aliyun:aliyun-java-sdk-core:2.4.2" type="repository">
+    <properties maven-id="com.aliyun:aliyun-java-sdk-core:2.4.2" />
+    <CLASSES>
+      <root url="jar://D:/Intellj_maven_repository/com/aliyun/aliyun-java-sdk-core/2.4.2/aliyun-java-sdk-core-2.4.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

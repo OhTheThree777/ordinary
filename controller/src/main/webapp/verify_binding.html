@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" style="height:100%;">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>体育赛事-用户绑定验证</title>
+<meta name="description" content="用户绑定验证">
+<meta name="keywords" content="index">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="icon" type="image/png" href="img/logo1.png">
+<link rel="apple-touch-icon-precomposed" href="img/logo1.png">
+<meta name="apple-mobile-web-app-title" content="体育赛事" />
+<link rel="stylesheet" href="css/plugins/admin/amazeui.min.css" />
+<link rel="stylesheet" href="css/plugins/admin/app.css">
+<link rel="stylesheet" href="js/plugins/sweetalert/dist/sweetalert.css">
+<link rel="stylesheet" href="css/plugins/font-awesome.min93e3.css">
+<script src="js/plugins/jquery.min.js"></script>
+<script src="js/common/verify_binding.js"></script>
+<style>
+#form_binding_user label.error{
+	color: red;
+	font-size: 12px;
+}
+#form_binding_user .doc-js-btn-1 label.am-btn{
+	line-height: initial;
+	font-size:13px;
+}
+#personFlag-error{
+	position: absolute;
+    left: 0;
+    top: 28px;
+    color: red !important;
+}
+</style>
+</head>
+<body data-type="login">
+	<script src="js/plugins/admin/theme.js"></script>
+	<div class="am-g tpl-g">
+
+		<div class="tpl-login">
+			<div class="tpl-login-content page_login">
+				<div class="tpl-login-logo"></div>
+				<div class="tpl-login-title" style="color:#fff;">
+					用户绑定验证<span class="tpl-login-content-info" style="padding-left: 3%;color:#fff;"> 绑定一个手机号 </span>
+				</div>
+
+				<form class="am-form tpl-form-line-form" id="form_binding_user">
+					<input type="hidden" id="uid" name="uid" />
+					<input type="hidden" id="uname" name="uname" />
+					<input type="hidden" id="portrait" name="portrait" />
+					<input type="hidden" id="nickname" name="nickname" />
+					
+					<div class="am-form-group">
+						<label class="am-u-sm-12 am-u-md-6 am-u-lg-3" style="color:#fff;">用户类型</label>
+						<div class="am-u-sm-12 am-u-md-6 am-u-lg-9">
+							<div class="am-btn-group doc-js-btn-1 yhlx_list" data-am-button>
+							  <label class="am-btn am-badge am-badge-success am-radius">
+							    <input type="radio" name="personFlag" value="4" id=""> 球队管理者
+							  </label>
+							  <label class="am-btn am-badge am-badge-secondary am-radius">
+							    <input type="radio" name="personFlag" value="5" id=""> 主办方
+							  </label>
+							  <label class="am-btn  am-badge am-badge-warning am-radius">
+							    <input type="radio" name="personFlag" value="1" id=""> 其他(球员,教练,裁判)
+							  </label>
+							</div>
+						</div>
+					</div>
+					
+					<div class="am-form-group">
+						<label class="am-u-sm-12 am-u-md-6 am-u-lg-3" style="color:#fff;">手 机 号</label>
+						<div class="am-u-sm-12 am-u-md-6 am-u-lg-9">
+							<input type="text" class="tpl-form-input " id="phone" value="建议使用常用手机号" style="border-bottom: 1px solid #fff;color:#fff;" name="phone" onfocus="if(this.value=='建议使用常用手机号'){this.value='';}"
+						onblur="if(this.value==''){this.value='建议使用常用手机号';}">
+						</div>
+					</div>
+					<div class="am-form-group">
+						<label class="am-u-sm-12 am-u-md-6 am-u-lg-3" style="color:#fff;">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码</label>
+						<div class="am-u-sm-12 am-u-md-6 am-u-lg-9">
+							<input type="password" class="tpl-form-input " id="userPass" style="border-bottom: 1px solid #fff;color:#fff;" name="userPass" placeholder="请输入密码">
+						</div>
+					</div>
+					<div class="am-form-group">
+						<label class="am-u-sm-12 am-u-md-6 am-u-lg-3" style="color:#fff;">验 证 码</label>
+						<div class="am-u-sm-12 am-u-md-6 am-u-lg-9"
+							style="position: relative;">
+							<input type="text" class="tpl-form-input " id="captcha" name="captcha" value="请输入手机发送的验证码" style="border-bottom: 1px solid #fff;color:#fff;" name="phone" onfocus="if(this.value=='请输入手机发送的验证码'){this.value='';}"
+						onblur="if(this.value==''){this.value='请输入手机发送的验证码';}"> 
+							<input type="button" value="获取手机验证码" class="vcode-btn" onclick="settime(this)" style="position: absolute;right: 13px;top: -9px;background:#fff;"/>
+						</div>
+					</div>
+					<div class="am-form-group">
+
+						<button type="button" id="btn_reg_user"
+							class="am-btn am-btn-block am-btn-warning">立刻绑定</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+				<!-- 登录页背景图 -->
+        <div class="back">
+ 			
+            <div class="items">
+	            <!-- <div class="item item1" style="background-image: url(&quot;https://img.alicdn.com/tps/TB1h9xxIFXXXXbKXXXXXXXXXXXX.jpg&quot;);"></div> -->
+	            <div class="item item1" style="background-image: url(&quot;img/56725ddd13767.jpg&quot;);"></div>
+	            <div class="item item2" style="display: block; background-image: url(&quot;https://img.alicdn.com/tps/TB1sXGYIFXXXXc5XpXXXXXXXXXX.jpg&quot;);"></div>
+	            <div class="item item3" style="display: block; background-image: url(&quot;https://img.alicdn.com/tps/TB1pfG4IFXXXXc6XXXXXXXXXXXX.jpg&quot;);"></div>
+            </div>
+          	
+        </div>
+	<!-- 登录页背景图结束 -->
+	<script src="js/plugins/admin/amazeui.min.js"></script>
+	<script src="js/common/common.js"></script>
+	<script src="js/plugins/layer/layer.min.js"></script>
+	<!-- form -->
+	<script src="js/plugins/layer/laydate/laydate.js"></script>
+	<script src="js/plugins/validate/jquery.validate.min.js"></script>
+	<script src="js/plugins/validate/messages_zh.min.js"></script>
+	<script src="js/plugins/validate/additional-methods.js"></script>
+	<script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+	<script src="js/plugins/jquery.cookie.js"></script>
+	<script src="js/plugins/jquerySession.js"></script>
+	<script type="text/javascript">
+        var countdown = 60;
+        function settime(obj) {
+            if ($("#phone").val() == "" ) {
+                lrError("请输入手机号！");
+                countdown = 0;
+            } else {
+                var mobile = /^1[34578]\d{9}$/;
+                if ($("#phone").val().length != 11 && !mobile.test($("#phone").val())) {
+                    lrError("请输入正确的手机号！");
+                    countdown = 0;
+                } else {
+                    if (countdown == 60) {
+                        sendCaptcha();
+                    }
+                }
+            }
+            if (countdown == 0) {
+                obj.removeAttribute("disabled");
+                $(".vcode-btn").css('color', '#0e90d2');
+                obj.value = "重新获取验证码";
+                countdown = 60;
+                return;
+            } else {
+                obj.setAttribute("disabled", true);
+                $(".vcode-btn").css('color', 'red');
+                obj.value = "稍后重新发送(" + countdown + ")";
+                countdown--;
+            }
+            setTimeout(function () {
+                settime(obj)
+            }, 1000)
+        }
+    </script>
+    
+    <!-- 登录页背景图 -->
+<script>
+
+    var slideEle = slider($('.items'));
+
+    function slider(elem) {
+        var items = elem.children(),
+                max = items.length - 1,
+                animating = false,
+                currentElem,
+                nextElem,
+                pos = 0;
+
+        sync();
+
+        return {
+            next: function () {
+                move(1);
+            },
+            prev: function () {
+                move(-1);
+            },
+            itemsNum: items && items.length
+        };
+
+        function move(dir) {
+            if (animating) {
+                return;
+            }
+            if (dir > 0 && pos == max || dir < 0 && pos == 0) {
+                if (dir > 0) {
+                    nextElem = elem.children('div').first().remove();
+                    nextElem.hide();
+                    elem.append(nextElem);
+                } else {
+                    nextElem = elem.children('div').last().remove();
+                    nextElem.hide();
+                    elem.prepend(nextElem);
+                }
+                pos -= dir;
+                sync();
+            }
+            animating = true;
+            items = elem.children();
+            currentElem = items[pos + dir];
+            $(currentElem).fadeIn(400, function () {
+                pos += dir;
+                animating = false;
+            });
+        }
+
+        function sync() {
+            items = elem.children();
+            for (var i = 0; i < items.length; ++i) {
+                items[i].style.display = i == pos ? 'block' : '';
+            }
+        }
+
+    }
+
+    if (slideEle.itemsNum && slideEle.itemsNum > 1) {
+        setInterval(function () {
+            slideEle.next();
+        }, 8000)
+    }
+
+
+</script>
+	<!-- 登录页背景图结束 -->
+</body>
+</html>

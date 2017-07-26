@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit">
+
+<title>角色管理</title>
+<meta name="keywords" content="蓝睿UI">
+<meta name="description" content="蓝睿UI">
+
+<link rel="shortcut icon" href="favicon.ico">
+<link href="../../css/plugins/bootstrap.min14ed.css?v=3.3.6"
+	rel="stylesheet">
+<link href="../../css/plugins/font-awesome.min93e3.css?v=4.4.0"
+	rel="stylesheet">
+<link href="../../css/plugins/animate.min.css" rel="stylesheet">
+<link href="../../css/plugins/style.min862f.css?v=4.1.0"
+	rel="stylesheet">
+
+<link rel="stylesheet"
+	href="../../js/plugins/sweetalert/dist/sweetalert.css">
+<link href="../../css/plugins/bootstrap-table/bootstrap-table.min.css"
+	rel="stylesheet">
+
+<!-- Ztree -->
+<script src="../../js/plugins/jquery.min.js?v=2.1.4"></script>
+<script src="../../js/plugins/zTree/jquery.ztree.all.min.js"></script>
+
+<link href="../../css/plugins/zTree/zTreeStyle/zTreeStyle.css"
+	rel="stylesheet">
+
+</head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content  animated fadeInRight">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox" style="margin-bottom: 0px">
+					<div class="ibox-title">
+						<h5>
+							<ol class="breadcrumb">
+								<li><a href="#">系统管理</a></li>
+								<li class="active">角色管理</li>
+							</ol>
+						</h5>
+					</div>
+					<div class="ibox-content">
+						<div class="jqGrid_wrapper">
+							<div id="toolbar" class="btn-group">
+								<button type="button" id="add"
+									class="btn btn-outline btn-primary">
+									<i class="glyphicon glyphicon-plus" aria-hidden="true"></i> 增加
+								</button>
+								<button type="button" id="update"
+									class="btn btn-outline btn-warning">
+									<i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+									修改
+								</button>
+								<button type="button" id="del"
+									class="btn btn-outline btn-danger">
+									<i class="glyphicon glyphicon-trash" aria-hidden="true"></i> 删除
+								</button>
+								<button type="button" id="btn_grant"
+									class="btn btn-outline btn-success">
+									<i class="glyphicon glyphicon-road" aria-hidden="true"></i> 授权
+								</button>
+							</div>
+							<table id="table">
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- 详细信息 -->
+	<div id="div_role" class="ibox-content" style="display: none">
+		<form id="from_sys_roles" class="form-horizontal">
+
+			<div class="panel panel-primary" style="margin-bottom: -5px">
+				<div class="panel-heading">角色信息</div>
+				<div class="panel-body">
+					<div class="form-group">
+						<label class="col-sm-3 control-label">角色名称 </label>
+						<div class="col-sm-6">
+							<input type="hidden" name="roleId"> <input type="text"
+								name="roleName" class="form-control required" placeholder="角色名称">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label">角色类型 </label>
+						<div class="col-sm-6">
+							<select name="roleType" id="roleType" class="form-control required"></select>
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label">备注 </label>
+						<div class="col-sm-6">
+							<textarea rows="6" cols="10" name="roleDesc" class="form-control"
+								placeholder="备注"></textarea>
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<div class="col-sm-offset-5">
+							<button class="btn btn-primary col-md-2 col-sm-3" type="button"
+								id="btn_add">
+								<i class="fa fa-check" aria-hidden="true"></i>保存
+							</button>
+							<button class="btn btn-primary col-md-2 col-sm-3" type="button"
+								id="btn_update_submit" style="display: none;">
+								<i class="fa fa-check" aria-hidden="true"></i>修改
+							</button>
+
+							<button class="btn btn-white col-md-2 col-sm-3 col-sm-offset-1"
+								type="button" id="btn_close">
+								<i class="fa fa-share" aria-hidden="true"></i> 关闭
+							</button>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</form>
+	</div>
+
+
+	<div id="div_grant" class="ibox-content" style="display: none">
+		<form id="from_sys_roles_grant" class="form-horizontal">
+			<div class="panel panel-primary" style="margin-bottom: -5px">
+				<div class="panel-heading">角色信息</div>
+				<div class="panel-body">
+					<div class="form-group">
+						<label class="col-sm-3 control-label">角色名称</label>
+						<div class="col-sm-6">
+							<input type="hidden" name="roleId"> <input type="text"
+								name="roleName" class="form-control required" placeholder="角色姓名">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label">权限点</label>
+						<div class="col-sm-6" id="div_authority"></div>
+					</div>
+					<div class="hr-line-dashed"></div>
+
+					<div class="form-group">
+						<div class="col-sm-offset-4">
+							<button class="btn btn-primary col-md-2 col-sm-3" type="button"
+								id="btn_grant_submit">
+								<i class="fa fa-check" aria-hidden="true"></i>授权
+							</button>
+
+							<button class="btn btn-white col-md-2 col-sm-3 col-sm-offset-1"
+								type="button" id="btn_grant_close">
+								<i class="fa fa-share" aria-hidden="true"></i> 关闭
+							</button>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</form>
+	</div>
+
+
+
+	<script src="../../js/plugins/bootstrap.min.js?v=3.3.6"></script>
+
+	<script src="../../js/plugins/layer/layer.min.js"></script>
+
+	<script src="../../js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+	<script
+		src="../../js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+	<script
+		src="../../js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+
+	<script src="../../js/plugins/sweetalert/sweetalert.min.js"></script>
+
+	<script src="../../js/common/common.js"></script>
+	<script src="../../js/plugins/validate/jquery.validate.min.js"></script>
+	<script src="../../js/plugins/validate/messages_zh.min.js"></script>
+	<script src="roles_main.js"></script>
+</body>
+</html>

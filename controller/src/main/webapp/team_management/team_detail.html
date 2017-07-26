@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <script src="../js/plugins/admin/echarts.min.js"></script>
+    
+    <link rel="stylesheet" href="../hplus/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/plugins/admin/amazeui.min.css" />
+    <link rel="stylesheet" href="../css/plugins/admin/app.css">
+    <script src="../js/plugins/admin/jquery.min.js"></script>
+
+</head>
+
+<body data-type="index">
+   <!-- <script src="assets/js/theme.js"></script>-->
+    <div class="am-g tpl-g">
+        <!-- 头部 -->
+        <header>
+            <!-- logo -->
+            <div class="am-fl tpl-header-logo">
+                <a href="javascript:;"><img src="assets/img/logo.png" alt=""></a>
+            </div>
+            <!-- 右侧内容 -->
+            <div class="tpl-header-fluid">
+                <!-- 侧边切换 -->
+                <ul class="am-fl am-nav am-nav-pills am-topbar-nav">
+                    <li class="am-active"><a href="#">首页</a></li>
+                    <li><a href="#">我的球队</a></li>
+                    <li class="am-dropdown" data-am-dropdown>
+                    	<a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">我的职业生涯<span class="am-icon-caret-down"></span></a>
+				        <ul class="am-dropdown-content">
+				          <li class="am-dropdown-header">勇闯天涯</li>
+				          <li><a href="Team information.html">加入球队</a></li>
+				          <li><a href="#">创建球队</a></li>
+				          <li><a href="#">邀请教练</a></li>
+				          <li><a href="../hplus/personal_carchoice.html">个人信息</a></li>
+				        </ul>
+                    </li>
+                    <li class="am-disabled"><a href="#">赛事组织</a></li>
+                    <li class="am-dropdown" data-am-dropdown>
+                    	<a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">邀请<span class="am-icon-caret-down"></span></a>
+				        <ul class="am-dropdown-content">
+				          <li><a href="#">邀请教练员</a></li>
+				          <li><a href="#">邀请裁判员</a></li>
+				          <li><a href="#">邀请码管理</a></li>
+				        </ul>
+                    </li>
+                </ul>
+
+                <!-- 其它功能-->
+                <div class="am-fr tpl-header-navbar">
+                    <ul>
+                        <!-- 欢迎语 -->
+                        <li class="am-text-sm am-vertical-align" style="height: 56px;">
+                    <div class="tpl-user-panel-profile-picture am-fl am-vertical-align-middle">
+                        <img src="assets/img/user04.png" alt="">
+                    </div>
+                            <a class="am-fl" href="javascript:;"> Amaze UI </a>
+                        </li>
+                        
+                        <!-- 退出 -->
+                        <li class="am-text-sm">
+                            <a href="javascript:;">
+                                <span class="am-icon-sign-out"></span> 退出
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 搜索 -->
+                <div class="am-fr tpl-header-search">
+                    <form class="tpl-header-search-form" action="javascript:;">
+                        <button class="tpl-header-search-btn am-icon-search"></button>
+                        <input class="tpl-header-search-box" type="text" placeholder="搜索内容...">
+                    </form>
+                </div>
+            </div>
+
+        </header>
+        <!-- 风格切换 -->
+        <div class="tpl-skiner">
+            <div class="tpl-skiner-toggle am-icon-cog">
+            </div>
+            <div class="tpl-skiner-content">
+                <div class="tpl-skiner-content-title">
+                    选择主题
+                </div>
+                <div class="tpl-skiner-content-bar">
+                    <span class="skiner-color skiner-white" data-color="theme-white"></span>
+                    <span class="skiner-color skiner-black" data-color="theme-black"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 内容区域 -->
+<style>
+.container {
+	width: auto;
+	max-width: 1000px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+.table-bordered {
+	border: 1px solid #ddd;
+}
+.player_img{width:40px;height: 40px;margin-right: 10px;}
+.players_list th{font-size: 13px;}
+.players_list td{font-size: 12px;}
+</style>
+			<div class="row-content am-cf">
+				<div class="container">
+				
+				    <table class="table table-bordered">
+				    <tr>
+				        <td style="width: 100px;" rowspan="5">
+				            <img src="Http://www.qiulianwang.com/Content/Images/TeamLogo.png" alt="艾德瑞电气足球队" style="width:80px;" />
+				        </td>
+				        <td style="width: 8em;">
+				            <label for="Captain">队长</label>
+				        </td>
+				        <td>
+				            <a href="#">申立</a>
+				        </td>
+				        <td style="width: 8em;">
+				            <label for="CreateDate">创建时间</label>
+				        </td>
+				        <td>
+				            2016年9月1日
+				        </td>
+				    </tr>
+				    <tr>
+				        <td>
+				            <label for="PlayerCount">队员数目</label>
+				        </td>
+				        <td>
+				            43 人
+				        </td>
+				        <td>
+				            <label for="TotalMatchCount">球队比赛数目</label>
+				        </td>
+				        <td>
+				            16 次
+				        </td>
+				    </tr>
+				    <tr>
+				        <td>
+				            <label for="PublicType">球队类型</label>
+				        </td>
+				        <td>
+				            足球队
+				        </td>
+				        <td>
+				            <label for="QQGroup">QQ群</label>
+				        </td>
+				        <td>
+				            
+				        </td>
+				    </tr>
+				    <tr>
+				        <td>
+				            <label for="City">城市</label>
+				        </td>
+				        <td>
+				            石家庄
+				        </td>
+				        <td>
+				            <label for="Score">球队积分</label>
+				        </td>
+				        <td>
+				            938
+				        </td>
+				    </tr>
+				    <tr>
+				        <td>
+				            <label for="Responsor">球队编号</label>
+				        </td>
+				        <td colspan="3">
+				            04710607
+				        </td>
+				    </tr>
+				    <tr>
+				        <td colspan="5">
+				            <span class="glyphicon glyphicon-flag text-info"></span> <label for="Description">球队介绍</label>
+				        </td>
+				    </tr>
+				    <tr>
+				        <td colspan="5">
+				            <pre class="no-style">
+    艾德瑞足球俱乐部是由河北艾德瑞电气有限公司赞助成立的一支业余足球俱乐部。提倡“快乐足球，健康生活，锻炼身体，广交朋友。”通过定期训练、比赛等活动，激发队员的运动热情，增强队员的身体素质，加深队员之间的了解与友谊，提高球队的技战术水平，培养良好的道德品质及协作互助的团队精神。同时，要珍爱艾德瑞品牌的名声，积极拓展艾德瑞品牌的影响力，与河北艾德瑞电气有限公司携手走向光辉的未来。
+				            </pre>
+				        </td>
+				    </tr>
+				    <tr>
+				        <td colspan="5">
+				            <span class="glyphicon glyphicon-eye-open"></span> <label for="Rules">球队规章制度</label>
+				        </td>
+				    </tr>
+				    <tr>
+				        <td colspan="5">
+				            <pre class="no-style">
+				
+				            </pre>
+				        </td>
+				    </tr>
+				    <tr>
+				        <td colspan="5">
+				            <span class="glyphicon glyphicon-user"></span> <label for="Rules">球队人员</label>
+				        </td>
+				    </tr>
+				    <tr>
+				        <td colspan="5">
+							<div class="widget-body">
+								
+									<table class="am-table am-table-bordered am-table-striped am-table-hover players_list">
+									    <thead>
+									        <tr>
+									            <th>姓名</th>
+									            <th>职位</th>
+									            <th>位置</th>
+									            <th>入队时间</th>
+									        </tr>
+									    </thead>
+									    <tbody>
+									        <tr>
+									            <td><a href="#"><img class="player_img" src="../img/user04.png">UI(Active)</a></td>
+									            <td>队长</td>
+									            <td>前锋</td>
+									            <td>2012-10-01</td>
+									        </tr>
+									        <tr>
+									            <td><a href="#"><img class="player_img" src="../img/user04.png">Amaze UI(Active)</a></td>
+									            <td>教练</td>
+									            <td>辅导</td>
+									            <td>2012-10-01</td>
+									        </tr>
+									    </tbody>
+									</table>
+									<span class="am-fr am-text-sm am-padding-right am-link-muted">点击展开更多</span>
+								
+							</div>
+				        </td>
+				    </tr>
+				        <tr>
+				            <td colspan="5">
+				                <span class="glyphicon glyphicon-picture"></span> <label for="TeamPhoto">球队全家福</label>
+				            </td>
+				        </tr>
+				        <tr>
+				            <td colspan="5">
+				
+				                <img src="Http://www.qiulianwang.com/Upload/Images/Team/FamilyPhotos/FED76BD26273E3DC9A4B760855F0BF83.jpg" alt="" class="img-responsive" />
+				                <br />
+				            </td>
+				        </tr>
+				
+				</table>
+				
+				
+				    <div class="text-center">
+				<form action="/Teams/Join" class="form-signin" data-ajax="true" data-ajax-begin="handlerBegin" data-ajax-failure="handlerFailure" data-ajax-method="POST" data-ajax-success="handlerSuccess" id="form0" method="post"><input name="__RequestVerificationToken" type="hidden" value="" /><input data-val="true" data-val-number="The field 球队编号 must be a number." id="TeamId" name="TeamId" type="hidden" value="16132" />            <input type="submit" value="申请加入" class="btn btn-primary btn-lg" />
+				</form>    </div>
+				</div>
+
+			</div>
+		</div>
+    </div>
+    </div>
+	<script src="../js/plugins/admin/amazeui.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+header.am-header.am-header-default.am-no-layout{background-color: #1ab394;}
+.am-navbar-default .am-navbar-nav{background-color: #1ab394;}
+.am-navbar-default a{font-weight:bold;}
+.Menu_nav{margin-top:2rem;}
+.Menu_nav li h2{font-size:1.4rem;font-family:"幼圆";font-weight:bold;}
+.Menu_nav a{ 
+	color:#ffffff;
+	-webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 5rem;
+    height: 5rem;
+    font-size: 24px;
+    line-height: 5rem;
+    border-radius: 50%;}
+.Menunav_bg1{background-color: #da6b1c;}
+.Menunav_bg2{background-color: #644392;}
+.Menunav_bg3{background-color: #accdde;}
+.Menunav_bg4{background-color: #197790;}
+.Menunav_bg5{background-color: #3e61b5;}
+.Menunav_bg6{background-color: #de9c00;}
+.Menunav_bg7{background-color: #bb6683;}
+.Menunav_bg8{background-color: #44668b;}
+.Event_act .am-list li .am-list-thumb{min-height:80px;}
+.Event_act .am-list li .am-list-thumb img{height:80px;}
+.Event_act .am-list .am-list-item-text{max-height: 3.8em;}
+.Event_act .am-list .am-list-item-text p{margin:0;font-family:"幼圆";}
+.Column_list{margin-top:1.5rem;}
+.Column_list .person_pic{ 
+	box-shadow:0px 0px 15px rgba(67, 40, 40, 0.5);-webkit-box-shadow:0px 0px 15px rgba(67, 40, 40, 0.5);-moz-box-shadow:0px 0px 15px rgba(67, 40, 40, 0.5);
+	-webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display:block;
+    width: 5rem;
+    height: 5rem;
+    margin: 0 auto;
+    margin-bottom:.2rem;}
+.Column_list .person_pic.big_pic{width: 6rem !important;height: 6rem !important;}
+.Column_list li small{padding: 0 .4rem;}
+.Slide_pic{position: relative;}
+.weui_p .weui-cell{padding: 14px 25px;}
+.weui_p p{margin-bottom:0;padding-left: 2.1rem;}
+.weui_p .weui-cell .weui-cell__hd{color:#1296db;}
+.team_pic{width:12rem;height:12rem;}
+.row-content{padding:1.5rem;}
+.row-content .team_name{margin:0;}
+.person_tit .person_pic{
+	width:14rem;height:14rem;
+	box-shadow:0px 0px 15px rgba(67, 40, 40, 0.5);-webkit-box-shadow:0px 0px 15px rgba(67, 40, 40, 0.5);-moz-box-shadow:0px 0px 15px rgba(67, 40, 40, 0.5);
+	-webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display:block;}
+.person_tit .am-align-left{margin-left:1rem;}
+.person_tit .am-align-left .person_name{margin:0;}
+.weui_p .avatar_pic{
+	width:5rem;height:5rem;
+	box-shadow:0px 0px 15px rgba(67, 40, 40, 0.5);-webkit-box-shadow:0px 0px 15px rgba(67, 40, 40, 0.5);-moz-box-shadow:0px 0px 15px rgba(67, 40, 40, 0.5);
+	-webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display:block;
+}
+.am-menu-slide1 .am-menu-sub{background-color:#caebfb;}
+nav.am-menu{z-index:99;}
+.am-modal-prompt-input{border-top-width: 0;border-left-width: 0;border-right-width: 0;border-bottom-color:#0e90d2;}
+.am-modal-prompt-input:focus{border-bottom-color:#0e90d2;}
+#my-prompt .am-modal-dialog{background:#ffffff;font-family:"幼圆";}

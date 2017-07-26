@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" style="height:100%">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<meta name="description" content="这是一个 index 页面">
+<meta name="keywords" content="index">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="icon" type="image/png" href="img/logo1.png">
+<link rel="apple-touch-icon-precomposed" href="img/logo1.png">
+<meta name="apple-mobile-web-app-title" content="体育赛事" />
+<link rel="stylesheet" href="css/plugins/admin/amazeui.min.css" />
+<link rel="stylesheet" href="css/plugins/admin/app.css">
+<script src="js/plugins/jquery.min.js"></script>
+<link rel="stylesheet" href="//at.alicdn.com/t/font_jidfcbxux4xi529.css">
+
+</head>
+
+<body data-type="login">
+	<script src="js/plugins/admin/theme.js"></script>
+	<div class="am-g tpl-g">
+		<!-- 风格切换 -->
+<!-- 		<div class="tpl-skiner">
+			<div class="tpl-skiner-toggle am-icon-cog"></div>
+			<div class="tpl-skiner-content">
+				<div class="tpl-skiner-content-title">选择主题</div>
+				<div class="tpl-skiner-content-bar">
+					<span class="skiner-color skiner-white" data-color="theme-white"></span>
+					<span class="skiner-color skiner-black" data-color="theme-black"></span>
+				</div>
+			</div>
+		</div> -->
+		<div class="tpl-login">
+			<div class="tpl-login-content page_login">
+				<div class="tpl-login-logo"></div>
+
+				<form class="am-form tpl-form-line-form" id="login">
+					<div class="am-form-group">
+						<input type="text" class="tpl-form-input" name="username" id="user-name" value="请输入手机号/账号" style="border-bottom: 1px solid #fff;color:#fff;" onfocus="if(this.value=='请输入手机号/账号'){this.value='';}"
+						onblur="if(this.value==''){this.value='请输入手机号/账号';}">
+
+					</div>
+
+					<div class="am-form-group">
+						<input type="password" class="tpl-form-input" name="password" id="user-name"
+							placeholder="请输入登录密码" style="border-bottom: 1px solid #fff;color:#fff;">
+
+					</div>
+					<div class="am-form-group tpl-login-remember-me">
+						<!-- 
+						<input id="remember-me" type="checkbox"> <label
+							for="remember-me"> 记住密码 </label>
+							 -->
+							<a href="reg_prop.html" target="target_blank">用户注册</a><a href="retrieve_pwd.html" target="target_blank" style="margin-left:10px;float:none;">忘记密码</a>
+					</div>
+					
+					<div class="am-form-group">
+
+						<button id="btn_login" type="button"
+							class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">登&nbsp;录</button>
+
+					</div>
+				</form>
+					<fieldset class="row other_login clearfix">
+					<legend>更多登录方式</legend>
+						<a id="" href="userAction/loginType?type=1" class=""><i class="iconfont icon-qq"></i>&nbsp;<span class="login_way">QQ</span></a><span class="login_border">|</span>
+						<a id="" href="userAction/loginType?type=2" class=""><i class="iconfont icon-weixin" style="color:#0C0;"></i>&nbsp;<span class="login_way">微信</span></a><span class="login_border">|</span>
+						<a id="" href="userAction/loginType?type=3" class=""><i class="iconfont icon-xinlang1" style="color:#E6162D;font-size:16px;"></i>&nbsp;<span class="login_way">新浪微博</span></a><span class="login_border">|</span>
+						<a id="" href="userAction/loginType?type=4" class=""><i class="iconfont icon-baiduyouhua"></i>&nbsp;<span class="login_way">百度</span></a>
+					</fieldset>
+					
+						<!-- 登录页背景图 -->
+        <div class="back">
+ 			
+            <div class="items gray">
+	            <!-- <div class="item item1" style="background-image: url(&quot;https://img.alicdn.com/tps/TB1h9xxIFXXXXbKXXXXXXXXXXXX.jpg&quot;);"></div> -->
+	            <div class="item item1" style="background-image: url(&quot;img/56725ddd13767.jpg&quot;);"></div>
+	            <div class="item item2" style="display: block; background-image: url(&quot;https://img.alicdn.com/tps/TB1sXGYIFXXXXc5XpXXXXXXXXXX.jpg&quot;);"></div>
+	            <div class="item item3" style="display: block; background-image: url(&quot;https://img.alicdn.com/tps/TB1pfG4IFXXXXc6XXXXXXXXXXXX.jpg&quot;);"></div>
+            </div>
+          	
+        </div>
+	<!-- 登录页背景图结束 -->
+					
+			</div>
+		</div>
+	</div>
+	
+	<!-- IE9以下版本提示框 -->
+<div class="am-modal am-modal-no-btn" tabindex="-1" id="your-modal" style="font-family:'幼圆;'">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd">提示
+      <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+    </div>
+    <div class="am-modal-bd am-text-center">
+      <p><small>您的浏览器版本过低，请下载IE9以上版本或使用谷歌等主流浏览器。</small></p>
+      <a class="am-btn am-radius am-btn-danger" href="http://www.google.cn/intl/zh-CN/chrome/business/browser/" target="_blank">点击下载&nbsp;谷歌浏览器</a>
+    </div>
+  </div>
+</div>
+	<!-- IE9以下版本提示框结束 -->
+	
+<!--右侧边栏-->
+<div class="side">
+  <ul>
+    <li><a href="javascript:void(0);" target="_blank">
+      <div class="sidebox"><img src="img/side_icon02.png">传真：0471-3985885</div>
+      </a></li>
+    <li><a href="http://wpa.qq.com/msgrd?v=3&uin=1252973721&site=qq&menu=yes" target="_blank">
+      <div class="sidebox"><img src="img/side_icon01.png">QQ：125297372</div>
+      </a></li>
+    <li><a href="javascript:void(0);" >
+      <div class="sidebox"><img src="img/side_icon03.png">电话：0471-3985995</div>
+      </a></li>
+  </ul>
+</div>
+<!-- <div class="side2">
+  <ul>
+    <li><a href="javascript:goTop();" class="sidetop"><img src="img/r_icon2.png"></a></li>
+  </ul>
+</div> -->
+<!--右侧边栏结束-->	
+	<script src="js/plugins/admin/amazeui.min.js"></script>
+	
+	<script src="js/common/common.js"></script>
+	<script src="js/plugins/layer/layer.min.js"></script>
+	<script  src="js/plugins/jquery.cookie.js"> </script>
+	<script type="text/javascript">
+		$(function() {
+			document.onkeydown = function(e) {
+				var ev = document.all ? window.event : e;
+				if (ev.keyCode == 13) {
+					login();
+
+				}
+			}
+			$('#btn_login').click(function(){
+				login();
+			});
+			$('.tpl-skiner-toggle').on('click', function() {
+			    $('.tpl-skiner').toggleClass('active');
+			})
+			$('.tpl-skiner-content-bar').find('span').on('click', function() {
+			    $('body').attr('class', $(this).attr('data-color'))
+			    saveSelectColor.Color = $(this).attr('data-color');
+			    // 保存选择项
+			    storageSave(saveSelectColor);
+			
+			})
+		});
+
+		var currentUser = null;
+		function login() {
+			$("#btn_login").html("正在登录");
+			var index = layer.load(0, {
+				shade : false
+			});
+			// 处理按回车多次请求服务器的问题。
+			$.ajax({
+				url : 'login.json',
+				data : $('#login').serialize(),
+				dataType : 'json',
+				beforeSend : function(d) {
+					
+				},
+				success : function(date) {
+					layer.close(index);
+					if (date.status == '1') {
+						$.cookie("user_id",date.data.obj.pid);
+						if("1"==date.data.obj.userJob){
+							window.location.href = "consoleTabs.html";
+						}else if("0"==date.data.obj.isJob){
+							window.location.href = "web/index/career-info.html";
+						}else{
+							window.location.href = "main";
+						}
+					} else {
+						$("#btn_login").html("登&nbsp;录");
+						lrError(date.msg);
+					}
+				}
+			});
+
+		}
+	</script>
+	
+	<!-- 登录页背景图 -->
+<script>
+
+    var slideEle = slider($('.items'));
+
+    function slider(elem) {
+        var items = elem.children(),
+                max = items.length - 1,
+                animating = false,
+                currentElem,
+                nextElem,
+                pos = 0;
+
+        sync();
+
+        return {
+            next: function () {
+                move(1);
+            },
+            prev: function () {
+                move(-1);
+            },
+            itemsNum: items && items.length
+        };
+
+        function move(dir) {
+            if (animating) {
+                return;
+            }
+            if (dir > 0 && pos == max || dir < 0 && pos == 0) {
+                if (dir > 0) {
+                    nextElem = elem.children('div').first().remove();
+                    nextElem.hide();
+                    elem.append(nextElem);
+                } else {
+                    nextElem = elem.children('div').last().remove();
+                    nextElem.hide();
+                    elem.prepend(nextElem);
+                }
+                pos -= dir;
+                sync();
+            }
+            animating = true;
+            items = elem.children();
+            currentElem = items[pos + dir];
+            $(currentElem).fadeIn(400, function () {
+                pos += dir;
+                animating = false;
+            });
+        }
+
+        function sync() {
+            items = elem.children();
+            for (var i = 0; i < items.length; ++i) {
+                items[i].style.display = i == pos ? 'block' : '';
+            }
+        }
+
+    }
+
+    if (slideEle.itemsNum && slideEle.itemsNum > 1) {
+        setInterval(function () {
+            slideEle.next();
+        }, 8000)
+    }
+
+
+</script>
+	<!-- 登录页背景图结束 -->
+<script>
+//首页右侧边栏
+$(document).ready(function(){
+
+    $(".side ul li").hover(function(){
+        $(this).find(".sidebox").stop().animate({"width":"240px"},200).css("padding-left","17px");
+         $(this).find(".sidebox").stop().animate({"width":"240px"},200).css("background","#e4392a");    
+    },function(){
+        $(this).find(".sidebox").stop().animate({"width":"50px"},200).css("background","#000022");
+        $(this).find(".sidebox").stop().animate({"width":"50px"},200).css("padding-left","0");
+    });
+    
+});
+//回到顶部
+function goTop(){
+    $('html,body').animate({'scrollTop':0},600);
+}
+//首页右侧边栏结束
+
+$(document).ready(function(){
+  $(".hot_qd").hover(function(){
+    $(this).css("opacity",".7").css("margin-left","10px");
+    },function(){
+    $(this).css("opacity","1").css("margin-left","0");
+  });
+});
+</script>
+
+<!-- 检测IE9以下浏览器 -->
+<script type="text/javascript">
+if(navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion .split(";")[1].replace(/[ ]/g,"")=="MSIE6.0" 
+|| navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion .split(";")[1].replace(/[ ]/g,"")=="MSIE7.0" 
+|| navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion .split(";")[1].replace(/[ ]/g,"")=="MSIE8.0" 
+|| navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion .split(";")[1].replace(/[ ]/g,"")=="MSIE9.0" 
+	)
+{
+	$('#your-modal').modal();
+}
+</script>
+</body>
+
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit">
+
+<title>裁判管理</title>
+<meta name="keywords" content="裁判管理-体育赛事">
+<meta name="description" content="裁判管理-体育赛事">
+
+<link rel="shortcut icon" href="favicon.ico">
+<link href="../../css/plugins/bootstrap.min14ed.css?v=3.3.6"
+	rel="stylesheet">
+<link href="../../css/plugins/font-awesome.min93e3.css?v=4.4.0"
+	rel="stylesheet">
+<link href="../../css/plugins/animate.min.css" rel="stylesheet">
+<link href="../../css/plugins/style.min862f.css?v=4.1.0"
+	rel="stylesheet">
+
+<link rel="stylesheet"
+	href="../../js/plugins/sweetalert/dist/sweetalert.css">
+
+<link href="../../css/plugins/bootstrap-table/bootstrap-table.min.css"
+	rel="stylesheet">
+
+</head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content  animated fadeInRight">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox" style="margin-bottom: 0px">
+					<div class="ibox-title">
+						<h5>
+							<ol class="breadcrumb">
+								<li><a href="#">体育赛事</a></li>
+								<li class="active">裁判管理</li>
+							</ol>
+						</h5>
+					</div>
+					<div class="ibox-content">
+						<div class="jqGrid_wrapper">
+							<div id="toolbar" class="btn-group">
+								<button type="button" id="add"
+									class="btn btn-outline btn-primary">
+									<i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
+								</button>
+								<button type="button" id="update"
+									class="btn btn-outline btn-warning">
+									<i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+
+								</button>
+								<button type="button" id="del"
+									class="btn btn-outline btn-danger">
+									<i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
+								</button>
+							</div>
+
+							<table id="table">
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- 详细信息 -->
+	<div id="div_add" class="ibox-content" style="display: none">
+		<form id="form_referee_add" class="form-horizontal">
+
+			<div class="panel panel-primary" style="margin-bottom: -5px">
+				<div class="panel-heading">裁判基本信息</div>
+				<div class="panel-body">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">头像 </label>
+						<div class="col-sm-4">
+							<img alt="" src="../../img/tx.png" onclick="showPic(1);"
+								style="height: 100px; width: 100px;" id="add_pic"> <input
+								type="hidden" name="refereePic" id="hid_referee_pic">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+
+						<label class="col-sm-2 control-label">姓名 </label>
+						<div class="col-sm-4">
+							<input type="text" name="refereeName"
+								class="form-control required" placeholder="请输入姓名">
+						</div>
+						<label class="col-sm-2 control-label">性别 </label>
+						<div class="col-sm-4">
+							<select name="refereeSex" class="form-control required">
+								<option value="男">男</option>
+								<option value="女">女</option>
+							</select>
+						</div>
+
+					</div>
+
+
+
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">身份证号码</label>
+						<div class="col-sm-4">
+							<input type="text" name="idNoNum" class="form-control required"
+								placeholder="请输入电话">
+						</div>
+						<label class="col-sm-2 control-label">联系电话</label>
+						<div class="col-sm-4">
+							<input type="text" name="refereePhone"
+								class="form-control required" placeholder="请输入电话">
+						</div>
+					</div>
+
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+
+						<label class="col-sm-2 control-label">职业 </label>
+						<div class="col-sm-4">
+							<input type="text" name="refereeOccupation"
+								class="form-control required " placeholder="职业">
+						</div>
+						<label class="col-sm-2 control-label">工资（天/元） </label>
+						<div class="col-sm-4">
+							<input type="number" name="refereeWage"
+								class="form-control required" placeholder="工资 ">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">裁判次数 </label>
+						<div class="col-sm-4">
+							<input type="number" name="refereeTimes"
+								class="form-control required" placeholder="裁判次数 ">
+						</div>
+
+						<label class="col-sm-2 control-label">职阶</label>
+						<div class="col-sm-4">
+							<input type="text" name="refereeAndrank"
+								class="form-control required" placeholder="职阶">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">从业时间</label>
+						<div class="col-sm-4">
+							<input type="text" name="refereePractTime"
+								id="referee_pract_time" class="form-control  laydate-icon"
+								placeholder="请输入从业时间" />
+
+						</div>
+						<label class="col-sm-2 control-label">发证日期</label>
+						<div class="col-sm-4">
+							<input type="text" name="refereeStartTime"
+								id="referee_start_time" class="form-control laydate-icon"
+								placeholder="请输入发证日期">
+						</div>
+
+					</div>
+
+					<div class="hr-line-dashed"></div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">籍贯 </label>
+						<div class="col-sm-8">
+							<input type="text" name="birthPlace"
+								class="form-control required" placeholder="请输入籍贯">
+						</div>
+
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">个人介绍 </label>
+						<div class="col-sm-9">
+							<script id="body" name="body" type="text/plain"></script>
+						</div>
+
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<div class="col-sm-offset-4">
+							<button class="btn btn-primary col-sm-3" type="button"
+								id="btn_add">
+								<i class="fa fa-check" aria-hidden="true"></i>保存
+							</button>
+							<button class="btn btn-white col-sm-3 col-sm-offset-1"
+								type="button" id="btn_close">
+								<i class="fa fa-share" aria-hidden="true"></i> 关闭
+							</button>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</form>
+	</div>
+
+	<div id="div_update" class="ibox-content" style="display: none">
+		<form id="form_referee_update" class="form-horizontal">
+			<div class="panel panel-primary" style="margin-bottom: -5px">
+				<div class="panel-heading">裁判基本信息</div>
+				<div class="panel-body">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">头像 </label>
+						<div class="col-sm-4">
+							<img alt="" src="../../img/tx.png" onclick="showPic(1);"
+								style="height: 100px; width: 100px;" id="update_pic"> <input
+								type="hidden" name="refereePic" id="update_hid_referee_pic">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+
+						<label class="col-sm-2 control-label">姓名 </label>
+						<div class="col-sm-4">
+							<input type="text" name="refereeName"
+								class="form-control required" placeholder="请输入姓名">
+						</div>
+						<label class="col-sm-2 control-label">性别 </label>
+						<div class="col-sm-4">
+							<select name="refereeSex" class="form-control required">
+								<option value="男">男</option>
+								<option value="女">女</option>
+							</select>
+						</div>
+
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">身份证号码</label>
+						<div class="col-sm-4">
+							<input type="text" name="idNoNum" class="form-control required"
+								placeholder="请输入电话">
+						</div>
+						<label class="col-sm-2 control-label">联系电话</label>
+						<div class="col-sm-4">
+							<input type="text" name="refereePhone"
+								class="form-control required" placeholder="请输入电话">
+						</div>
+					</div>
+
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+
+						<label class="col-sm-2 control-label">职业 </label>
+						<div class="col-sm-4">
+							<input type="text" name="refereeOccupation"
+								class="form-control required " placeholder="职业">
+						</div>
+						<label class="col-sm-2 control-label">工资（天/元） </label>
+						<div class="col-sm-4">
+							<input type="number" name="refereeWage"
+								class="form-control required" placeholder="工资 ">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">裁判次数 </label>
+						<div class="col-sm-4">
+							<input type="number" name="refereeTimes"
+								class="form-control required" placeholder="裁判次数 ">
+						</div>
+
+						<label class="col-sm-2 control-label">职阶</label>
+						<div class="col-sm-4">
+							<input type="text" name="refereeAndrank"
+								class="form-control required" placeholder="职阶">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">从业时间</label>
+						<div class="col-sm-4">
+							<input type="text" name="refereePractTime"
+								id="referee_pract_time_updata"
+								class="form-control  laydate-icon" placeholder="请输入从业时间" />
+
+						</div>
+						<label class="col-sm-2 control-label">发证日期</label>
+						<div class="col-sm-4">
+							<input type="text" name="refereeStartTime"
+								id="referee_start_time_updata" class="form-control laydate-icon"
+								placeholder="请输入发证日期">
+						</div>
+
+					</div>
+
+					<div class="hr-line-dashed"></div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">籍贯 </label>
+						<div class="col-sm-8">
+							<input type="text" name="birthPlace"
+								class="form-control required" placeholder="请输入籍贯">
+						</div>
+
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">个人介绍 </label>
+						<div class="col-sm-9">
+							<script id="update_body" name="body" type="text/plain"></script>
+						</div>
+
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<div class="col-sm-offset-4">
+							<button class="btn btn-primary col-sm-3" type="button"
+								id="btn_update">
+								<i class="fa fa-check" aria-hidden="true"></i>保存
+							</button>
+							<button class="btn btn-white col-sm-3 col-sm-offset-1"
+								type="button" id="btn_update_close">
+								<i class="fa fa-share" aria-hidden="true"></i> 关闭
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div id="div_pic" class="ibox-content" style="display: none">
+		<div id="swfContainer">
+			本组件需要安装Flash Player后才可使用，请从<a
+				href="http://www.adobe.com/go/getflashplayer">这里</a>下载安装。
+		</div>
+
+	</div>
+
+	<script src="../../js/plugins/jquery.min.js?v=2.1.4"></script>
+	<script src="../../js/plugins/bootstrap.min.js?v=3.3.6"></script>
+
+	<script src="../../js/plugins/layer/layer.min.js"></script>
+
+	<script src="../../js/plugins/layer/laydate/laydate.js"></script>
+	<script src="../../js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+	<script
+		src="../../js/plugins/bootstrap-table/extensions/toolbar/bootstrap-table-toolbar.js"></script>
+	<script
+		src="../../js/plugins/bootstrap-table/extensions/export/bootstrap-table-export.js"></script>
+	<script
+		src="../../js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+	<script
+		src="../../js/plugins/bootstrap-table/extensions/export/tableExport.js"></script>
+	<script
+		src="../../js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+	<script src="../../js/plugins/sweetalert/sweetalert.min.js"></script>
+	<script src="../../js/common/common.js"></script>
+	<script src="../../js/plugins/validate/jquery.validate.min.js"></script>
+	<script src="../../js/plugins/validate/messages_zh.min.js"></script>
+
+	<!-- 配置文件 -->
+	<script type="text/javascript" src="../../ueditor/ueditor.config.js"></script>
+	<!-- 编辑器源码文件 -->
+	<script type="text/javascript" src="../../ueditor/ueditor.all.js"></script>
+	<script type="text/javascript" src="../../ueditor/ueditor.parse.min.js"></script>
+	<script type="text/javascript" src="../../ueditor/lang/zh-cn/zh-cn.js"></script>
+
+
+	<script type="text/javascript"
+		src="../../js/plugins/fullavatareditor/scripts/swfobject.js"></script>
+	<script type="text/javascript"
+		src="../../js/plugins/fullavatareditor/scripts/fullAvatarEditor.js"></script>
+
+	<script src="info_main.js"></script>
+
+</body>
+</html>

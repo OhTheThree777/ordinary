@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="../../css/plugins/teams_players.css" />
+<link rel="stylesheet" href="../../css/plugins/bootstrap.min.css">
+<link rel="stylesheet" href="../../css/plugins/amazeUI/amazeui.min.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_ij7smmfe2l3ow29.css">
+<link rel="stylesheet" href="../../hplus/css/style.min862f.css?v=4.1.0">
+<link rel="stylesheet" href="../../js/plugins/sweetalert/dist/sweetalert.css">
+<link rel="stylesheet" href="../../css/plugins/against.css">
+<link rel="stylesheet" href="../../css/plugins/myfonts/myfont.css">
+</head>
+
+<body style="background-color: #fff !important;">
+	<div id="headline" style="background:url('http://lr-tyss.oss-cn-beijing.aliyuncs.com/images/201703161132161.jpg?Expires=1804995136&OSSAccessKeyId=LTAIFbqUjkQDxNhF&Signature=SAHZqThxfnKVlprNePRet%2FQ5ft0%3D') no-repeat;background-size:100%;" >
+		<div class="am-container">
+			<hgroup>
+				<h2><span id="racingName"></span></h2>
+				<h3>各支球队对阵图，战绩排名等</h3>
+				<div style="margin-top:15px;">
+					<div class="btn-group" id = "btn_ssbp">
+						<!-- 赛事编排 -->
+					</div>
+				    <div class="btn-group" id = "btn_ssgg">
+						<!-- 赛事公告 -->
+					</div>
+					<div id="toolbar" class="btn-group">
+						<!-- 邀请按钮 -->
+					</div>
+					<div class="btn-group">
+						<a class="btn btn-default" onclick="retreat_a()"><i class="am-icon-reply"></i>&nbsp;返回</a>
+					</div>
+				</div>
+			</hgroup>
+		</div>
+
+	</div>
+	<div class="am-u-sm-12 tabs-container">
+		<div class="tabs-left">
+			<ul id="div_product_against_rows" class="nav nav-tabs text-center">
+			</ul>
+			<div class="tab-content">
+				<div id="tab-8" class="tab-pane active">
+					<div class="panel-body am-tabs" id="tab_list">
+						<ul class="am-tabs-nav am-nav am-nav-tabs am-nav-justify" style="display:inline-block !important; " id = "racingUl">
+							<li class="am-active"><a href="">筹备比赛</a></li>
+							<li><a href="">全部比赛</a></li>
+							<li><a href="">尚未开始</a></li>
+							<li><a href="">正在进行</a></li>
+							<li><a href="">已经结束</a></li>
+						</ul>
+						<div class="am-tabs-bd text-center" id = "racingDiv">
+							<div class="am-tab-panel am-active"><!--筹备中的比赛-->
+								<div id="div_preparations_against_rows"></div>
+								<div style="height: 10px"></div>
+								<div class="M-box1"></div>
+							</div>
+							<div class="am-tab-panel"><!--全部比赛 -->
+								<div id="div_all_against_rows"></div>
+								<div style="height: 10px"></div>
+								<div class="M-box2"></div>
+							</div>
+							<div class="am-tab-panel"><!--尚未开始-->
+								<div id="div_notstart_against_rows"></div>
+								<div style="height: 10px"></div>
+								<div class="M-box4"></div>
+							</div>
+							<div class="am-tab-panel"><!--正在进行-->
+								<div id="div_underway_against_rows"></div>
+								<div style="height: 10px"></div>
+								<div class="M-box3"></div>
+							</div>
+							<div class="am-tab-panel"><!--已经结束-->
+							    <div id="div_end_against_rows"></div>
+								<div style="height: 10px"></div>
+								<div class="M-box5"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="div_editEvent" style="display: none;">
+	</div>
+	
+	<textarea id="template-product" style="display: none">
+		{#foreach $T as row begin=0}
+			{#if $T.row$key == 0}
+				<li id="li_{$T.row.id}" class="active"><input type="hidden" id="productId" value="{$T.row.id}" /><a href="javascript:;" onclick="against({$T.row.id})">{$T.row.productName}</a></li>
+			{#else}
+				<li id="li_{$T.row.id}"><input type="hidden" id="productId" value="{$T.row.id}" /><a href="javascript:;" onclick="against({$T.row.id})">{$T.row.productName}</a></li>
+			{#/if}
+		{#/for}
+		</ul>
+	</textarea>
+
+	<textarea id="template-items-GVT" style="display: none">
+	{#foreach $T as row begin=0}
+      {#param name=number value=$P.number+1}
+    	{#if $T.row$key == 0}
+    		{#param name=typeNum value=$T.row.type}
+	<section data-am-widget="accordion" class="am-accordion am-accordion-default" data-am-accordion='{ "multiple": true }'>
+      <dl class="am-accordion-item am-active am-disabled">
+        <dt class="am-accordion-title">
+        		第{$T.row.type}轮
+        </dt>
+        <dd class="am-accordion-bd am-collapse am-in">
+          <!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
+          <div class="am-accordion-content">
+    	{#/if}
+     	{#if $T.row.type != $P.typeNum}
+     	</div>
+        </dd>
+      </dl>
+	</section>
+      		{#param name=typeNum value=$T.row.type}
+     <section data-am-widget="accordion" class="am-accordion am-accordion-default" data-am-accordion='{ "multiple": true }'>
+      <dl class="am-accordion-item am-active am-disabled">
+        <dt class="am-accordion-title">
+        		第{$T.row.type}轮
+        </dt>
+        <dd class="am-accordion-bd am-collapse am-in">
+          <!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
+          <div class="am-accordion-content">
+        {#/if}
+		<div class="Eventpro_list clearfix">
+			<div class="am-u-md-3">
+				<dl>
+					<dt class="Eventpro_time">{$T.row.begin_time.substring(0,10)}</dt>
+					<dd class="Eventpro_hour">{$T.row.begin_time.substring(11,16)} - {$T.row.end_time.substring(11, 16)}</dd>
+					<dd>
+						{#if $T.row.state == 0}
+							<span class="am-badge am-badge-primary am-round Saibie">筹备中</span>
+						{#elseif $T.row.state == 1}
+							<span class="am-badge am-badge-default am-round Saibie">尚未开始</span>
+						{#elseif $T.row.state == 2}
+							<span class="am-badge am-badge-success am-round Saibie">正在进行</span>
+						{#elseif $T.row.state == 3} 
+							<span class="am-badge am-badge-danger am-round Saibie">已结束</span>
+						{#/if}
+					</dd>
+					<dd class="caipan_haveto">
+						{#foreach $T.row.refereeList as row1 begin=0}
+							<img class="am-radius am-circle" title="{$T.row1.referee_name}" onclick="refereeInfo({$T.row1.referee_id})" src="{$T.row1.referee_pic}">
+						{#/for}
+					</dd>
+				</dl>
+			</div>
+			<div class="am-u-md-2">
+				<dl>
+					<dt>
+						<img class="am-circle am-img-thumbnail Eventpro_pic" src="{$T.row.a_team_emblem}">
+					</dt>
+					<dd class="Eventpro_team">{$T.row.a_team_name}</dd>
+				</dl>
+			</div>
+			<div class="am-u-md-2">
+				<dl>
+					<dt>
+						<span class="Eventpro_do1"><span class="am-fl" style="font-family: MyCustomFont;">{$T.row.co_a_score}</span>
+						{#if $T.row.state == 3} 
+						<i class="Eventpro_do">:</i>
+						{#else}
+						<i class="iconfont icon-vs Eventpro_do"></i>
+						{#/if}
+						<span class="am-fr" style="font-family: MyCustomFont;">{$T.row.co_b_score}</span>
+					</dt>
+					<dd class="Eventpro_team"><span class="am-badge am-badge-primary am-round Saibie">{$T.row.group_name}</span></dd>
+					<dd style="font-weight: bold;"><small data-am-popover="{content: '{$T.row.vues_remarks}', trigger: 'hover focus' ,theme: 'white sm'}">{$T.row.vues_name}</small></dd>
+				</dl>
+			</div>
+			<div class="am-u-md-2">
+				<dl>
+					<dt>
+						<img class="am-circle am-img-thumbnail Eventpro_pic" src="{$T.row.b_team_emblem}">
+					</dt>
+					<dd class="Eventpro_team">{$T.row.b_team_name}</dd>
+				</dl>
+			</div>
+			<div class="am-u-md-2 linkbtn">
+				{#if $T.row.state == 1}
+					{#if $T.row.miss == 1}
+						<div class="am-u-lg-2 linkbtn">
+							<div class="from-group clearfix db_linkbtn">
+								<button type="button" class="am-btn am-fl am-btn-warning am-radius am-btn-sm" onclick="startGame('{$T.row.id}')">开始比赛</button>
+							</div>
+							<div class="from-group clearfix db_linkbtn">
+								<button type="button" class="am-btn am-fl am-btn-success am-radius am-btn-sm" onclick="btnEditInitBack('{$T.row.id}')">退回编辑</button>
+							</div>
+						</div>
+					{#/if}
+				{#elseif $T.row.state == 2}
+					<div class="from-group clearfix db_linkbtn">
+					<button type="button" class="am-btn am-fl am-btn-secondary am-radius am-btn-sm" onclick="looklive('{$T.row.id}')">观看直播</button>
+					</div>
+					{#if $T.row.miss == 1}
+					<div class="from-group clearfix db_linkbtn">
+						<button type="button" class="am-btn am-fl am-btn-danger am-radius am-btn-sm" onclick="gameOver('{$T.row.id}')">结束比赛</button>
+					</div>
+					{#/if}
+				{#elseif $T.row.state == 3} 
+					<div class="am-u-lg-2 linkbtn">
+						<div class="from-group clearfix db_linkbtn">
+							<a href="http://isport.lrkpzx.com" type="button" class="am-btn am-fl am-btn-secondary am-radius am-btn-sm">精彩回顾</a>
+						</div>
+						<div class="from-group clearfix db_linkbtn">
+							<button type="button" class="am-btn am-fl am-btn-success am-radius am-btn-sm"  onclick="dataParticulars('{$T.row.id}')">数据详情</button>
+						</div>
+					</div>
+				{#/if}
+			</div>
+		</div>
+    {#if $T.row.length == $P.number}
+          </div>
+        </dd>
+      </dl>
+	</section>
+	{#/if}
+	{#/for}
+	</textarea>
+	
+	<textarea id="template-items-GT" style="display: none">
+	{#foreach $T as row begin=0}
+		{#param name=number value=$P.number+1}
+    	{#if $T.row$key == 0}
+    		{#param name=typeNum value=$T.row.type}
+	<section data-am-widget="accordion" class="am-accordion am-accordion-default" data-am-accordion='{ "multiple": true }'>
+      <dl class="am-accordion-item am-active am-disabled">
+        <dt class="am-accordion-title">
+        		第{$T.row.type}轮
+        </dt>
+        <dd class="am-accordion-bd am-collapse am-in">
+          <!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
+          <div class="am-accordion-content">
+    	{#/if}
+     	{#if $T.row.type != $P.typeNum}
+     	</div>
+        </dd>
+      </dl>
+	</section>
+      		{#param name=typeNum value=$T.row.type}
+     <section data-am-widget="accordion" class="am-accordion am-accordion-default" data-am-accordion='{ "multiple": true }'>
+      <dl class="am-accordion-item am-active am-disabled">
+        <dt class="am-accordion-title">
+        		第{$T.row.type}轮
+        </dt>
+        <dd class="am-accordion-bd am-collapse am-in">
+          <!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
+          <div class="am-accordion-content">
+        {#/if}
+		<div class="Eventpro_list clearfix">
+			<div class="am-u-md-3">
+				<dl>
+					<dt class="Eventpro_time">{$T.row.begin_time.substring(0,10)}</dt>
+					<dd class="Eventpro_hour">{$T.row.begin_time.substring(11,16)} - {$T.row.end_time.substring(11, 16)}</dd>
+					<dd>
+						{#if $T.row.state == 0}
+							<span class="am-badge am-badge-primary am-round Saibie">筹备中</span>
+						{#else if $T.row.state == 1}
+							<span class="am-badge am-badge-default am-round Saibie">尚未开始</span>
+						{#else if $T.row.state == 2}
+							<span class="am-badge am-badge-success am-round Saibie">正在进行</span>
+						{#else} 
+							<span class="am-badge am-badge-danger am-round Saibie">已结束</span>
+						{#/if}
+					</dd>
+					<dd class="caipan_haveto">
+						{#foreach $T.row.refereeList as row1 begin=0}
+							<img class="am-radius am-circle" title="{$T.row1.referee_name}" onclick="refereeInfo({$T.row1.referee_id})" src="{$T.row1.referee_pic}">
+						{#/for}
+					</dd>
+				</dl>
+			</div>
+			<div class="am-u-md-2">
+				<dl>
+					<dt>
+						<img class="am-circle am-img-thumbnail Eventpro_pic" src="{$T.row.a_team_emblem}">
+					</dt>
+					<dd class="Eventpro_team">{$T.row.a_team_name}</dd>
+				</dl>
+			</div>
+			<div class="am-u-md-2">
+				<dl>
+					<dt>
+						<i class="iconfont icon-vs Eventpro_do"></i>
+					</dt>
+					<dd class="Eventpro_team"><span class="am-badge am-badge-primary am-round Saibie">{$T.row.group_name}</span></dd>
+					<dd style="font-weight: bold;"><small id="vaesName_{$T.row.id}">{$T.row.vues_name}</small></dd>
+				</dl>
+			</div>
+			<div class="am-u-md-2">
+				<dl>
+					<dt>
+						<img class="am-circle am-img-thumbnail Eventpro_pic" src="{$T.row.b_team_emblem}">
+					</dt>
+					<dd class="Eventpro_team">{$T.row.b_team_name}</dd>
+				</dl>
+			</div>
+			<div class="am-u-md-2 linkbtn">
+				{#if $T.row.state == 0}
+					<div class="am-u-lg-2 linkbtn">
+						<div class="from-group clearfix db_linkbtn">
+							<button type="button" class="am-btn am-fl am-btn-warning am-radius am-btn-sm" onclick="btnEditInit('{$T.row.id}')">编辑比赛</button>
+						</div>
+						<div class="from-group clearfix db_linkbtn">
+							<button type="button" class="am-btn am-fl am-btn-success am-radius am-btn-sm" onclick="btnEditInitOver('{$T.row.id}')">编辑完成</button>
+						</div>
+					</div>
+				{#else if $T.row.state == 1}
+					<div class="am-u-lg-2 linkbtn">
+						<div class="from-group clearfix db_linkbtn">
+							<button type="button" class="am-btn am-fl am-btn-warning am-radius am-btn-sm">开始比赛</button>
+							<button type="button" class="am-btn am-fl am-btn-success am-radius am-btn-sm" onclick="btnEditInitOver('{$T.row.id}')">退回编辑</button>
+						</div>
+					</div>
+				{#else if $T.row.state == 2}
+					<div class="from-group clearfix db_linkbtn">
+					<button type="button" class="am-btn am-fl am-btn-secondary am-radius am-btn-sm">观看直播</button>
+					</div>
+					<div class="from-group clearfix db_linkbtn">
+						<button type="button" class="am-btn am-fl am-btn-danger am-radius am-btn-sm">结束比赛</button>
+					</div>
+				{#else} 
+					<div class="am-u-lg-2 linkbtn">
+						<div class="from-group clearfix db_linkbtn">
+							<button type="button" class="am-btn am-fl am-btn-secondary am-radius am-btn-sm">精彩回顾</button>
+						</div>
+						<div class="from-group clearfix db_linkbtn">
+							<button type="button" class="am-btn am-fl am-btn-success am-radius am-btn-sm">数据详情</button>
+						</div>
+					</div>
+				{#/if}
+			</div>
+		</div>
+    {#if $T.row.length == $P.number}
+          </div>
+        </dd>
+      </dl>
+	</section>
+	{#/if}
+	{#/for}
+	</textarea>
+	
+	<textarea id="template-edit-event" style="display: none">
+		<form id="from_edit_event">
+			<input type="hidden" name="id" value="{$T.layAgainst.id}">
+			<div class="panel panel-primary" style="margin-bottom: -5px">
+				<div class="panel-heading">修改赛事信息</div>
+				<div class="panel-body">
+					<div class="form-group clearfix">
+						<label class="col-sm-2 control-label text-right" style="margin-bottom:0;line-height:28px;">赛事标题</label>
+						<div class="col-sm-8"><span style="font-size:18px;font-weight:600;color:#1ab394;">{$T.layAgainst.title}</span></div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group clearfix">
+						<label class="col-sm-2 control-label text-right" style="margin-bottom:0;line-height:28px;">赛事开始时间</label>
+						<div class="col-sm-3">
+							 <input type="text" name="beginTime" id="event_begin_time" class="form-control laydate-icon required" value="{$T.layAgainst.beginTime}" />
+						</div>
+						<label class="col-sm-2 control-label text-right" style="margin-bottom:0;line-height:28px;">赛事结束时间</label>
+						<div class="col-sm-3">
+							<input type="text" name="endTime" id="event_end_time" class="form-control laydate-icon required" value="{$T.layAgainst.endTime}" />
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group clearfix">
+						<label class="col-sm-2 control-label text-right" style="margin-bottom:0;line-height:28px;">赛事场地</label>
+						<div class="col-sm-8" id="div_vues">
+							<select id="vuesId" name="vuesId" class="form-control required" >
+								<option value="">请选择</option><!--比赛场地 -->
+								{#foreach $T.vuesList as row begin=0}
+								{#if $T.layAgainst.vuesId == $T.row.id}
+								<option value="{$T.row.id}" selected="selected">{$T.row.name}</option>
+								{#else}
+								<option value="{$T.row.id}">{$T.row.name}</option>
+								{#/if}
+								{#/for}
+							</select>
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group clearfix">
+						<label class="col-sm-2 control-label text-right" style="margin-bottom:0;line-height:28px;">赛事主裁判</label>
+						<div class="col-sm-8">
+						{#foreach $T.layRefereeListZ as row begin=0}
+						{#if $T.row.checked == 1}
+							<label class="checkbox-inline required"> <input type="checkbox" name="referees_z" id="referee_z_{$T.row.id}" value="{$T.row.id}" onclick="cli_referee('{$T.row.id}',1)" checked="checked"> <i></i>{$T.row.referee_name}</label>
+						{#else}
+							{#foreach $T.layRefereeListZL as row1 begin=0}
+							{#if $T.row.id == $T.row1.id}
+							{#if $T.row1.checked == 1}
+								<label class="checkbox-inline required"> <input type="checkbox" name="referees_z" id="referee_z_{$T.row.id}" value="{$T.row.id}" onclick="cli_referee('{$T.row.id}',1)" disabled="disabled"> <i></i>{$T.row.referee_name}</label>
+							{#else}
+								<label class="checkbox-inline required"> <input type="checkbox" name="referees_z" id="referee_z_{$T.row.id}" value="{$T.row.id}" onclick="cli_referee('{$T.row.id}',1)"> <i></i>{$T.row.referee_name}</label>
+							{#/if}
+							{#/if}
+							{#/for}
+						{#/if}
+						{#/for}
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group clearfix">
+						<label class="col-sm-2 control-label text-right" style="margin-bottom:0;line-height:28px;">赛事副裁判</label>
+						<div class="col-sm-8">
+						{#foreach $T.layRefereeListZL as row begin=0}
+						{#if $T.row.checked == 1}
+							<label class="checkbox-inline required"> <input type="checkbox" name="referees_zl" id="referee_zl_{$T.row.id}" value="{$T.row.id}" onclick="cli_referee('{$T.row.id}',2)" checked="checked"> <i></i>{$T.row.referee_name}</label>
+						{#else}
+							{#foreach $T.layRefereeListZ as row1 begin=0}
+							{#if $T.row.id == $T.row1.id}
+							{#if $T.row1.checked == 1}
+								<label class="checkbox-inline required"> <input type="checkbox" name="referees_zl" id="referee_zl_{$T.row.id}" value="{$T.row.id}" onclick="cli_referee('{$T.row.id}',2)" disabled="disabled"> <i></i>{$T.row.referee_name}</label>
+							{#else}
+								<label class="checkbox-inline required"> <input type="checkbox" name="referees_zl" id="referee_zl_{$T.row.id}" value="{$T.row.id}" onclick="cli_referee('{$T.row.id}',2)"> <i></i>{$T.row.referee_name}</label>
+							{#/if}
+							{#/if}
+							{#/for}
+						{#/if}
+						{#/for}
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+				</div>
+				<div class="form-group clearfix">
+					<div class="col-sm-offset-3">
+						<button class="btn btn-primary col-sm-3" type="button" id="btn_update_submitEditEvent">
+							<i class="fa fa-check" aria-hidden="true"></i>修改
+						</button>
+						<button class="btn btn-white col-sm-3 col-sm-offset-1" type="button" id="btn_update_closeEditEvent">
+							<i class="fa fa-share" aria-hidden="true"></i> 关闭
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</textarea>
+	
+	<textarea id="template-select-refree-zl" style="display: none">
+		<pre id="check_roles" class="p-m">
+		{#foreach $T as row begin=0}
+			<label class="checkbox-inline required"> <input type="checkbox" name="referees_zl" id="referee_zl_{$T.row.id}" value="{$T.row.id}" onclick="cli_referee('{$T.row.id}',2)"> <i></i>{$T.row.referee_name}</label>
+		{#/for}
+		</pre>
+	</textarea>
+	
+	<!-- ----------------------------------------------------------------------------------------------------------------------------------- -->
+	<!-- 邀请裁判列表 -->
+	<div id="div_pick_players" class="ibox-content" style="display: none">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title text-center">
+					<i class="iconfont icon-xuanze"></i>&nbsp;选择参赛人员
+				</h4>
+			</div>
+			<div class="modal-body am-cf">
+				<div class="col-md-5 pull-left cyList">
+					<h4 class="text-center">
+						裁判列表*
+					</h4>
+					<div class="jumbotron cs_list cslist_l">
+						<form class="am-form" data-am-validator>
+							<ul class="am-list am-list-static am-list-border zxplayer_list" id="cyList">
+
+							</ul>
+						</form>
+					</div>
+				</div>
+				<div class="col-md-2 pull-left text-center" style="margin-top: 41px;">
+					<i class="xr_arrow iconfont icon-xiangyou"></i>
+					<div>
+						<b>请邀请裁判到右侧吧！</b>
+					</div>
+				</div>
+				<div class="col-md-5 pull-left cyList">
+					<h4 class="text-center">
+						已邀请人员
+					</h4>
+					<div class="jumbotron cs_list cslist_r">
+						<form id="form-person" class="am-form" data-am-validator>
+							<input type="hidden" id="teamNameStr" name="teamNameStr" value="" />
+							<input type="hidden" id="racingId" name="racingId" value="" />
+							<input type="hidden" id="productId_z" name="productId_z" value="" />
+							<ul class="am-list am-list-static am-list-border zxplayer_list" id="fcyList">
+							</ul>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="text-align: center !important;">
+				<button type="button" class="btn btn-default" data-dismiss="modal" id="btn_close">返回</button>
+				<button type="button" class="btn btn-primary" id="btn_addTeamPerson">确认人员</button>
+			</div>
+		</div>
+	</div>
+	
+  <div data-am-widget="gotop" class="am-gotop am-gotop-fixed" >
+    <a href="#top" title="回到顶部">
+          <i class="am-gotop-icon am-icon-hand-o-up"></i>
+    </a>
+  </div>
+
+	
+	<!-- ----------------------------------------------------------------------------------------------------------------------------------- -->
+	
+</body>
+
+<script type="text/javascript" src="../../js/plugins/amazeUI/jquery.min.js"></script>
+<script type="text/javascript" src="../../js/common/common.js"></script>
+<script type="text/javascript" src="../../js/plugins/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/amazeUI/amazeui.min.js"></script>
+
+<script type="text/javascript" src="../../js/plugins/layer/layer.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/layer/laydate/laydate.js"></script>
+<script type="text/javascript" src="../../js/plugins/validate/jquery.validate.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/validate/messages_zh.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/validate/additional-methods.js"></script>
+<script type="text/javascript" src="../../js/plugins/sweetalert/sweetalert.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquerySession.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery.cookie.js"> </script>
+
+<!-- 分页js -->
+<script src="../../js/plugins/pagination/jquery.pagination.js"></script>
+
+<script type="text/javascript" src="../../js/plugins/jTemplates/jquery-jtemplates.js"></script>
+
+<script type="text/javascript" src="against_main.js"></script>
+<script type="text/javascript" src="against_info.js"></script>
+<script>
+$(function() {
+	$('.bscd').popover({content: '比赛场地'});
+	$('#tab_list').tabs();
+	$(".bootstrap-table>.fixed-table-toolbar .search").addClass("pull-left").removeClass("pull-right");
+	$(".bootstrap-table>.fixed-table-toolbar .columns").removeClass("pull-right");
+});
+function aa() {
+	$('[data-toggle="tooltip"]').tooltip();
+	$("#caipan_name").tooltip({trigger: 'hover',placement:'top',title: '李敏'});
+};
+</script>
+</html>

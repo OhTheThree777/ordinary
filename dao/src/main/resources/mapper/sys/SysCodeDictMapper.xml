@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.imfc.mapper.mapper.sys.SysCodeDictMapper">
+  <resultMap id="BaseResultMap" type="cn.lr.mapper.model.sys.SysCodeDict">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="dict_key" jdbcType="VARCHAR" property="dictKey" />
+    <result column="dict_value" jdbcType="VARCHAR" property="dictValue" />
+    <result column="cat_code" jdbcType="VARCHAR" property="catCode" />
+    <result column="dict_level" jdbcType="INTEGER" property="dictLevel" />
+    <result column="dict_state" jdbcType="VARCHAR" property="dictState" />
+  </resultMap>
+</mapper>

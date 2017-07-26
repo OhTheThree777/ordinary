@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+<title>热门队伍_体育赛事管理平台</title>
+<link rel="stylesheet" href="../css/plugins/amazeUI/amazeui.min.css"/>
+<link rel="stylesheet" href="../css/plugins/webapp.css"/>
+<link rel="stylesheet" href="../css/plugins/weui/weui.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1ik9phgjvklz0k9.css">
+</head>
+<body>
+<!-- 进页面加载数据提示 -->
+    <div id="loadingToast" style="display:none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast">
+            <i class="weui-loading weui-icon_toast"></i>
+            <p class="weui-toast__content">数据加载中</p>
+        </div>
+    </div>
+<!-- 加载提示结束 -->
+<!-- 头部导航 -->
+  <header data-am-widget="header" class="am-header am-header-default" data-am-sticky>
+      <div class="am-header-left am-header-nav">
+          <a id='back' class="">
+				<i class="am-header-icon am-icon-chevron-left"></i>
+          </a>
+      </div>
+
+      <h1 class="am-header-title">
+          <a href="#title-link" class="">
+            热门队伍
+          </a>
+      </h1>
+
+      <div class="am-header-right am-header-nav">
+          <a href="#right-link" class="">
+				<i class="am-header-icon am-icon-bars"></i>
+          </a>
+      </div>
+  </header>
+<!-- 头部导航结束 -->
+<!-- 内容 -->
+<ul class="am-avg-sm-3  am-text-center Column_list" id="teamappend">
+<!--   <li> -->
+<!--     <a href="###" class="am-text-center am-circle"><img class="person_pic big_pic am-img-thumbnail" alt="" src="../img/user03.png" onerror='this.src="../img/user.png"'></a> -->
+<!-- 	<small class="am-block">印度足球俱乐部</small> -->
+<!--   </li> -->
+<!--   <li> -->
+<!--     <a href="###" class="am-text-center am-circle"><img class="person_pic big_pic am-img-thumbnail" alt="" src="" onerror='this.src="../img/user04.png"'></a> -->
+<!-- 	<small class="am-block">印度足球俱乐部</small> -->
+<!--   </li> -->
+<!--   <li> -->
+<!--     <a href="###" class="am-text-center am-circle"><img class="person_pic big_pic am-img-thumbnail" alt="" src="" onerror='this.src="../img/user04.png"'></a> -->
+<!-- 	<small class="am-block">印度足球俱乐部</small> -->
+<!--   </li> -->
+</ul>
+<!-- 内容结束 -->
+<!-- 底部主菜单 -->
+  <div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default "
+      id="">
+      <ul class="am-navbar-nav am-cf am-avg-sm-4">
+          <li >
+            <a href="main.html" class="">
+                  <span class="am-icon-home"></span>
+                <span class="am-navbar-label">主页</span>
+            </a>
+          </li>
+          <li data-am-navbar-share>
+            <a href="###" class="">
+                  <span class="am-icon-ioxhost"></span>
+                <span class="am-navbar-label">赛事新闻</span>
+            </a>
+          </li>
+          <li data-am-navbar-qrcode>
+            <a href="###" class="">
+                  <span class="am-icon-video-camera"></span>
+                <span class="am-navbar-label">直播中</span>
+            </a>
+          </li>
+          <li >
+            <a href="find.html" class="">
+                  <span class="am-icon-safari"></span>
+                <span class="am-navbar-label">发现</span>
+            </a>
+          </li>
+          <li >
+            <a href="my_account.html" class="">
+                  <span class="am-icon-user"></span>
+                <span class="am-navbar-label">我</span>
+            </a>
+          </li>
+      </ul>
+  </div>
+<!-- 底部主菜单结束 -->
+</body>
+<script src="../js/plugins/jquery.min.js"></script>
+<script src="../js/plugins/amazeUI/amazeui.min.js"></script>
+<script src="../mobile/mobile_teams_list.js"></script>
+<script src="../js/common/common.js"></script>
+<script>
+
+$('#back').click(function(){
+	window.history.back();
+})
+/* 进页面加载数据提示 */
+$(function(){
+    var $loadingToast = $('#loadingToast');
+        if ($loadingToast.css('display') != 'none') return;
+        $loadingToast.fadeIn(100);
+        setTimeout(function () {
+            $loadingToast.fadeOut(100);
+        }, 2000);
+});
+/* 加载提示结束 */
+</script>
+</html>

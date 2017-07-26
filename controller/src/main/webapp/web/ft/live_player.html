@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport"
+	content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta charset="utf-8">
+<title>赛事直播</title>
+<script type="text/javascript" src="../../player/js/jquery172.js"></script>
+<script type="text/javascript" src="../../player/js/action.js"></script>
+</head>
+
+<body>
+
+	<div class="video" id="CuPlayer"></div>
+	<!--footer/end-->
+
+	<script src="../../js/plugins/jquerySession.js"></script>
+	<script >
+		var live_addr = $.session.get('live_addr');
+		var app_name = $.session.get('app_name');
+		var stream_name = $.session.get('stream_name');
+		var live_pic = $.session.get('live_pic');
+		if("undefined"==typeof(live_pic)){
+			live_pic='../../img/a1.jpg';
+		}
+		var rtmp_addr="";
+		var mp4="";
+		var m3u8="";
+		if("undefined"==typeof(live_addr)){
+			rtmp_addr="rtmp://live.hkstv.hk.lxdns.com/live";
+			mp4="hks";
+		}else{
+			m3u8=live_addr+"/"+app_name+"/"+stream_name+".m3u8";
+			rtmp_addr=live_addr+"/"+app_name;
+			mp4=stream_name;
+		}
+		var vID = "";
+		var vWidth = "100%"; //播放器宽度设置
+		var vHeight = "700"; //播放器高度设置
+		var vFile = "CuSunV4setLive.xml"; //播放器配置文件
+		var vPlayer = "player.swf";//播放器文件
+		var vPic = "images/start.jpg";//视频缩略图
+		var vCssurl = "images/mini.css"; //移动端CSS应用文件
+		var vServer = rtmp_addr; //RTMP直播服务器地址
+		var vMp4url = mp4; //RTMP视频文件地址
+		//PC端,安卓端,wp
+		//var vServer = "rtmp://live.hkstv.hk.lxdns.com/live"; //RTMP直播服务器地址
+		//var vMp4url = "hks"; //RTMP视频文件地址
+		//so.addVariable("JcScpServer","rtmp://116.199.115.228/live");//流媒体服务器
+		//so.addVariable("JcScpVideoPath","gztv_tv"); //视频文件地址
+
+		//so.addVariable("JcScpServer","rtmp://rtmpsctv01.sctv.com:1935/SRT_Live");//流媒体服务器
+		//so.addVariable("JcScpVideoPath","SCTV1_9178"); //视频文件地址
+
+		//iOS端(以下地址为m3u8地址)
+		var vIosurl = m3u8; //视频文件地址
+	</SCRIPT>
+	<script class="CuPlayerVideo" data-mce-role="CuPlayerVideo"
+		type="text/javascript" src="../../player/js/CuSunL1.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>体育赛事-用户注册</title>
+<meta name="description" content="用户注册">
+<meta name="keywords" content="index">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="icon" type="image/png" href="img/logo1.png">
+<link rel="apple-touch-icon-precomposed" href="img/logo1.png">
+<meta name="apple-mobile-web-app-title" content="体育赛事" />
+<link rel="stylesheet" href="css/plugins/admin/amazeui.min.css" />
+<link rel="stylesheet" href="css/plugins/admin/app.css">
+<link href="css/plugins/font-awesome.min93e3.css" rel="stylesheet">
+
+<link href="css/plugins/animate.min.css" rel="stylesheet">
+<link rel="stylesheet"
+	href="js/plugins/sweetalert/dist/sweetalert.css">
+<script src="js/plugins/jquery.min.js"></script>
+</head>
+<body data-type="login">
+	<script src="js/plugins/admin/theme.js"></script>
+		<header style="background: #fff;">
+			<div class="am-fl tpl-header-logo" style="width: 347px;">
+				<a href="main"><img src="img/logo_main.png" alt=""></a>
+			</div>
+			<div class="am-container">
+				<!--导航头部-->
+				<div class="am-fr tpl-header-navbar">
+					<ul>
+						<li class="am-text-sm">
+							<a href="main"> <span class="am-icon-send-o"></span>&nbsp;体育赛事官网首页</a>
+						</li>
+						<li class="am-text-sm">
+							<a href="reg_prop.html" style="color:#f91647;"> 其他注册</a>
+						</li>
+						<li class="am-text-sm">
+							<a href="user_login.html"> 登录</a>
+						</li>
+						<li class="am-text-sm">
+							<a href="retrieve_pwd.html"> 密码找回</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</header>
+	<div class="am-g tpl-g">
+		<!-- 风格切换 -->
+<!-- 		<div class="tpl-skiner">
+			<div class="tpl-skiner-toggle am-icon-cog"></div>
+			<div class="tpl-skiner-content">
+				<div class="tpl-skiner-content-title">选择主题</div>
+				<div class="tpl-skiner-content-bar">
+					<span class="skiner-color skiner-white" data-color="theme-white"></span>
+					<span class="skiner-color skiner-black" data-color="theme-black"></span>
+				</div>
+			</div>
+		</div> -->
+		<div class="tpl-login">
+			<div class="tpl-login-content" style="margin: 3.5% auto 23px;">
+				<div class="tpl-login-title">注册用户</div>
+				<span class="tpl-login-content-info"> 创建一个新的用户 </span>
+				<form class="am-form tpl-form-line-form" id="form_reg_user">
+<!-- 					<div class="am-form-group"> -->
+<!-- 						<input type="text" class="tpl-form-input " id="loginname" -->
+<!-- 							name="loginname" placeholder="用户名"> -->
+<!-- 					</div> -->
+					<div class="am-form-group">
+						<input type="text" class="tpl-form-input" id="phoneno" name="phoneno" placeholder="手机号码">
+					</div>
+					<div class="am-form-group" >
+						<div class="am-u-sm-8" style="padding:0;">
+							<input class="" type="text" class="tpl-form-input " id="captcha" name="captcha" placeholder="请输入手机发送的验证码">
+						</div>
+						<div class="am-u-sm-4 am-text-center" >
+							<input type="button" value="获取手机验证码" class="vcode-btn" onclick="settime(this)" />
+						</div>
+					</div>
+
+
+					<div class="am-form-group">
+						<input type="password" class="tpl-form-input" id="pwdtext"
+							name="pwdtext" placeholder="请输入密码">
+					</div>
+
+					<div class="am-form-group">
+						<input type="password" class="tpl-form-input"
+							id="confirm_password" name="confirm_password"
+							placeholder="再次输入密码">
+					</div>
+					<div class="am-form-group tpl-login-remember-me">
+						<input id="remember-me" type="checkbox" id="agree" name="agree">
+						<label for="remember-me"> 我已阅读并同意 
+						</label>
+						<a href="javascript:;" data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 0, width: 508, height: 430}">《用户注册协议》</a>
+					</div>
+
+					<div class="am-form-group">
+
+						<button type="button" id="btn_reg_user"
+							class="am-btn am-btn-primary am-btn-block tpl-btn-bg-color-success tpl-login-btn">提交</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+		<footer class="footer">
+			<ul>
+				<li class="am-u-lg-4 am-u-md-4 am-u-sm-12 part-5-li2">
+					<div class="part-5-title">联系我们</div>
+					<div class="part-5-words2">
+						<span>地址:内蒙古呼和浩特市回民区电子商务园区</span> <span>电话:18147103381</span> <span>传真:0471-3985885</span>
+						<span>邮箱:lr.kepuonline.com</span> <span><i
+							class="am-icon-phone"></i><em>0471-3985995</em></span>
+					</div>
+				</li>
+				<li class="am-u-lg-4 am-u-md-4 am-u-sm-12 ">
+					<div class="part-5-title">相关链接</div>
+					<div class="part-5-words2">
+						<ul class="part-5-words2-ul">
+							<li class="am-u-lg-4 am-u-md-6 am-u-sm-4"><a
+								href="solutions.html">国家体育总局</a></li>
+							<li class="am-u-lg-4 am-u-md-6 am-u-sm-4"><a
+								href="product-show.html">内蒙古体育局</a></li>
+							<li class="am-u-lg-4 am-u-md-6 am-u-sm-4"><a
+								href="cust^omer-case.html">内蒙古教练员协会</a></li>
+							<li class="am-u-lg-4 am-u-md-6 am-u-sm-4"><a
+								href="service-center.html">内蒙古自治区政府</a></li>
+							<li class="am-u-lg-4 am-u-md-6 am-u-sm-4"><a
+								href="about-us.html">关于我们</a></li>
+							<li class="am-u-lg-4 am-u-md-6 am-u-sm-4"><a
+								href="recruit.html">招贤纳士</a></li>
+							<div class="clearfix"></div>
+						</ul>
+					</div>
+				</li>
+				<div class="clearfix"></div>
+			</ul>
+		</footer>
+
+						<!-- 用户注册协议 -->
+						<div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-1">
+						  <div class="am-modal-dialog" style="font-family: 幼圆;"> 	
+						    <div class="am-modal-hd am-text-danger"><h2 style="margin:0;">内蒙古体育在线使用条款</h2>
+						      <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+						    </div>
+						    <div class="am-modal-bd am-scrollable-vertical am-text-left" style="height:347px;resize: none;padding:41px">
+<h3 class="am-text-lg am-text-primary">第1章 总则</h3>
+<h4 class="am-text-default">第1条（目标）</h4>
+<p class="am-text-sm yhxydl">
+本条款是在使用有关内蒙古体育在线社区网站（以下简称“网站”）服务过程中，在不违反现行法律和制度的范围内，规定用户和网站间的重要事项。本服务条款所称的用户是指完全同意所有条款并完成注册程序或未经注册而使用内蒙古体育在线社区其它服务（以下简称“本服务”）的用户。
+</p>
+<h4 class="am-text-default">第2条（条款的效力，适用范围和变更）</h4>
+<p class="am-text-sm">（1）&nbsp;条款的效力和适用范围</p>
+<p class="am-text-sm yhxydl">
+本条款通过社区相关页面向用户公布并发生效力。
+同意本条款并注册的用户，从同意本条款之时起就要服从本条款的规定。
+条款变更时，用户从变更条款生效之时起服从变更条款的规定。
+</p>
+<p class="am-text-sm">（2） 条款的变更</p>
+<p class="am-text-sm yhxydl">
+① 网站认为必要时可以变更本条款，条款变更后要及时公布。用户如果不同意服务条款的修改，可以主动取消已经获得的网络服务；如果用户继续享用由社区提供的相关服务，则视为用户已经接受服务条款的变更。
+</p>
+<p class="am-text-sm yhxydl">
+②内蒙古体育在线社区向用户发出的通知，采用电子邮件或页面公告或常规信件的形式。服务条款的修改或其他事项变更时，内蒙古体育在线社区将会以上述形式进行通知。该等通知于发送之日视为已送达收件人。
+</p>
+<h4 class="am-text-default">第3条（条款规定之外事项的准则）</h4>
+<p class="am-text-sm yhxydl">
+对于现条款没有规定的事项，需要遵守网站规定的其他服务使用条款、详细使用说明及规则等规定，并且这些规则或说明均构成本服务条款的一部分。
+</p>
+<h4 class="am-text-default">第4条（用语的定义）</h4>
+<p class="am-text-sm">（1） 用户：同网站签订服务使用协议的人。</p>
+<p class="am-text-sm">（2） ID：是指为识别用户和使用服务，由用户选定的文字和数字的组合。</p>
+<p class="am-text-sm">（3） 密码：为保护用户信息和保证用户独自使用，由用户选定的文字和数字的组合。</p>
+<p class="am-text-sm">（4） 运营者：负责服务的全面管理和运营的网站职员。</p>
+<h4 class="am-text-default">第5条（服务说明）</h4>
+<p class="am-text-sm">
+（1） 网站运用自己的操作系统通过国际互联网向用户提供丰富的网上资源，包括各种会员服务、信息工具、网上论坛、个性化内容和服务等。除非另有明确规定，增强或强化目前服务的任何新功能，包括新产品，均无条件地适用本服务条款。
+</p>
+<p class="am-text-sm">
+（2） 网站对网络服务不承担任何责任，即用户对网络服务的使用承担风险。网站不保证服务一定会满足用户的使用要求，也不保证服务不会受中断，对服务的及时性、安全性、准确性也不作担保。
+</p>
+<p class="am-text-sm">（3） 为使用本服务，用户必须：</p>
+<p class="am-text-sm yhxydl">① 自行配备进入国际互联网所必需的设备，包括计算机、数据机或其他存取装置。</p>
+<p class="am-text-sm yhxydl">② 自行支付与此服务有关的费用。</p>
+<h4 class="am-text-default">第6条（用户应遵守以下法律及法规）</h4>
+<p class="am-text-sm">
+（1） 用户同意遵守《中华人民共和国保守国家秘密法》、《中华人民共和国计算机信息系统安全保护条例》、《计算机软件保护条例》、《最高人民法院关于审理涉及计算机网络著作权纠纷案件适用法律若干问题的解释(法释[2004]1号)》、《互联网著作权行政保护办法》等有关计算机及互联网规定的法律和法规、实施办法。在任何情况下，网站合理地认为用户的行为可能违反上述法律、法规，网站可以在任何时候，不经事先通知终止向该用户提供服务。
+</p>
+<p class="am-text-sm">（2） 用户应了解国际互联网的无国界性，应特别注意遵守当地所有有关的法律和法规。</p>
+<h4 class="am-text-default">第7条（用户隐私权制度）</h4>
+<p class="am-text-sm">
+（1） 当用户注册使用社区的服务时，用户须提供个人信息。网站收集个人信息的目的是为用户提供尽可能多的个人化网上服务以及为广告商提供一个方便的途径来接触到适合的用户，并且可以发送具有相关性的内容和广告。在此过程中，广告商绝对不会接触到用户的个人信息。网站不会在未经合法用户授权时，公开、编辑或透露其个人信息及保存在社区中的非公开内容，除非有下列情况： 　　　　
+</p>
+<p class="am-text-sm yhxydl">① 有关法律规定或网站合法服务程序规定。</p>
+<p class="am-text-sm yhxydl">② 在紧急情况下，为维护用户及公众的权益。</p>
+<p class="am-text-sm yhxydl">③ 为维护网站的商标权和相关权益。</p>
+<p class="am-text-sm yhxydl">④ 其他需要公开、编辑或透露个人信息的情况。</p>
+						    </div>
+						  </div>
+						</div>
+
+	<script src="js/plugins/admin/amazeui.min.js"></script>                                                                                              
+	<script src="js/common/common.js"></script>
+	<script src="js/plugins/layer/layer.min.js"></script>                         
+
+	<script src="js/plugins/validate/jquery.validate.min.js"></script>
+
+	<script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+	<script src="js/plugins/validate/jquery.validate.min.js"></script>
+	<script src="js/plugins/validate/additional-methods.js"></script>
+	<script src="js/plugins/validate/messages_zh.min.js"></script>
+	<script src="js/common/reg_user.js"></script>
+</body>
+</html>

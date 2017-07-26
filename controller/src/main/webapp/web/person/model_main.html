@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit">
+
+<title>职业模型管理</title>
+<meta name="keywords" content="职业模型管理-体育赛事">
+<meta name="description" content="职业模型管理-体育赛事">
+
+<link rel="shortcut icon" href="favicon.ico">
+<link href="../../css/plugins/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+<link href="../../css/plugins/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+<link href="../../css/plugins/animate.min.css" rel="stylesheet">
+<link href="../../css/plugins/style.min862f.css?v=4.1.0" rel="stylesheet">
+
+<link rel="stylesheet" href="../../js/plugins/sweetalert/dist/sweetalert.css">
+
+<link href="../../css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+
+<link href="../../css/plugins/zTree/zTreeStyle/zTreeStyle.css" rel="stylesheet">
+
+</head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content  animated fadeInRight">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox" style="margin-bottom: 0px">
+					<div class="ibox-title">
+						<h5>
+							<ol class="breadcrumb">
+								<li><a href="#">体育赛事</a></li>
+								<li class="active">职业模型管理</li>
+							</ol>
+						</h5>
+					</div>
+					<div class="ibox-content">
+						<div class="jqGrid_wrapper">
+							<div id="toolbar" class="btn-group">
+								<button type="button" id="addCategory" class="btn btn-outline btn-primary">
+									<i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
+								</button>
+								<button type="button" id="updateCategory" class="btn btn-outline btn-warning">
+									<i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+								</button>
+								<button type="button" id="delCategory" class="btn btn-outline btn-danger">
+									<i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
+								</button>
+							</div>
+							<table id="table">
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- *******************************************************添加信息******************************************************* -->
+	<div id="div_addCategory" class="ibox-content" style="display: none">
+		<form id="from_panel_model_addCategory" class="form-horizontal">
+			<div class="panel panel-primary" style="margin-bottom: -5px">
+				<div class="panel-heading">基本信息</div>
+				<div class="panel-body">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">职业模型分类名称</label>
+						<div class="col-sm-8">
+							<input type="text" name="name" id="addCategory_name" class="form-control required" placeholder="职业模型分类名称">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">职业模型分类全拼</label>
+						<div class="col-sm-8">
+							<input type="text" name="spelling" id="addCategory_spelling" class="form-control required" placeholder="职业模型分类全拼">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">职业模型分类备注</label>
+						<div class="col-sm-8">
+							<input type="text" name="remark" class="form-control required" placeholder="职业模型分类备注">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<div class="col-sm-offset-4">
+							<button class="btn btn-primary col-sm-3" type="button" id="btn_addCategory">
+								<i class="fa fa-check" aria-hidden="true"></i>保存
+							</button>
+							<button class="btn btn-white col-sm-3 col-sm-offset-1" type="button" id="btn_closeCategory">
+								<i class="fa fa-share" aria-hidden="true"></i>关闭
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div id="div_add" class="ibox-content" style="display: none">
+		<form id="from_panel_model_add" class="form-horizontal">
+			<input type="hidden" name="categoryId" id="categoryId" />
+			<div class="panel panel-primary" style="margin-bottom: -5px">
+				<div class="panel-heading">基本信息</div>
+				<div class="panel-body">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">职业模型名称</label>
+						<div class="col-sm-8">
+							<input type="text" name="name" id="add_name" class="form-control required" placeholder="职业模型名称">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">职业模型拼音</label>
+						<div class="col-sm-8">
+							<input type="text" name="spelling" id="add_spelling" class="form-control required" placeholder="职业模型拼音">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">职业模型备注</label>
+						<div class="col-sm-8">
+							<input type="text" name="remark" class="form-control required" placeholder="职业模型备注">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<div class="col-sm-offset-4">
+							<button class="btn btn-primary col-sm-3" type="button" id="btn_add">
+								<i class="fa fa-check" aria-hidden="true"></i>保存
+							</button>
+							<button class="btn btn-white col-sm-3 col-sm-offset-1" type="button" id="btn_close">
+								<i class="fa fa-share" aria-hidden="true"></i>关闭
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<!-- *******************************************************修改信息******************************************************* -->
+	<div id="div_updateCategory" class="ibox-content" style="display: none">
+		<form id="from_panel_model_updateCategory" class="form-horizontal">
+			<div class="panel panel-primary" style="margin-bottom: -5px">
+				<div class="panel-heading">修改职业模型分类信息</div>
+				<div class="panel-body">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">职业模型分类名称</label>
+						<div class="col-sm-8">
+							<input type="hidden" name="id"> <input type="text" name="name" id="editCategory_name" class="form-control required" placeholder="职业模型分类名称">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">职业模型分类全拼</label>
+						<div class="col-sm-8">
+							<input type="hidden" name="id"> <input type="text" name="spelling" id="editCategory_spelling" class="form-control required" placeholder="职业模型分类全拼">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">职业模型分类备注</label>
+						<div class="col-sm-8">
+							<input type="hidden" name="id"> <input type="text" name="remark" class="form-control required" placeholder="职业模型分类备注">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-5">
+						<button class="btn btn-primary col-sm-3" type="button" id="btn_update_submitCategory">
+							<i class="fa fa-check" aria-hidden="true"></i>修改
+						</button>
+						<button class="btn btn-white col-sm-3 col-sm-offset-1" type="button" id="btn_update_closeCategory">
+							<i class="fa fa-share" aria-hidden="true"></i> 关闭
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div id="div_update" class="ibox-content" style="display: none">
+		<form id="from_panel_model_update" class="form-horizontal">
+			<div class="panel panel-primary" style="margin-bottom: -5px">
+				<div class="panel-heading">修改职业模型信息</div>
+				<div class="panel-body">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">职业模型名称</label>
+						<div class="col-sm-8">
+							<input type="hidden" name="id"> <input type="text" name="name" id="edit_name" class="form-control required" placeholder="职业模型名称">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">职业模型全拼</label>
+						<div class="col-sm-8">
+							<input type="hidden" name="id"> <input type="text" name="spelling" id="edit_spelling" class="form-control required" placeholder="职业模型全拼">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">职业模型备注</label>
+						<div class="col-sm-8">
+							<input type="hidden" name="id"> <input type="text" name="remark" class="form-control required" placeholder="职业模型备注">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-5">
+						<button class="btn btn-primary col-sm-3" type="button" id="btn_update_submit">
+							<i class="fa fa-check" aria-hidden="true"></i>修改
+						</button>
+						<button class="btn btn-white col-sm-3 col-sm-offset-1" type="button" id="btn_update_close">
+							<i class="fa fa-share" aria-hidden="true"></i> 关闭
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<!-- *******************************************************控件信息******************************************************* -->
+	<div id="div_propTree" class="ibox-content" style="display: none">
+		<form id="from_tree_prop" class="form-horizontal">
+			<div class="panel panel-primary" style="margin-bottom: -5px">
+				<div class="panel-heading">职业信息</div>
+				<div class="panel-body">
+					<div class="form-group">
+						<label class="col-sm-3 control-label">职业名称</label>
+						<div class="col-sm-6">
+							<input type="hidden" name="id"> <input type="text" name="name" class="form-control required" placeholder="职业姓名" readonly="readonly">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label">权限点</label>
+						<div class="col-sm-6" id="div_prop"></div>
+					</div>
+					<div class="hr-line-dashed"></div>
+
+					<div class="form-group">
+						<div class="col-sm-offset-4">
+							<button class="btn btn-primary col-md-2 col-sm-3" type="button" id="btn_tree_prop_submit">
+								<i class="fa fa-check" aria-hidden="true"></i>授权
+							</button>
+
+							<button class="btn btn-white col-md-2 col-sm-3 col-sm-offset-1" type="button" id="btn_tree_prop_close">
+								<i class="fa fa-share" aria-hidden="true"></i> 关闭
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div class="wrapper wrapper-content  animated fadeInRight" id="div_control" style="display: none">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox" style="margin-bottom: 0px">
+					<div class="ibox-content">
+						<div class="jqGrid_wrapper">
+							<div id="toolbar1" class="btn-group">
+								<button type="button" id="control_add" class="btn btn-outline btn-primary">
+									<i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
+								</button>
+								<button type="button" id="control_update" class="btn btn-outline btn-warning">
+									<i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+								</button>
+								<button type="button" id="control_del" class="btn btn-outline btn-danger">
+									<i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
+								</button>
+							</div>
+							<table id="table_control">
+							</table>
+							<p class="text-danger">如使用插件框，必须定义两个子参数：scrpitStr（引用的JS、CSS等，用|分隔）、divStr（插件展现需要的设置）</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- *******************************************************控件添加信息******************************************************* -->
+	<div id="div_control_add" class="ibox-content" style="display: none">
+		<form id="from_control_add" class="form-horizontal">
+			<input type="hidden" name="modelId" id="modelId1" />
+			<div class="panel panel-primary" style="margin-bottom: -5px">
+				<div class="panel-heading">添加父模型</div>
+				<div class="panel-body">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">父模型输入控件</label>
+						<div class="col-sm-8">
+							<select name="inputControl" class="form-control required" id="sel_categoryPropertyType">
+							</select>
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">父模型属性名称</label>
+						<div class="col-sm-8">
+							<input type="text" name="attributeName" class="form-control required" placeholder="父模型属性名称">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<div class="col-sm-offset-4">
+							<button class="btn btn-primary col-sm-3" type="button" id="btn_control_add">
+								<i class="fa fa-check" aria-hidden="true"></i>保存
+							</button>
+							<button class="btn btn-white col-sm-3 col-sm-offset-1" type="button" id="btn_control_close">
+								<i class="fa fa-share" aria-hidden="true"></i>关闭
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div id="div_control_Z_add" class="ibox-content" style="display: none">
+		<form id="from_control_Z_add" class="form-horizontal">
+			<input type="hidden" name="pId" id="pId" /> <input type="hidden" name="modelId" id="modelId2" />
+			<div class="panel panel-primary" style="margin-bottom: -5px">
+				<div class="panel-heading">添加子模型</div>
+				<div class="panel-body">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">子模型属性名称</label>
+						<div class="col-sm-8">
+							<input type="text" name="attributeName" class="form-control required" placeholder="子模型属性名称">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">子模型属性值</label>
+						<div class="col-sm-8">
+							<input type="text" name="attributeValues" class="form-control required" placeholder="子模型属性值">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<div class="col-sm-offset-4">
+							<button class="btn btn-primary col-sm-3" type="button" id="btn_control_Z_add">
+								<i class="fa fa-check" aria-hidden="true"></i>保存
+							</button>
+							<button class="btn btn-white col-sm-3 col-sm-offset-1" type="button" id="btn_control_Z_close">
+								<i class="fa fa-share" aria-hidden="true"></i>关闭
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<!-- *******************************************************控件修改信息******************************************************* -->
+	<div id="div_control_update" class="ibox-content" style="display: none">
+		<form id="from_control_update" class="form-horizontal">
+			<div class="panel panel-primary" style="margin-bottom: -5px">
+				<div class="panel-heading">修改父模型</div>
+				<div class="panel-body">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">父模型输入控件</label>
+						<div class="col-sm-8">
+							<input type="hidden" name="id"> <select name="inputControl" class="form-control required" id="sel_categoryUpdatePropertyType">
+							</select>
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">父模型属性名称</label>
+						<div class="col-sm-8">
+							<input type="hidden" name="id"> <input type="text" name="attributeName" class="form-control required" placeholder="父模型属性名称">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-5">
+						<button class="btn btn-primary col-sm-3" type="button" id="btn_control_update_submit">
+							<i class="fa fa-check" aria-hidden="true"></i>修改
+						</button>
+						<button class="btn btn-white col-sm-3 col-sm-offset-1" type="button" id="btn_control_update_close">
+							<i class="fa fa-share" aria-hidden="true"></i> 关闭
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div id="div_control_Z_update" class="ibox-content" style="display: none">
+		<form id="from_control_Z_update" class="form-horizontal">
+			<div class="panel panel-primary" style="margin-bottom: -5px">
+				<div class="panel-heading">修改子模型</div>
+				<div class="panel-body">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">子模型属性名称</label>
+						<div class="col-sm-8">
+							<input type="hidden" name="id"> <input type="text" name="attributeName" class="form-control required" placeholder="子模型属性名称">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">子模型属性值</label>
+						<div class="col-sm-8">
+							<input type="hidden" name="id"> <input type="text" name="attributeValues" class="form-control required" placeholder="子模型属性值">
+						</div>
+					</div>
+					<div class="hr-line-dashed"></div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-5">
+						<button class="btn btn-primary col-sm-3" type="button" id="btn_control_Z_update_submit">
+							<i class="fa fa-check" aria-hidden="true"></i>修改
+						</button>
+						<button class="btn btn-white col-sm-3 col-sm-offset-1" type="button" id="btn_control_Z_update_close">
+							<i class="fa fa-share" aria-hidden="true"></i> 关闭
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<input type="hidden" id="index_main" />
+
+	<script src="../../js/plugins/jquery.min.js?v=2.1.4"></script>
+	<script src="../../js/plugins/zTree/jquery.ztree.all.min.js"></script>
+	<script src="../../js/plugins/bootstrap.min.js?v=3.3.6"></script>
+
+	<script src="../../js/plugins/layer/layer.min.js"></script>
+
+	<script src="../../js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+	<script src="../../js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+	<script src="../../js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+	<script src="../../js/plugins/sweetalert/sweetalert.min.js"></script>
+	<script src="../../js/common/common.js"></script>
+	<script src="../../js/plugins/validate/jquery.validate.min.js"></script>
+	<script src="../../js/plugins/validate/messages_zh.min.js"></script>
+	<script src="../../js/plugins/ChinesePY.js"></script>
+	<script src="model_main.js"></script>
+</body>
+</html>
