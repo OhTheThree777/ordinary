@@ -38,19 +38,20 @@ public class LoginController {
 	private SysLogMapper sysLogMapper;
 	@Autowired
 	private SysUserMapper sysUserMapper;
+
 	@RequestMapping()
 	@ResponseBody
 	@Transactional(rollbackFor=Exception.class)
 	public ResponseModelJqGrid doLogin(Map<String, Object> map, HttpServletRequest request) {
 		ResponseModelJqGrid model = new ResponseModelJqGrid();
-		
+
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		
-	
+
+
 		logger.info("用户登录.[username="+username+",password="+password+"]["+ CommonRealm.encryptionBySha256Hash(password)+"]");
 
-		
+
 		try {
 			SecurityUtils.getSubject().login(new UsernamePasswordToken(username, password));
 			SysUser user = (SysUser) ProxyUtil.getAgentTarget(SecurityUtils.getSubject().getSession().getAttribute(SysConstants.SESSION_USER_KEY));
@@ -70,7 +71,7 @@ public class LoginController {
 			sysUserMapper.updateByPrimaryKeySelective(user);
 			model.setObject(user);
 			model.success("登录成功!");
-			
+
 		} catch (AuthenticationException e0) {
 //			e0.printStackTrace();
 			if ("1".equals(e0.getMessage())) {
@@ -94,7 +95,7 @@ public class LoginController {
 				logger.debug("Controller:记录日用户登录日志发生异常，系统默认忽略。");
 			}
 		}
-		
+
 		return model;
 	}
 }

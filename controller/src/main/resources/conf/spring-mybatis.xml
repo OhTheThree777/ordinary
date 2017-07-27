@@ -58,7 +58,7 @@
 
 		<property name="mapperLocations">
 			<array>
-				<value>classpath:mapper/*.xml</value>
+				<value>classpath:mapper/sys/*.xml</value>
 			</array>
 		</property>
 		<property name="typeAliasesPackage" value="com.isea533.mybatis.model" />
@@ -87,7 +87,7 @@
 
 	<bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage"
-				  value="com.isea533.mybatis.mapper;com.github.abel533.entity.mapper;mapper.mapper;mapper.tyss.mapper;tyss.mapper" />
+				  value="com.isea533.mybatis.mapper;com.github.abel533.entity.mapper;mapper.mapper;" />
 		<property name="properties">
 			<value>
 				mappers=tk.mybatis.mapper.common.Mapper
