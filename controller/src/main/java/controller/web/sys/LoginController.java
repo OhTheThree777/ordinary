@@ -3,6 +3,7 @@ package controller.web.sys;
 import java.util.Date;
 import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import common.model.ResponseModelJqGrid;

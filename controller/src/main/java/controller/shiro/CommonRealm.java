@@ -24,6 +24,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.github.abel533.entity.EntityMapper;
 import com.github.abel533.entity.Example;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
 
 /**
@@ -32,10 +34,11 @@ import com.github.abel533.entity.Example;
  * @author
  *
  */
+@Component
+@Controller
 public class CommonRealm extends AuthorizingRealm {
 	private static Logger logger = LoggerFactory.getLogger(CommonRealm.class);
 
-	@Autowired
 	private EntityMapper entityMapper;
 
 	public CommonRealm() {

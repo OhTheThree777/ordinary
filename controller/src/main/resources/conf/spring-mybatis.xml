@@ -7,8 +7,6 @@
 		http://www.springframework.org/schema/beans/spring-beans-4.1.xsd 
 		http://www.springframework.org/schema/tx 
 		http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
-		http://www.springframework.org/schema/aop 
-		http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
 		">
 
 	<!-- 配置数据源 使用的是Druid数据源 -->
@@ -54,11 +52,12 @@
 		<property name="dataSource" ref="dataSource" />
 		<!-- 自动扫描entity目录, 省掉Configuration.xml里的手工配置 -->
 
-		<property name="configLocation" value="classpath:conf/mybatis-config.xml"></property>
+		<property name="configLocation" value="classpath:conf/mybatis-config.xml"/>
 
 		<property name="mapperLocations">
 			<array>
 				<value>classpath:mapper/sys/*.xml</value>
+				<!--TODO-->
 			</array>
 		</property>
 		<property name="typeAliasesPackage" value="com.isea533.mybatis.model" />
@@ -86,8 +85,11 @@
 	</bean>
 
 	<bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!--TODO-->
 		<property name="basePackage"
-				  value="com.isea533.mybatis.mapper;com.github.abel533.entity.mapper;mapper.mapper;" />
+				  value="com.isea533.mybatis.mapper;com.github.abel533.entity.mapper;
+				  mapper.mapper.sys;
+				" />
 		<property name="properties">
 			<value>
 				mappers=tk.mybatis.mapper.common.Mapper
@@ -115,15 +117,9 @@
 	</bean>
 
 
-	<bean id="transactionManagerDede"
-		  class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSourceDede" />
-		<qualifier value="Dede"/>
-	</bean>
 
 	<!-- 注解方式配置事物 -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
-	<tx:annotation-driven transaction-manager="transactionManagerDede" />
 
 	<!-- 拦截器方式配置事物 -->
 	<tx:advice id="transactionAdvice" transaction-manager="transactionManager">
@@ -137,104 +133,6 @@
 			<tx:method name="select*" propagation="SUPPORTS" read-only="true" />
 		</tx:attributes>
 	</tx:advice>
-	<tx:advice id="transactionAdviceDede" transaction-manager="transactionManagerDede">
-		<tx:attributes>
-			<tx:method name="insert*" propagation="REQUIRED" />
-			<tx:method name="update*" propagation="REQUIRED" />
-			<tx:method name="delete*" propagation="REQUIRED" />
-			<tx:method name="add*" propagation="REQUIRED" />
-			<tx:method name="get*" propagation="SUPPORTS" read-only="true" />
-			<tx:method name="find*" propagation="SUPPORTS" read-only="true" />
-			<tx:method name="select*" propagation="SUPPORTS" read-only="true" />
-		</tx:attributes>
-	</tx:advice>
 
 
-	<!-- 配置数据源 使用的是Druid数据源 -->
-	<bean name="dataSourceDede" class="com.alibaba.druid.pool.DruidDataSource"
-		  init-method="init" destroy-method="close">
-		<property name="url" value="${jdbc.url_dede}" />
-		<property name="username" value="${jdbc.username}" />
-		<property name="password" value="${jdbc.password}" />
-
-		<!-- 初始化连接大小 -->
-		<property name="initialSize" value="0" />
-		<!-- 连接池最大使用连接数量 -->
-		<property name="maxActive" value="20" />
-
-		<!-- 连接池最小空闲 -->
-		<property name="minIdle" value="0" />
-		<!-- 获取连接最大等待时间 -->
-		<property name="maxWait" value="60000" />
-		<property name="poolPreparedStatements" value="true" />
-		<property name="maxPoolPreparedStatementPerConnectionSize"
-				  value="33" />
-		<!-- 用来检测有效sql -->
-		<property name="validationQuery" value="${validationQuery}" />
-		<property name="testOnBorrow" value="false" />
-		<property name="testOnReturn" value="false" />
-		<property name="testWhileIdle" value="true" />
-		<!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
-		<property name="timeBetweenEvictionRunsMillis" value="60000" />
-		<!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
-		<property name="minEvictableIdleTimeMillis" value="25200000" />
-		<!-- 打开removeAbandoned功能 -->
-		<property name="removeAbandoned" value="true" />
-		<!-- 1800秒，也就是30分钟 -->
-		<property name="removeAbandonedTimeout" value="1800" />
-		<!-- 关闭abanded连接时输出错误日志 -->
-		<property name="logAbandoned" value="true" />
-		<!-- 监控数据库 -->
-		<property name="filters" value="mergeStat" />
-	</bean>
-
-	<!-- myBatis文件 -->
-	<bean id="sqlSessionFactoryDede" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSourceDede" />
-		<!-- 自动扫描entity目录, 省掉Configuration.xml里的手工配置 -->
-
-		<!-- <property name="mapperLocations"> <array> <value>classpath:mapper/*.xml</value>
-			<value>classpath:vote/*.xml</value> </array> </property> -->
-		<property name="typeAliasesPackage" value="com.isea533.mybatis.model" />
-		<property name="plugins">
-			<array>
-				<bean class="com.github.pagehelper.PageHelper">
-					<property name="properties">
-						<value>
-							dialect=hsqldb
-							reasonable=true
-						</value>
-					</property>
-				</bean>
-				<bean class="com.github.abel533.mapperhelper.MapperInterceptor">
-					<property name="properties">
-						<value>
-							mappers=com.github.abel533.mapper.Mapper
-							IDENTITY=MYSQL
-							notEmpty=true
-						</value>
-					</property>
-				</bean>
-			</array>
-		</property>
-	</bean>
-
-	<bean id="sqlSessionDede" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg index="0" ref="sqlSessionFactoryDede" />
-	</bean>
-	<bean id="sqlMapperDede" class="com.github.abel533.sql.SqlMapper"
-		  scope="prototype">
-		<!--<constructor-arg ref="sqlSession" /> -->
-		<constructor-arg ref="sqlSessionDede" />
-	</bean>
-
-	<bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.isea533.mybatis.mapper;com.github.abel533.entity.mapper;" />
-		<property name="properties">
-			<value>
-				mappers=tk.mybatis.mapper.common.Mapper
-			</value>
-		</property>
-		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryDede" />
-	</bean>
 </beans>

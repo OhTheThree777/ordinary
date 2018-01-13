@@ -15,7 +15,6 @@
 
 	<!-- 在Controller中使用事物回滚 -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
-	<tx:annotation-driven transaction-manager="transactionManagerDede" />
 	<!-- 自动扫描controller包下的所有类，如果@Controller注入为bean -->
 	<context:component-scan base-package="controller" />
 	<context:component-scan base-package="websocket" />
@@ -68,7 +67,7 @@
 					</list>
 
 				</property>
-				<property name="defaultDateFormat" value="yyyy-MM-dd HH:mm:ss"></property>
+				<property name="defaultDateFormat" value="yyyy-MM-dd HH:mm:ss"/>
 			</bean>
 		</mvc:message-converters>
 		<mvc:argument-resolvers>
@@ -85,39 +84,30 @@
 	<bean id="viewResolver"
 		  class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass"
-				  value="org.springframework.web.servlet.view.JstlView"></property>
-		<property name="prefix" value="/WEB-INF/views/"></property>
-		<property name="suffix" value=".jsp"></property>
-		<property name="order" value="2"></property>
+				  value="org.springframework.web.servlet.view.JstlView"/>
+		<property name="prefix" value="/WEB-INF/views/"/>
+		<property name="suffix" value=".jsp"/>
+		<property name="order" value="2"/>
 	</bean>
 
 	<!-- html视图解析器 必须先配置freemarkerConfig,注意html是没有prefix前缀属性的 -->
 	<bean id="freemarkerConfig"
 		  class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-		<property name="templateLoaderPath">
-			<value>/</value>
-		</property>
+		<property name="templateLoaderPath" value="/"/>
 	</bean>
 	<bean id="htmlviewResolver"
 		  class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
 		<property name="suffix" value=".html" />
-		<property name="order" value="0"></property>
-		<property name="contentType" value="text/html;charset=UTF-8"></property>
+		<property name="order" value="0"/>
+		<property name="contentType" value="text/html;charset=UTF-8"/>
 	</bean>
 
 	<!-- 配置多文件上传 -->
 	<bean id="multipartResolver"
 		  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<property name="defaultEncoding">
-			<value>UTF-8</value>
-		</property>
-		<property name="maxUploadSize">
-			<!-- 上传文件大小限制为31M，31*1024*1024 -->
-			<value>32505856</value>
-		</property>
-		<property name="maxInMemorySize">
-			<value>4096</value>
-		</property>
+		<property name="defaultEncoding" value="UTF-8"/>
+		<property name="maxUploadSize" value="32505856"/>
+		<property name="maxInMemorySize" value="4096"/>
 	</bean>
 
 	<!-- OAuth2拦截器 -->

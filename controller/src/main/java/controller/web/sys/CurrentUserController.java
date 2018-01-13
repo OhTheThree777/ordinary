@@ -22,9 +22,10 @@ public class CurrentUserController {
 
 	@Resource
 	private EntityMapper entityMapper;
-	
+
 	/**
 	 * 获得当前用户信息
+	 *
 	 * @return
 	 */
 	@RequestMapping("/getUserInfo.json")
@@ -42,18 +43,17 @@ public class CurrentUserController {
 			model.error("用户未登录");
 			return model;
 		}
-		
+
 		String reload = (String) map.get("reload");
-		
+
 		try {
-//			model.setObject(SecurityUtils.getSubject().getSession().getAttribute(SysConstants.SESSION_USER_KEY));
 			if ("1".equals(reload)) {
-				user = entityMapper.selectByPrimaryKey(SysUser.class,user.getFid());
+				user = entityMapper.selectByPrimaryKey(SysUser.class, user.getFid());
 				// 向Session中添加用户对象
 				SecurityUtils.getSubject().getSession().setAttribute(SysConstants.SESSION_USER_KEY, user);
 
 			}
-			
+
 			model.setObject(ProxyUtil.getAgentTarget(user));
 			if (model.get("obj") == null) {
 				// session中没用用户对象
@@ -63,9 +63,9 @@ public class CurrentUserController {
 			e.printStackTrace();
 			model.error("未找到当前用户");
 		}
-		
+
 		return model;
 	}
 
-	
+
 }
