@@ -4,8 +4,6 @@ import java.lang.reflect.Field;
 
 /**
  * 对象工具，用于判断对象或成员变量的类型。
- * 
- *
  */
 public class ObjectTools {
 	public static final String _BYTE = "byte";
@@ -36,7 +34,7 @@ public class ObjectTools {
 
 	/**
 	 * 判断对象类型，返回DataType枚举类型。
-	 * 
+	 *
 	 * @param object
 	 * @return 对象类型（枚举类型DataType）
 	 */
@@ -53,7 +51,7 @@ public class ObjectTools {
 
 	/**
 	 * 判断类中的成员变量Field的类型，返回DataType枚举类型。
-	 * 
+	 *
 	 * @param field
 	 * @return Field的类型（枚举类型DataType）
 	 */
@@ -68,7 +66,6 @@ public class ObjectTools {
 	}
 
 	/**
-	 * 
 	 * @param className
 	 * @return
 	 */

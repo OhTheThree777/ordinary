@@ -2,7 +2,6 @@ package common.util;
 
 /**
  * 数据类型
- *
  */
 public enum DataType {
 	_byte,

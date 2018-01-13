@@ -82,7 +82,7 @@ public class OSinfo {
 
 	/**
 	 * 获取操作系统名字
-	 * 
+	 *
 	 * @return 操作系统名
 	 */
 	public static EPlatform getOSname() {

@@ -34,12 +34,11 @@ import org.apache.poi.hssf.util.HSSFColor;
 
 /**
  * 利用开源组件POI3.0.2动态导出EXCEL文档
- * 
- * @version v1.0
- * @param <T>
- *            应用泛型，代表任意一个符合javabean风格的类
+ *
+ * @param <T> 应用泛型，代表任意一个符合javabean风格的类
  *            注意这里为了简单起见，boolean型的属性xxx的get器方式为getXxx(),而不是isXxx()
  *            byte[]表jpg格式的图片数据
+ * @version v1.0
  */
 public class ExportExcel<T> {
 	public static final String FILE_SEPARATOR = System.getProperties()
@@ -50,33 +49,28 @@ public class ExportExcel<T> {
 	}
 
 	public void exportExcel(String[] headers, Collection<T> dataset,
-			OutputStream out) {
+							OutputStream out) {
 		exportExcel("测试POI导出EXCEL文档", headers, dataset, out, "yyyy-MM-dd");
 	}
 
 	public void exportExcel(String[] headers, Collection<T> dataset,
-			OutputStream out, String pattern) {
+							OutputStream out, String pattern) {
 		exportExcel("测试POI导出EXCEL文档", headers, dataset, out, pattern);
 	}
 
 	/**
 	 * 这是一个通用的方法，利用了JAVA的反射机制，可以将放置在JAVA集合中并且符号一定条件的数据以EXCEL 的形式输出到指定IO设备上
-	 * 
-	 * @param title
-	 *            表格标题名
-	 * @param headers
-	 *            表格属性列名数组
-	 * @param dataset
-	 *            需要显示的数据集合,集合中一定要放置符合javabean风格的类的对象。此方法支持的
-	 *            javabean属性的数据类型有基本数据类型及String,Date,byte[](图片数据)
-	 * @param out
-	 *            与输出设备关联的流对象，可以将EXCEL文档导出到本地文件或者网络中
-	 * @param pattern
-	 *            如果有时间数据，设定输出格式。默认为"yyy-MM-dd"
+	 *
+	 * @param title   表格标题名
+	 * @param headers 表格属性列名数组
+	 * @param dataset 需要显示的数据集合,集合中一定要放置符合javabean风格的类的对象。此方法支持的
+	 *                javabean属性的数据类型有基本数据类型及String,Date,byte[](图片数据)
+	 * @param out     与输出设备关联的流对象，可以将EXCEL文档导出到本地文件或者网络中
+	 * @param pattern 如果有时间数据，设定输出格式。默认为"yyy-MM-dd"
 	 */
 	@SuppressWarnings("unchecked")
 	public void exportExcel(String title, String[] headers,
-			Collection<T> dataset, OutputStream out, String pattern) {
+							Collection<T> dataset, OutputStream out, String pattern) {
 		// 声明一个工作薄
 		HSSFWorkbook workbook = new HSSFWorkbook();
 		// 生成一个表格
@@ -152,8 +146,8 @@ public class ExportExcel<T> {
 				try {
 					Class tCls = t.getClass();
 					Method getMethod = tCls.getMethod(getMethodName,
-							new Class[] {});
-					Object value = getMethod.invoke(t, new Object[] {});
+							new Class[]{});
+					Object value = getMethod.invoke(t, new Object[]{});
 					// 判断值的类型后进行强制类型转换
 					String textValue = null;
 					// if (value instanceof Integer) {
@@ -174,7 +168,7 @@ public class ExportExcel<T> {
 					// cell.setCellValue(longValue);
 					// }
 					if (null == value) {
-						textValue="";
+						textValue = "";
 					} else if (value instanceof Boolean) {
 						boolean bValue = (Boolean) value;
 						textValue = "男";
@@ -242,15 +236,15 @@ public class ExportExcel<T> {
 	public void test(String imagesPath, String docsPath) {
 		// 测试学生
 		ExportExcel<Student> ex = new ExportExcel<Student>();
-		String[] headers = { "学号", "姓名", "年龄", "性别", "出生日期" };
+		String[] headers = {"学号", "姓名", "年龄", "性别", "出生日期"};
 		List<Student> dataset = new ArrayList<Student>();
 		dataset.add(new Student(10000001, "张三", 20, true, new Date()));
 		dataset.add(new Student(20000002, "李四", 24, false, new Date()));
 		dataset.add(new Student(30000003, "王五", 22, true, new Date()));
 		// 测试图书
 		ExportExcel<Book> ex2 = new ExportExcel<Book>();
-		String[] headers2 = { "图书编号", "图书名称", "图书作者", "图书价格", "图书ISBN",
-				"图书出版社", "封面图片" };
+		String[] headers2 = {"图书编号", "图书名称", "图书作者", "图书价格", "图书ISBN",
+				"图书出版社", "封面图片"};
 		List<Book> dataset2 = new ArrayList<Book>();
 		try {
 			BufferedInputStream bis = new BufferedInputStream(

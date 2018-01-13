@@ -4,14 +4,13 @@ import java.io.Serializable;
 
 /**
  * DataBootstrapTable 使用方法
- * 
- * @author Administrator
  *
+ * @author Administrator
  */
 public class DataBootstrapTable implements Serializable {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1403050250042536607L;
 	private int offset; // 当前页,名字必须为page
@@ -59,7 +58,6 @@ public class DataBootstrapTable implements Serializable {
 	public void setSearch(String search) {
 		this.search = search;
 	}
-	
-	
+
 
 }

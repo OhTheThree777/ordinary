@@ -11,7 +11,7 @@ import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombi
 public class PingYinUtil {
 	/**
 	 * 将字符串中的中文转化为拼音,其他字符不变
-	 * 
+	 *
 	 * @param inputString
 	 * @return
 	 */
@@ -42,9 +42,8 @@ public class PingYinUtil {
 
 	/**
 	 * 获取汉字串拼音首字母，英文字符不变
-	 * 
-	 * @param chinese
-	 *            汉字串
+	 *
+	 * @param chinese 汉字串
 	 * @return 汉语拼音首字母
 	 */
 	public static String getFirstSpell(String chinese) {
@@ -73,9 +72,8 @@ public class PingYinUtil {
 
 	/**
 	 * 获取汉字串拼音，英文字符不变
-	 * 
-	 * @param chinese
-	 *            汉字串
+	 *
+	 * @param chinese 汉字串
 	 * @return 汉语拼音
 	 */
 	public static String getFullSpell(String chinese) {

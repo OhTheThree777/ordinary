@@ -19,10 +19,11 @@ public class ExcelServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+						  HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
 
+	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String imagesPath = request.getSession().getServletContext()

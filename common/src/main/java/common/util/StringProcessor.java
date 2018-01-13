@@ -5,16 +5,15 @@ import java.util.List;
 
 /**
  * 字符串处理器
- * 
+ *
  * @author qinhuan
  * @version 20120908
- * 
  */
 public class StringProcessor {
 
 	/**
 	 * 判断字符串是否为空字符 To determine whether the string is empty character
-	 * 
+	 *
 	 * @param str
 	 * @return
 	 */
@@ -28,7 +27,7 @@ public class StringProcessor {
 
 	/**
 	 * 根据指定的字符截断字符串 Truncate the string according to the specified character
-	 * 
+	 *
 	 * @param str
 	 * @param c
 	 * @return
@@ -52,7 +51,7 @@ public class StringProcessor {
 
 	/**
 	 * 将英文单词的首字母转换为大写
-	 * 
+	 *
 	 * @param str
 	 * @return
 	 */
@@ -66,7 +65,7 @@ public class StringProcessor {
 
 	/**
 	 * 将英文单词的首字母转换为小写
-	 * 
+	 *
 	 * @param str
 	 * @return
 	 */
@@ -80,7 +79,7 @@ public class StringProcessor {
 
 	/**
 	 * 将英文语句的首字母转换为大写
-	 * 
+	 *
 	 * @param str
 	 * @return
 	 */
@@ -98,7 +97,7 @@ public class StringProcessor {
 
 	/**
 	 * 将英文语句的首字母转换为小写
-	 * 
+	 *
 	 * @param str
 	 * @return
 	 */

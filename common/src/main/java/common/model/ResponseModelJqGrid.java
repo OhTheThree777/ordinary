@@ -10,16 +10,15 @@ import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 
 
-
 public class ResponseModelJqGrid implements Serializable {
-	
+
 	private static final long serialVersionUID = 852675651260882186L;
 
-	public static final String KEY_ROWS 	= "rows";
-	public static final String KEY_TOTAL	 	= "total";
-	public static final String KEY_LIST 	= "list";
-	public static final String KEY_OBJECT 	= "obj";
-	public static final String KEY_MAP	 	= "map";
+	public static final String KEY_ROWS = "rows";
+	public static final String KEY_TOTAL = "total";
+	public static final String KEY_LIST = "list";
+	public static final String KEY_OBJECT = "obj";
+	public static final String KEY_MAP = "map";
 
 	private List<?> rows;
 	private Integer records;
@@ -27,24 +26,26 @@ public class ResponseModelJqGrid implements Serializable {
 	private String status;
 	private String msg;
 	private Map<String, Object> data;
+
 	public ResponseModelJqGrid() {
 		super();
 		rows = new ArrayList<Object>();
 		data = new HashMap<String, Object>();
 	}
 
-	public ResponseModelJqGrid bing(List<?> rows, Integer total,Integer records) {
+	public ResponseModelJqGrid bing(List<?> rows, Integer total, Integer records) {
 		this.rows = rows;
 		this.total = total;
-		this.records=records;
+		this.records = records;
 		return this;
 	}
+
 	public ResponseModelJqGrid(String status, String msg) {
 		this();
 		this.status = status;
 		this.msg = msg;
 	}
-	
+
 
 	public Integer getRecords() {
 		return records;
@@ -61,17 +62,20 @@ public class ResponseModelJqGrid implements Serializable {
 	public String getMsg() {
 		return msg;
 	}
+
 	public List<?> getRows() {
 		return rows;
 	}
+
 	public Integer getTotal() {
 		return total;
 	}
 
-	
+
 	public Object get(int key) {
 		return rows.get(key);
 	}
+
 	/**
 	 * 成功完成。
 	 */
@@ -82,6 +86,7 @@ public class ResponseModelJqGrid implements Serializable {
 
 	/**
 	 * 成功完成。
+	 *
 	 * @param emsg
 	 */
 	public ResponseModelJqGrid success(String msg) {
@@ -100,6 +105,7 @@ public class ResponseModelJqGrid implements Serializable {
 
 	/**
 	 * 服务器错误。
+	 *
 	 * @param emsg
 	 */
 	public ResponseModelJqGrid error(String msg) {
@@ -107,11 +113,14 @@ public class ResponseModelJqGrid implements Serializable {
 		this.msg = msg;
 		return this;
 	}
+
 	public Map<String, Object> getData() {
 		return data;
 	}
+
 	/**
 	 * 向返回Model中添加键/值数据。（默认调用success()）
+	 *
 	 * @param key
 	 * @param value
 	 */
@@ -119,8 +128,10 @@ public class ResponseModelJqGrid implements Serializable {
 		this.data.put(key, value);
 		this.success();
 	}
+
 	/**
 	 * 向返回Model中添加键/值数据。
+	 *
 	 * @param key
 	 * @param value
 	 * @param isSuccess 是否成功返回。
@@ -131,12 +142,14 @@ public class ResponseModelJqGrid implements Serializable {
 			this.success();
 		}
 	}
-	
+
 	public Object get(String key) {
 		return data.get(key);
 	}
+
 	/**
 	 * 向List中增加一个对象
+	 *
 	 * @param obj
 	 */
 	public void add2List(Object obj) {
@@ -149,36 +162,44 @@ public class ResponseModelJqGrid implements Serializable {
 		}
 		list.add(obj);
 	}
+
 	/**
 	 * 向返回Model中添加数据对象。（使用默认的key[KEY_LIST]，默认调用success()。）
+	 *
 	 * @param list
 	 */
 	public void setList(List<?> list) {
 		this.put(KEY_LIST, list);
 		this.success();
 	}
+
 	public List<?> getList() {
 		return (List<?>) this.get(KEY_LIST);
 	}
+
 	/**
 	 * 向返回Model中添加对象。（使用默认的key[KEY_OBJECT]，默认调用success()。）
+	 *
 	 * @param obj
 	 */
 	public void setObject(Object obj) {
 		this.put(KEY_OBJECT, obj);
 		this.success();
 	}
-	
+
 	/**
 	 * 向返回Model中添加Map对象。（使用默认的key[KEY_MAP]，默认调用success()。）
+	 *
 	 * @param map
 	 */
 	public void setMap(Map<?, ?> map) {
 		this.put(KEY_MAP, map);
 		this.success();
 	}
+
 	/**
 	 * 向map中增加一个键值对像
+	 *
 	 * @param key
 	 * @param obj
 	 */
@@ -196,12 +217,12 @@ public class ResponseModelJqGrid implements Serializable {
 	 * 适用于EasyUI的返回方式（防止IE返回json下载）
 	 * @param response
 	 */
-//	public void EasyUIResponse(HttpServletResponse response) {
-//		try {
-//			response.setContentType("text/html;charset=UTF-8");
-//			response.getWriter().print(JSONHandler.toJSON(this));
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//	}
+	//	public void EasyUIResponse(HttpServletResponse response) {
+	//		try {
+	//			response.setContentType("text/html;charset=UTF-8");
+	//			response.getWriter().print(JSONHandler.toJSON(this));
+	//		} catch (IOException e) {
+	//			e.printStackTrace();
+	//		}
+	//	}
 }

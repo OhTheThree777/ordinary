@@ -19,11 +19,9 @@ import com.aliyun.oss.model.ObjectMetadata;
 import com.aliyun.oss.model.PutObjectResult;
 
 /**
- * 
  * 阿里云Oss调用工具
- * 
- * @author mac
  *
+ * @author mac
  */
 public class AliyunOssUtil {
 	Log log = LogFactory.getLog(AliyunOssUtil.class);
@@ -51,10 +49,8 @@ public class AliyunOssUtil {
 	/**
 	 * 上传到OSS服务器 如果同名文件会覆盖服务器上的
 	 *
-	 * @param instream
-	 *            文件流
-	 * @param fileName
-	 *            文件名称 包括后缀名
+	 * @param instream 文件流
+	 * @param fileName 文件名称 包括后缀名
 	 * @return 出错返回"" ,唯一MD5数字签名
 	 */
 	public String uploadFile2OSS(InputStream instream, String fileName) {
@@ -118,13 +114,13 @@ public class AliyunOssUtil {
 		}
 
 	}
-	
+
 	/**
 	 * 上传图片
 	 *
 	 * @param url
 	 */
-	public void uploadImg2Oss(String url,String fileName) {
+	public void uploadImg2Oss(String url, String fileName) {
 		File fileOnServer = new File(url);
 		FileInputStream fin;
 		try {
@@ -135,8 +131,7 @@ public class AliyunOssUtil {
 		}
 
 	}
-	
-	
+
 
 	public String uploadImg2Oss(MultipartFile file) {
 
@@ -177,8 +172,7 @@ public class AliyunOssUtil {
 	/**
 	 * Description: 判断OSS服务文件上传时文件的contentType
 	 *
-	 * @param FilenameExtension
-	 *            文件后缀
+	 * @param FilenameExtension 文件后缀
 	 * @return String
 	 */
 	public static String getcontentType(String FilenameExtension) {

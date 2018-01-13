@@ -13,16 +13,13 @@ import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 public class ExcelUtil {
 	/**
 	 * 替换Excel模板文件内容
-	 * 
-	 * @param datas
-	 *            文档数据
-	 * @param sourceFilePath
-	 *            Excel模板文件路径
-	 * @param targetFilePath
-	 *            Excel生成文件路径
+	 *
+	 * @param datas          文档数据
+	 * @param sourceFilePath Excel模板文件路径
+	 * @param targetFilePath Excel生成文件路径
 	 */
 	public static boolean replaceModel(List<ExcelReplaceDataVO> datas,
-			String sourceFilePath, String targetFilePath) {
+									   String sourceFilePath, String targetFilePath) {
 		boolean bool = true;
 		try {
 			POIFSFileSystem fs = new POIFSFileSystem(new FileInputStream(

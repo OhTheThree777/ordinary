@@ -13,7 +13,7 @@ public class Book {
 	}
 
 	public Book(int bookId, String name, String author, float price,
-			String isbn, String pubName, byte[] preface) {
+				String isbn, String pubName, byte[] preface) {
 		this.bookId = bookId;
 		this.name = name;
 		this.author = author;

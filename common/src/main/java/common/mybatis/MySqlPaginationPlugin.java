@@ -70,7 +70,8 @@ public class MySqlPaginationPlugin extends PluginAdapter{
     /** 
      * This plugin is always valid - no properties are required 
      */  
-    public boolean validate(List<String> warnings) {  
+    @Override
+    public boolean validate(List<String> warnings) {
         return true;  
     }  
     public static void generate() {  

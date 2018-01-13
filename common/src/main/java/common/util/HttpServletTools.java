@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 public class HttpServletTools {
 	/**
 	 * 从HttpServletRequest中获取实际的IP地址
-	 * 
+	 *
 	 * @param request
 	 * @return
 	 */

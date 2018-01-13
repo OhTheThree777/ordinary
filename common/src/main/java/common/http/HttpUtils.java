@@ -1,4 +1,5 @@
 package common.http;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -69,6 +70,7 @@ import com.fasterxml.jackson.core.JsonParser.Feature;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class HttpUtils {
 
 	private static Logger logger = LoggerFactory.getLogger(HttpUtils.class);
@@ -126,18 +128,17 @@ public class HttpUtils {
 	}
 
 	private static HttpUtils create(HttpRequestBase request,
-			HttpUtils clientUtils) {
+									HttpUtils clientUtils) {
 		return new HttpUtils(request, clientUtils);
 	}
 
 	/**
 	 * 创建post请求
-	 * 
+	 *
+	 * @param url 请求地址
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @param url
-	 *            请求地址
-	 * @return
 	 */
 	public static HttpUtils post(String url) {
 		return create(new HttpPost(url));
@@ -145,12 +146,11 @@ public class HttpUtils {
 
 	/**
 	 * 创建get请求
-	 * 
+	 *
+	 * @param url 请求地址
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @param url
-	 *            请求地址
-	 * @return
 	 */
 	public static HttpUtils get(String url) {
 		return create(new HttpGet(url));
@@ -158,12 +158,11 @@ public class HttpUtils {
 
 	/**
 	 * 创建put请求
-	 * 
+	 *
+	 * @param url 请求地址
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @param url
-	 *            请求地址
-	 * @return
 	 */
 	public static HttpUtils put(String url) {
 		return create(new HttpPut(url));
@@ -171,12 +170,11 @@ public class HttpUtils {
 
 	/**
 	 * 创建delete请求
-	 * 
+	 *
+	 * @param url 请求地址
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @param url
-	 *            请求地址
-	 * @return
 	 */
 	public static HttpUtils delete(String url) {
 		return create(new HttpDelete(url));
@@ -184,12 +182,11 @@ public class HttpUtils {
 
 	/**
 	 * 创建post请求
-	 * 
+	 *
+	 * @param uri 请求地址
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @param uri
-	 *            请求地址
-	 * @return
 	 */
 	public static HttpUtils post(URI uri) {
 		return create(new HttpPost(uri));
@@ -197,12 +194,11 @@ public class HttpUtils {
 
 	/**
 	 * 创建get请求
-	 * 
+	 *
+	 * @param uri 请求地址
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @param uri
-	 *            请求地址
-	 * @return
 	 */
 	public static HttpUtils get(URI uri) {
 		return create(new HttpGet(uri));
@@ -210,12 +206,11 @@ public class HttpUtils {
 
 	/**
 	 * 创建put请求
-	 * 
+	 *
+	 * @param uri 请求地址
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @param uri
-	 *            请求地址
-	 * @return
 	 */
 	public static HttpUtils put(URI uri) {
 		return create(new HttpPut(uri));
@@ -223,12 +218,11 @@ public class HttpUtils {
 
 	/**
 	 * 创建delete请求
-	 * 
+	 *
+	 * @param uri 请求地址
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @param uri
-	 *            请求地址
-	 * @return
 	 */
 	public static HttpUtils delete(URI uri) {
 		return create(new HttpDelete(uri));
@@ -236,12 +230,11 @@ public class HttpUtils {
 
 	/**
 	 * 创建post请求
-	 * 
+	 *
+	 * @param url 请求地址
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @param url
-	 *            请求地址
-	 * @return
 	 */
 	public static HttpUtils post(String url, HttpUtils clientUtils) {
 		return create(new HttpPost(url), clientUtils);
@@ -249,12 +242,11 @@ public class HttpUtils {
 
 	/**
 	 * 创建get请求
-	 * 
+	 *
+	 * @param url 请求地址
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @param url
-	 *            请求地址
-	 * @return
 	 */
 	public static HttpUtils get(String url, HttpUtils clientUtils) {
 		return create(new HttpGet(url), clientUtils);
@@ -262,12 +254,11 @@ public class HttpUtils {
 
 	/**
 	 * 创建put请求
-	 * 
+	 *
+	 * @param url 请求地址
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @param url
-	 *            请求地址
-	 * @return
 	 */
 	public static HttpUtils put(String url, HttpUtils clientUtils) {
 		return create(new HttpPut(url), clientUtils);
@@ -275,12 +266,11 @@ public class HttpUtils {
 
 	/**
 	 * 创建delete请求
-	 * 
+	 *
+	 * @param url 请求地址
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @param url
-	 *            请求地址
-	 * @return
 	 */
 	public static HttpUtils delete(String url, HttpUtils clientUtils) {
 		return create(new HttpDelete(url), clientUtils);
@@ -288,12 +278,11 @@ public class HttpUtils {
 
 	/**
 	 * 创建post请求
-	 * 
+	 *
+	 * @param uri 请求地址
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @param uri
-	 *            请求地址
-	 * @return
 	 */
 	public static HttpUtils post(URI uri, HttpUtils clientUtils) {
 		return create(new HttpPost(uri), clientUtils);
@@ -301,12 +290,11 @@ public class HttpUtils {
 
 	/**
 	 * 创建get请求
-	 * 
+	 *
+	 * @param uri 请求地址
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @param uri
-	 *            请求地址
-	 * @return
 	 */
 	public static HttpUtils get(URI uri, HttpUtils clientUtils) {
 		return create(new HttpGet(uri), clientUtils);
@@ -314,12 +302,11 @@ public class HttpUtils {
 
 	/**
 	 * 创建put请求
-	 * 
+	 *
+	 * @param uri 请求地址
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @param uri
-	 *            请求地址
-	 * @return
 	 */
 	public static HttpUtils put(URI uri, HttpUtils clientUtils) {
 		return create(new HttpPut(uri), clientUtils);
@@ -327,12 +314,11 @@ public class HttpUtils {
 
 	/**
 	 * 创建delete请求
-	 * 
+	 *
+	 * @param uri 请求地址
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @param uri
-	 *            请求地址
-	 * @return
 	 */
 	public static HttpUtils delete(URI uri, HttpUtils clientUtils) {
 		return create(new HttpDelete(uri), clientUtils);
@@ -340,11 +326,11 @@ public class HttpUtils {
 
 	/**
 	 * 添加参数
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月17日
+	 *
 	 * @param parameters
 	 * @return
+	 * @author zhangZhigang
+	 * @date 2015年7月17日
 	 */
 	public HttpUtils setParameters(final NameValuePair... parameters) {
 		if (builder != null) {
@@ -357,12 +343,12 @@ public class HttpUtils {
 
 	/**
 	 * 添加参数
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月17日
+	 *
 	 * @param name
 	 * @param value
 	 * @return
+	 * @author zhangZhigang
+	 * @date 2015年7月17日
 	 */
 	public HttpUtils addParameter(final String name, final String value) {
 		if (builder != null) {
@@ -375,11 +361,11 @@ public class HttpUtils {
 
 	/**
 	 * 添加参数
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月17日
+	 *
 	 * @param parameters
 	 * @return
+	 * @author zhangZhigang
+	 * @date 2015年7月17日
 	 */
 	public HttpUtils addParameters(final NameValuePair... parameters) {
 		if (builder != null) {
@@ -392,11 +378,11 @@ public class HttpUtils {
 
 	/**
 	 * 设置请求参数,会覆盖之前的参数
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月17日
+	 *
 	 * @param parameters
 	 * @return
+	 * @author zhangZhigang
+	 * @date 2015年7月17日
 	 */
 	public HttpUtils setParameters(final Map<String, String> parameters) {
 		NameValuePair[] values = new NameValuePair[parameters.size()];
@@ -413,11 +399,11 @@ public class HttpUtils {
 
 	/**
 	 * 设置请求参数,会覆盖之前的参数
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月17日
+	 *
 	 * @param file
 	 * @return
+	 * @author zhangZhigang
+	 * @date 2015年7月17日
 	 */
 	public HttpUtils setParameter(final File file) {
 		if (builder != null) {
@@ -430,11 +416,11 @@ public class HttpUtils {
 
 	/**
 	 * 设置请求参数,会覆盖之前的参数
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月17日
+	 *
 	 * @param binary
 	 * @return
+	 * @author zhangZhigang
+	 * @date 2015年7月17日
 	 */
 	public HttpUtils setParameter(final byte[] binary) {
 		if (builder != null) {
@@ -447,11 +433,11 @@ public class HttpUtils {
 
 	/**
 	 * 设置请求参数,会覆盖之前的参数
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月17日
+	 *
 	 * @param serializable
 	 * @return
+	 * @author zhangZhigang
+	 * @date 2015年7月17日
 	 */
 	public HttpUtils setParameter(final Serializable serializable) {
 		if (builder != null) {
@@ -464,12 +450,11 @@ public class HttpUtils {
 
 	/**
 	 * 设置参数为Json对象
-	 * 
+	 *
+	 * @param parameter 参数对象
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月27日
-	 * @param parameter
-	 *            参数对象
-	 * @return
 	 */
 	public HttpUtils setParameterJson(final Object parameter) {
 		if (builder != null) {
@@ -486,11 +471,11 @@ public class HttpUtils {
 
 	/**
 	 * 设置请求参数,会覆盖之前的参数
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月17日
+	 *
 	 * @param stream
 	 * @return
+	 * @author zhangZhigang
+	 * @date 2015年7月17日
 	 */
 	public HttpUtils setParameter(final InputStream stream) {
 		if (builder != null) {
@@ -503,11 +488,11 @@ public class HttpUtils {
 
 	/**
 	 * 设置请求参数,会覆盖之前的参数
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月17日
+	 *
 	 * @param text
 	 * @return
+	 * @author zhangZhigang
+	 * @date 2015年7月17日
 	 */
 	public HttpUtils setParameter(final String text) {
 		if (builder != null) {
@@ -520,11 +505,11 @@ public class HttpUtils {
 
 	/**
 	 * 设置内容编码
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月17日
+	 *
 	 * @param encoding
 	 * @return
+	 * @author zhangZhigang
+	 * @date 2015年7月17日
 	 */
 	public HttpUtils setContentEncoding(final String encoding) {
 		if (builder != null)
@@ -534,11 +519,11 @@ public class HttpUtils {
 
 	/**
 	 * 设置ContentType
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月17日
+	 *
 	 * @param contentType
 	 * @return
+	 * @author zhangZhigang
+	 * @date 2015年7月17日
 	 */
 	public HttpUtils setContentType(ContentType contentType) {
 		if (builder != null)
@@ -548,13 +533,12 @@ public class HttpUtils {
 
 	/**
 	 * 设置ContentType
-	 * 
+	 *
+	 * @param mimeType
+	 * @param charset  内容编码
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @param mimeType
-	 * @param charset
-	 *            内容编码
-	 * @return
 	 */
 	public HttpUtils setContentType(final String mimeType, final Charset charset) {
 		if (builder != null)
@@ -564,35 +548,35 @@ public class HttpUtils {
 
 	/**
 	 * 添加参数
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月17日
+	 *
 	 * @param parameters
 	 * @return
+	 * @author zhangZhigang
+	 * @date 2015年7月17日
 	 */
 	public HttpUtils addParameters(Map<String, String> parameters) {
-        List<NameValuePair> values = new ArrayList<>(parameters.size());
-         
-        for (Entry<String, String> parameter : parameters.entrySet()) {
-            values.add(new BasicNameValuePair(parameter.getKey(), parameter.getValue()));
-        }
-         
-        if(builder != null) {
-            builder.getParameters().addAll(values);
-        } else {
-            uriBuilder.addParameters(values);
-        }
-        return this;
-    }
+		List<NameValuePair> values = new ArrayList<>(parameters.size());
+
+		for (Entry<String, String> parameter : parameters.entrySet()) {
+			values.add(new BasicNameValuePair(parameter.getKey(), parameter.getValue()));
+		}
+
+		if (builder != null) {
+			builder.getParameters().addAll(values);
+		} else {
+			uriBuilder.addParameters(values);
+		}
+		return this;
+	}
 
 	/**
 	 * 添加Header
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月17日
+	 *
 	 * @param name
 	 * @param value
 	 * @return
+	 * @author zhangZhigang
+	 * @date 2015年7月17日
 	 */
 	public HttpUtils addHeader(String name, String value) {
 		request.addHeader(name, value);
@@ -601,11 +585,11 @@ public class HttpUtils {
 
 	/**
 	 * 添加Header
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月17日
+	 *
 	 * @param headers
 	 * @return
+	 * @author zhangZhigang
+	 * @date 2015年7月17日
 	 */
 	public HttpUtils addHeaders(Map<String, String> headers) {
 		for (Entry<String, String> header : headers.entrySet()) {
@@ -617,11 +601,11 @@ public class HttpUtils {
 
 	/**
 	 * 设置Header,会覆盖所有之前的Header
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月17日
+	 *
 	 * @param headers
 	 * @return
+	 * @author zhangZhigang
+	 * @date 2015年7月17日
 	 */
 	public HttpUtils setHeaders(Map<String, String> headers) {
 		Header[] headerArray = new Header[headers.size()];
@@ -643,10 +627,10 @@ public class HttpUtils {
 
 	/**
 	 * 获取所有Header
-	 * 
+	 *
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @return
 	 */
 	public Header[] getAllHeaders() {
 		return request.getAllHeaders();
@@ -654,10 +638,10 @@ public class HttpUtils {
 
 	/**
 	 * 移除指定name的Header列表
-	 * 
+	 *
+	 * @param name
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @param name
 	 */
 	public HttpUtils removeHeaders(String name) {
 		request.removeHeaders(name);
@@ -666,10 +650,10 @@ public class HttpUtils {
 
 	/**
 	 * 移除指定的Header
-	 * 
+	 *
+	 * @param header
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @param header
 	 */
 	public HttpUtils removeHeader(Header header) {
 		request.removeHeader(header);
@@ -678,11 +662,11 @@ public class HttpUtils {
 
 	/**
 	 * 移除指定的Header
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月17日
+	 *
 	 * @param name
 	 * @param value
+	 * @author zhangZhigang
+	 * @date 2015年7月17日
 	 */
 	public HttpUtils removeHeader(String name, String value) {
 		request.removeHeader(new BasicHeader(name, value));
@@ -691,11 +675,11 @@ public class HttpUtils {
 
 	/**
 	 * 是否存在指定name的Header
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月17日
+	 *
 	 * @param name
 	 * @return
+	 * @author zhangZhigang
+	 * @date 2015年7月17日
 	 */
 	public boolean containsHeader(String name) {
 		return request.containsHeader(name);
@@ -703,10 +687,10 @@ public class HttpUtils {
 
 	/**
 	 * 获取Header的迭代器
-	 * 
+	 *
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @return
 	 */
 	public HeaderIterator headerIterator() {
 		return request.headerIterator();
@@ -714,10 +698,10 @@ public class HttpUtils {
 
 	/**
 	 * 获取协议版本信息
-	 * 
+	 *
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @return
 	 */
 	public ProtocolVersion getProtocolVersion() {
 		return request.getProtocolVersion();
@@ -725,10 +709,10 @@ public class HttpUtils {
 
 	/**
 	 * 获取请求Url
-	 * 
+	 *
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @return
 	 */
 	public URI getURI() {
 		return request.getURI();
@@ -736,10 +720,10 @@ public class HttpUtils {
 
 	/**
 	 * 设置请求Url
-	 * 
+	 *
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @return
 	 */
 	public HttpUtils setURI(URI uri) {
 		request.setURI(uri);
@@ -748,10 +732,10 @@ public class HttpUtils {
 
 	/**
 	 * 设置请求Url
-	 * 
+	 *
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @return
 	 */
 	public HttpUtils setURI(String uri) {
 		return setURI(URI.create(uri));
@@ -759,11 +743,11 @@ public class HttpUtils {
 
 	/**
 	 * 设置一个CookieStore
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月18日
+	 *
 	 * @param cookieStore
 	 * @return
+	 * @author zhangZhigang
+	 * @date 2015年7月18日
 	 */
 	public HttpUtils SetCookieStore(CookieStore cookieStore) {
 		if (cookieStore == null)
@@ -774,11 +758,11 @@ public class HttpUtils {
 
 	/**
 	 * 添加Cookie
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月18日
+	 *
 	 * @param cookie
 	 * @return
+	 * @author zhangZhigang
+	 * @date 2015年7月18日
 	 */
 	public HttpUtils addCookie(Cookie... cookies) {
 		if (cookies == null)
@@ -792,12 +776,12 @@ public class HttpUtils {
 
 	/**
 	 * 设置网络代理
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月17日
+	 *
 	 * @param hostname
 	 * @param port
 	 * @return
+	 * @author zhangZhigang
+	 * @date 2015年7月17日
 	 */
 	public HttpUtils setProxy(String hostname, int port) {
 		HttpHost proxy = new HttpHost(hostname, port);
@@ -806,13 +790,13 @@ public class HttpUtils {
 
 	/**
 	 * 设置网络代理
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月17日
+	 *
 	 * @param hostname
 	 * @param port
 	 * @param schema
 	 * @return
+	 * @author zhangZhigang
+	 * @date 2015年7月17日
 	 */
 	public HttpUtils setProxy(String hostname, int port, String schema) {
 		HttpHost proxy = new HttpHost(hostname, port, schema);
@@ -821,11 +805,11 @@ public class HttpUtils {
 
 	/**
 	 * 设置网络代理
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月17日
+	 *
 	 * @param address
 	 * @return
+	 * @author zhangZhigang
+	 * @date 2015年7月17日
 	 */
 	public HttpUtils setProxy(InetAddress address) {
 		HttpHost proxy = new HttpHost(address);
@@ -834,11 +818,11 @@ public class HttpUtils {
 
 	/**
 	 * 设置网络代理
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月17日
+	 *
 	 * @param host
 	 * @return
+	 * @author zhangZhigang
+	 * @date 2015年7月17日
 	 */
 	public HttpUtils setProxy(HttpHost host) {
 		DefaultProxyRoutePlanner routePlanner = new DefaultProxyRoutePlanner(
@@ -849,14 +833,12 @@ public class HttpUtils {
 
 	/**
 	 * 设置双向认证的JKS
-	 * 
+	 *
+	 * @param jksFilePath jks文件路径
+	 * @param password    密码
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @param jksFilePath
-	 *            jks文件路径
-	 * @param password
-	 *            密码
-	 * @return
 	 */
 	public HttpUtils setJKS(String jksFilePath, String password) {
 		return setJKS(new File(jksFilePath), password);
@@ -864,34 +846,30 @@ public class HttpUtils {
 
 	/**
 	 * 设置双向认证的JKS
-	 * 
+	 *
+	 * @param jksFile  jks文件
+	 * @param password 密码
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @param jksFile
-	 *            jks文件
-	 * @param password
-	 *            密码
-	 * @return
 	 */
 	public HttpUtils setJKS(File jksFile, String password) {
-        try (InputStream instream = new FileInputStream(jksFile)) {
-            return setJKS(instream, password);
-        } catch (Exception e) {
-            logger.error(e.getMessage(), e);
-            throw new RuntimeException(e.getMessage(), e);
-        }
-    }
+		try (InputStream instream = new FileInputStream(jksFile)) {
+			return setJKS(instream, password);
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			throw new RuntimeException(e.getMessage(), e);
+		}
+	}
 
 	/**
 	 * 设置双向认证的JKS, 不会关闭InputStream
-	 * 
+	 *
+	 * @param instream jks流
+	 * @param password 密码
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @param instream
-	 *            jks流
-	 * @param password
-	 *            密码
-	 * @return
 	 */
 	public HttpUtils setJKS(InputStream instream, String password) {
 		try {
@@ -907,12 +885,11 @@ public class HttpUtils {
 
 	/**
 	 * 设置双向认证的JKS
-	 * 
+	 *
+	 * @param keyStore jks
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @param keyStore
-	 *            jks
-	 * @return
 	 */
 	public HttpUtils setJKS(KeyStore keyStore) {
 		try {
@@ -929,11 +906,11 @@ public class HttpUtils {
 
 	/**
 	 * 设置Socket超时时间,单位:ms
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月18日
+	 *
 	 * @param socketTimeout
 	 * @return
+	 * @author zhangZhigang
+	 * @date 2015年7月18日
 	 */
 	public HttpUtils setSocketTimeout(int socketTimeout) {
 		config.setSocketTimeout(socketTimeout);
@@ -942,11 +919,11 @@ public class HttpUtils {
 
 	/**
 	 * 设置连接超时时间,单位:ms
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月18日
+	 *
 	 * @param connectTimeout
 	 * @return
+	 * @author zhangZhigang
+	 * @date 2015年7月18日
 	 */
 	public HttpUtils setConnectTimeout(int connectTimeout) {
 		config.setConnectTimeout(connectTimeout);
@@ -955,11 +932,11 @@ public class HttpUtils {
 
 	/**
 	 * 设置请求超时时间,单位:ms
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月18日
+	 *
 	 * @param connectionRequestTimeout
 	 * @return
+	 * @author zhangZhigang
+	 * @date 2015年7月18日
 	 */
 	public HttpUtils setConnectionRequestTimeout(int connectionRequestTimeout) {
 		config.setConnectionRequestTimeout(connectionRequestTimeout);
@@ -968,11 +945,11 @@ public class HttpUtils {
 
 	/**
 	 * 设置是否允许服务端循环重定向
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月18日
+	 *
 	 * @param circularRedirectsAllowed
 	 * @return
+	 * @author zhangZhigang
+	 * @date 2015年7月18日
 	 */
 	public HttpUtils setCircularRedirectsAllowed(
 			boolean circularRedirectsAllowed) {
@@ -982,11 +959,11 @@ public class HttpUtils {
 
 	/**
 	 * 设置是否启用调转
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月18日
+	 *
 	 * @param redirectsEnabled
 	 * @return
+	 * @author zhangZhigang
+	 * @date 2015年7月18日
 	 */
 	public HttpUtils setRedirectsEnabled(boolean redirectsEnabled) {
 		config.setRedirectsEnabled(redirectsEnabled);
@@ -995,11 +972,11 @@ public class HttpUtils {
 
 	/**
 	 * 设置重定向的次数
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月18日
+	 *
 	 * @param maxRedirects
 	 * @return
+	 * @author zhangZhigang
+	 * @date 2015年7月18日
 	 */
 	public HttpUtils maxRedirects(int maxRedirects) {
 		config.setMaxRedirects(maxRedirects);
@@ -1008,10 +985,10 @@ public class HttpUtils {
 
 	/**
 	 * 执行请求
-	 * 
+	 *
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @return
 	 */
 	public ResponseWrap execute() {
 		settingRequest();
@@ -1033,11 +1010,11 @@ public class HttpUtils {
 
 	/**
 	 * 执行请求
-	 * 
-	 * @author zhangZhigang
-	 * @date 2015年7月17日
+	 *
 	 * @param responseHandler
 	 * @return
+	 * @author zhangZhigang
+	 * @date 2015年7月17日
 	 */
 	public <T> T execute(final ResponseHandler<? extends T> responseHandler) {
 		settingRequest();
@@ -1054,7 +1031,7 @@ public class HttpUtils {
 
 	/**
 	 * 关闭连接
-	 * 
+	 *
 	 * @author zhangZhigang
 	 * @date 2015年7月18日
 	 */
@@ -1065,27 +1042,27 @@ public class HttpUtils {
 
 	/**
 	 * 获取LayeredConnectionSocketFactory 使用ssl单向认证
-	 * 
+	 *
+	 * @return
 	 * @author zhangZhigang
 	 * @date 2015年7月17日
-	 * @return
 	 */
 	private LayeredConnectionSocketFactory getSSLSocketFactory() {
-        try {
-            SSLContext sslContext = new SSLContextBuilder().loadTrustMaterial(null, new TrustStrategy() {
-                // 信任所有
-                public boolean isTrusted(X509Certificate[] chain, String authType) throws CertificateException {
-                    return true;
-                }
-            }).build();
- 
-            SSLConnectionSocketFactory sslsf = new SSLConnectionSocketFactory(sslContext, SSLConnectionSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
-            return sslsf;
-        } catch (KeyManagementException | NoSuchAlgorithmException | KeyStoreException e) {
-            logger.error(e.getMessage(), e);
-            throw new RuntimeException(e.getMessage(), e);
-        }
-    }
+		try {
+			SSLContext sslContext = new SSLContextBuilder().loadTrustMaterial(null, new TrustStrategy() {
+				// 信任所有
+				public boolean isTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+					return true;
+				}
+			}).build();
+
+			SSLConnectionSocketFactory sslsf = new SSLConnectionSocketFactory(sslContext, SSLConnectionSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
+			return sslsf;
+		} catch (KeyManagementException | NoSuchAlgorithmException | KeyStoreException e) {
+			logger.error(e.getMessage(), e);
+			throw new RuntimeException(e.getMessage(), e);
+		}
+	}
 
 	private void settingRequest() {
 		URI uri = null;
@@ -1100,37 +1077,37 @@ public class HttpUtils {
 		HttpEntity httpEntity = null;
 
 		switch (type) {
-		case 1:
-			httpEntity = builder.build();
-			if (httpEntity.getContentLength() > 0)
-				try {
-					UrlEncodedFormEntity urlEncode=new UrlEncodedFormEntity(builder.getParameters(),HTTP.UTF_8);
-					//urlEncode.setContentType(httpEntity.getContentType());
-					//urlEncode.setContentEncoding(httpEntity.getContentEncoding());
-					((HttpPost) request).setEntity(urlEncode);
-				} catch (UnsupportedEncodingException e) {
-				}
-				
-			break;
+			case 1:
+				httpEntity = builder.build();
+				if (httpEntity.getContentLength() > 0)
+					try {
+						UrlEncodedFormEntity urlEncode = new UrlEncodedFormEntity(builder.getParameters(), HTTP.UTF_8);
+						//urlEncode.setContentType(httpEntity.getContentType());
+						//urlEncode.setContentEncoding(httpEntity.getContentEncoding());
+						((HttpPost) request).setEntity(urlEncode);
+					} catch (UnsupportedEncodingException e) {
+					}
 
-		case 2:
-			HttpGet get = ((HttpGet) request);
-			if (uri != null)
-				get.setURI(uri);
-			break;
+				break;
 
-		case 3:
-			httpEntity = builder.build();
-			if (httpEntity.getContentLength() > 0)
-				((HttpPut) request).setEntity(httpEntity);
-			break;
+			case 2:
+				HttpGet get = ((HttpGet) request);
+				if (uri != null)
+					get.setURI(uri);
+				break;
 
-		case 4:
-			HttpDelete delete = ((HttpDelete) request);
-			if (uri != null)
-				delete.setURI(uri);
+			case 3:
+				httpEntity = builder.build();
+				if (httpEntity.getContentLength() > 0)
+					((HttpPut) request).setEntity(httpEntity);
+				break;
 
-			break;
+			case 4:
+				HttpDelete delete = ((HttpDelete) request);
+				if (uri != null)
+					delete.setURI(uri);
+
+				break;
 		}
 
 		if (isHttps && socketFactory != null) {
@@ -1146,6 +1123,7 @@ public class HttpUtils {
 
 	// json转换器
 	public static ObjectMapper mapper = new ObjectMapper();
+
 	static {
 		mapper.setSerializationInclusion(Include.NON_DEFAULT);
 		// 设置输入时忽略在JSON字符串中存在但Java对象实际没有的属性

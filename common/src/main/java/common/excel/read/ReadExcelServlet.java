@@ -28,11 +28,10 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
-
 public class ReadExcelServlet extends HttpServlet {
 	/**
 	 * 对外提供读取excel 的方法
-	 * */
+	 */
 	public List<List<Object>> readExcel(File file) throws IOException {
 		String fileName = file.getName();
 		String extension = fileName.lastIndexOf(".") == -1 ? "" : fileName
@@ -48,7 +47,7 @@ public class ReadExcelServlet extends HttpServlet {
 
 	/**
 	 * 读取 office 2003 excel
-	 * 
+	 *
 	 * @throws IOException
 	 * @throws FileNotFoundException
 	 */
@@ -75,45 +74,45 @@ public class ReadExcelServlet extends HttpServlet {
 					continue;
 				}
 				DecimalFormat df = new DecimalFormat("0");// 格式化 number String
-															// 字符
+				// 字符
 				SimpleDateFormat sdf = new SimpleDateFormat(
 						"yyyy-MM-dd HH:mm:ss");// 格式化日期字符串
 				DecimalFormat nf = new DecimalFormat("0.00");// 格式化数字
 				switch (cell.getCellType()) {
-				case XSSFCell.CELL_TYPE_STRING:
-					value = cell.getStringCellValue();
-					System.out.println(i + "行" + j + " 列 is String type"
-							+ "\tValue:" + value);
-					break;
-				case XSSFCell.CELL_TYPE_NUMERIC:
-					if ("@".equals(cell.getCellStyle().getDataFormatString())) {
-						value = df.format(cell.getNumericCellValue());
-					} else if ("General".equals(cell.getCellStyle()
-							.getDataFormatString())) {
-						value = nf.format(cell.getNumericCellValue());
-					} else {
-						value = sdf.format(HSSFDateUtil.getJavaDate(cell
-								.getNumericCellValue()));
-					}
-					System.out.println(i + "行" + j
-							+ " 列 is Number type ; DateFormt:"
-							+ cell.getCellStyle().getDataFormatString()
-							+ "\tValue:" + value);
-					break;
-				case XSSFCell.CELL_TYPE_BOOLEAN:
-					value = cell.getBooleanCellValue();
-					System.out.println(i + "行" + j + " 列 is Boolean type"
-							+ "\tValue:" + value);
-					break;
-				case XSSFCell.CELL_TYPE_BLANK:
-					value = "";
-					System.out.println(i + "行" + j + " 列 is Blank type"
-							+ "\tValue:" + value);
-					break;
-				default:
-					value = cell.toString();
-					System.out.println(i + "行" + j + " 列 is default type"
-							+ "\tValue:" + value);
+					case XSSFCell.CELL_TYPE_STRING:
+						value = cell.getStringCellValue();
+						System.out.println(i + "行" + j + " 列 is String type"
+								+ "\tValue:" + value);
+						break;
+					case XSSFCell.CELL_TYPE_NUMERIC:
+						if ("@".equals(cell.getCellStyle().getDataFormatString())) {
+							value = df.format(cell.getNumericCellValue());
+						} else if ("General".equals(cell.getCellStyle()
+								.getDataFormatString())) {
+							value = nf.format(cell.getNumericCellValue());
+						} else {
+							value = sdf.format(HSSFDateUtil.getJavaDate(cell
+									.getNumericCellValue()));
+						}
+						System.out.println(i + "行" + j
+								+ " 列 is Number type ; DateFormt:"
+								+ cell.getCellStyle().getDataFormatString()
+								+ "\tValue:" + value);
+						break;
+					case XSSFCell.CELL_TYPE_BOOLEAN:
+						value = cell.getBooleanCellValue();
+						System.out.println(i + "行" + j + " 列 is Boolean type"
+								+ "\tValue:" + value);
+						break;
+					case XSSFCell.CELL_TYPE_BLANK:
+						value = "";
+						System.out.println(i + "行" + j + " 列 is Blank type"
+								+ "\tValue:" + value);
+						break;
+					default:
+						value = cell.toString();
+						System.out.println(i + "行" + j + " 列 is default type"
+								+ "\tValue:" + value);
 				}
 				if (value == null || "".equals(value)) {
 					continue;
@@ -127,7 +126,7 @@ public class ReadExcelServlet extends HttpServlet {
 
 	/**
 	 * 读取Office 2007 excel
-	 * */
+	 */
 	private List<List<Object>> read2007Excel(File file) throws IOException {
 		List<List<Object>> list = new LinkedList<List<Object>>();
 		// 构造 XSSFWorkbook 对象，strPath 传入文件路径
@@ -153,40 +152,40 @@ public class ReadExcelServlet extends HttpServlet {
 					continue;
 				}
 				DecimalFormat df = new DecimalFormat("0");// 格式化 number String
-															// 字符
+				// 字符
 				SimpleDateFormat sdf = new SimpleDateFormat(
 						"yyyy-MM-dd HH:mm:ss");// 格式化日期字符串
 				DecimalFormat nf = new DecimalFormat("0.00");// 格式化数字
 				switch (cell.getCellType()) {
-				case XSSFCell.CELL_TYPE_STRING:
-					System.out.println(i + "行" + j + " 列 is String type");
-					value = cell.getStringCellValue();
-					break;
-				case XSSFCell.CELL_TYPE_NUMERIC:
-					System.out.println(i + "行" + j
-							+ " 列 is Number type ; DateFormt:"
-							+ cell.getCellStyle().getDataFormatString());
-					if ("@".equals(cell.getCellStyle().getDataFormatString())) {
-						value = df.format(cell.getNumericCellValue());
-					} else if ("General".equals(cell.getCellStyle()
-							.getDataFormatString())) {
-						value = nf.format(cell.getNumericCellValue());
-					} else {
-						value = sdf.format(HSSFDateUtil.getJavaDate(cell
-								.getNumericCellValue()));
-					}
-					break;
-				case XSSFCell.CELL_TYPE_BOOLEAN:
-					System.out.println(i + "行" + j + " 列 is Boolean type");
-					value = cell.getBooleanCellValue();
-					break;
-				case XSSFCell.CELL_TYPE_BLANK:
-					System.out.println(i + "行" + j + " 列 is Blank type");
-					value = "";
-					break;
-				default:
-					System.out.println(i + "行" + j + " 列 is default type");
-					value = cell.toString();
+					case XSSFCell.CELL_TYPE_STRING:
+						System.out.println(i + "行" + j + " 列 is String type");
+						value = cell.getStringCellValue();
+						break;
+					case XSSFCell.CELL_TYPE_NUMERIC:
+						System.out.println(i + "行" + j
+								+ " 列 is Number type ; DateFormt:"
+								+ cell.getCellStyle().getDataFormatString());
+						if ("@".equals(cell.getCellStyle().getDataFormatString())) {
+							value = df.format(cell.getNumericCellValue());
+						} else if ("General".equals(cell.getCellStyle()
+								.getDataFormatString())) {
+							value = nf.format(cell.getNumericCellValue());
+						} else {
+							value = sdf.format(HSSFDateUtil.getJavaDate(cell
+									.getNumericCellValue()));
+						}
+						break;
+					case XSSFCell.CELL_TYPE_BOOLEAN:
+						System.out.println(i + "行" + j + " 列 is Boolean type");
+						value = cell.getBooleanCellValue();
+						break;
+					case XSSFCell.CELL_TYPE_BLANK:
+						System.out.println(i + "行" + j + " 列 is Blank type");
+						value = "";
+						break;
+					default:
+						System.out.println(i + "行" + j + " 列 is default type");
+						value = cell.toString();
 				}
 				if (value == null || "".equals(value)) {
 					continue;
@@ -200,13 +199,13 @@ public class ReadExcelServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+						  HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+						 HttpServletResponse response) throws ServletException, IOException {
 		String docsPath = request.getSession().getServletContext()
 				.getRealPath("docs");
 		String fileName = "testRead.xls";

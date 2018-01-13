@@ -13,6 +13,7 @@ public class ProxyUtil {
 	/**
 	 * 获得由JDK或从glib代理的目标对象（若未被代理则返回本身）。
 	 * 用于对Model对象进行JSON、Xml转换，或反射操作。
+	 *
 	 * @param proxy
 	 * @return
 	 * @throws Exception
@@ -32,6 +33,7 @@ public class ProxyUtil {
 
 	/**
 	 * 判断对象是否是被代理的对象
+	 *
 	 * @param proxy
 	 * @return
 	 */
@@ -44,6 +46,7 @@ public class ProxyUtil {
 
 	/**
 	 * 获得由cglib代理的目标对象
+	 *
 	 * @param proxy
 	 * @return
 	 * @throws Exception
@@ -64,6 +67,7 @@ public class ProxyUtil {
 
 	/**
 	 * 获得使用JDK对象代理的目标对象
+	 *
 	 * @param proxy
 	 * @return
 	 * @throws Exception

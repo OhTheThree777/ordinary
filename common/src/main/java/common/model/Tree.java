@@ -2,52 +2,56 @@ package common.model;
 
 public class Tree {
 
-	private int id ;
+	private int id;
 	private String text;
 	private String children;
 	private String state;
 	private String url;
 	private String checked;
 	private String iconCls;
-     public String getState() {
-            return state ;
-     }
 
-      public void setState(String state) {
-            this.state = state;
-     }
-      int parent ;
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	int parent;
 
 
-      public int getParent() {
-            return parent ;
-     }
+	public int getParent() {
+		return parent;
+	}
 
-      public void setParent(int parent) {
-            this.parent = parent;
-     }
+	public void setParent(int parent) {
+		this.parent = parent;
+	}
 
-      public int getId() {
-            return id ;
-     }
-     
-      public String getChildren() {
-            return children ;
-     }
+	public int getId() {
+		return id;
+	}
 
-      public void setChildren(String children) {
-            this.children = children;
-     }
+	public String getChildren() {
+		return children;
+	}
 
-      public void setId(int id) {
-            this.id = id;
-     }
-      public String getText() {
-            return text ;
-     }
-      public void setText(String text) {
-            this.text = text;
-     }
+	public void setChildren(String children) {
+		this.children = children;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
 
 	public String getUrl() {
 		return url;
@@ -79,5 +83,5 @@ public class Tree {
 				+ ", state=" + state + ", url=" + url + ", checked=" + checked
 				+ ", iconCls=" + iconCls + ", parent=" + parent + "]";
 	}
-	
+
 }

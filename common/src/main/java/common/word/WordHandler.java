@@ -22,10 +22,10 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
 /**
- * @author 
+ * @author
+ * @version 1.0
  * @Description 使用FreeMarker将xml模板解析成word文档。xml模板的格式为word文件的xml格式。
  * @Date 2013-12-2
- * @version 1.0
  */
 public class WordHandler {
 
@@ -66,8 +66,8 @@ public class WordHandler {
 	public void createWordFile(String docPath) {
 		docPath = docPath.replace("\\", System.getProperty("file.separator"));
 		File outFile = new File(docPath);
-		
-		if(outFile.exists()){
+
+		if (outFile.exists()) {
 			FileUtils.deleteQuietly(outFile);
 		}
 		Writer out = null;

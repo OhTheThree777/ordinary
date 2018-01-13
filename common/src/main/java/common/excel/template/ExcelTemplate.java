@@ -23,7 +23,6 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 /**
  * @author zhangZhigang
  * Excel操作类
- *
  */
 public class ExcelTemplate {
 	// 开始位置
@@ -60,9 +59,8 @@ public class ExcelTemplate {
 
 	/**
 	 * 读取模板(从classpath中)
-	 * 
-	 * @param path
-	 *            模板路径
+	 *
+	 * @param path 模板路径
 	 * @return ExcelTemplate
 	 */
 	public ExcelTemplate readTemplateClassPath(String calsspath) {
@@ -82,9 +80,8 @@ public class ExcelTemplate {
 
 	/**
 	 * 读取模板(从指定路径)
-	 * 
-	 * @param path
-	 *            模板路径
+	 *
+	 * @param path 模板路径
 	 * @return ExcelTemplate
 	 */
 	public ExcelTemplate readTemplatePath(String path) {
@@ -160,9 +157,8 @@ public class ExcelTemplate {
 
 	/**
 	 * 根据#xxx替换模板中的其它样式.
-	 * 
-	 * @param datas
-	 *            要替换的数据
+	 *
+	 * @param datas 要替换的数据
 	 */
 	public void replaceFind(Map<String, String> datas) {
 		if (datas == null)
@@ -198,9 +194,8 @@ public class ExcelTemplate {
 
 	/**
 	 * 输出文件,根据路径
-	 * 
-	 * @param path
-	 *            路径
+	 *
+	 * @param path 路径
 	 */
 	public void writeToFile(String path) {
 		FileOutputStream fos = null;
@@ -227,9 +222,8 @@ public class ExcelTemplate {
 
 	/**
 	 * 输出文件,根据流输出
-	 * 
-	 * @param stream
-	 *            OutputStream
+	 *
+	 * @param stream OutputStream
 	 */
 	public void writeToStream(OutputStream stream) {
 		try {
@@ -261,7 +255,6 @@ public class ExcelTemplate {
 
 	/**
 	 * defaultStyles:获得默认样式(如果默认样式没有则使用开始样式) styles:获取自定义样式
-	 * 
 	 */
 	private void initConfigData() {
 		for (Row row : sheet) {
@@ -295,9 +288,8 @@ public class ExcelTemplate {
 
 	/**
 	 * 设置样式
-	 * 
-	 * @param cell
-	 *            Cell
+	 *
+	 * @param cell Cell
 	 */
 	private void setStyle(Cell cell) {
 		// 当前列存在自定义样式时使用自定义样式,否则使用默认样式.
