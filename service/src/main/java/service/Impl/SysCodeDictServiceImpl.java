@@ -1,17 +1,16 @@
 package service.Impl;
 
-import cn.imfc.common.model.DataBootstrapTable;
-import cn.imfc.common.model.ResponseModelBootstrapTable;
-import cn.imfc.common.util.Page;
-import cn.imfc.mapper.mapper.sys.SysCodeDictMapper;
-import cn.imfc.mapper.model.sys.SysCodeDict;
-import cn.imfc.component.SysCodeCache;
-import cn.imfc.sys.service.SysCodeDictService;
+import common.model.DataBootstrapTable;
+import common.model.ResponseModelBootstrapTable;
+import common.util.Page;
+import mapper.mapper.sys.SysCodeDictMapper;
+import mapper.model.sys.SysCodeDict;
 import org.apache.ibatis.session.RowBounds;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import service.SysCodeDictService;
 import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
@@ -22,14 +21,15 @@ import java.util.List;
  * Created by r958403448 on 2017/7/27.
  */
 @Service
-@com.alibaba.dubbo.config.annotation.Service
 public class SysCodeDictServiceImpl implements SysCodeDictService {
 
     @Autowired
     private SysCodeDictMapper sysCodeDictMapper;
 
+
+
     @Resource
-    private SysCodeCache sysCodeCache;
+    // private SysCodeCache sysCodeCache;
     private static Logger logger = LoggerFactory
             .getLogger(SysCodeDictServiceImpl.class);
 
@@ -40,7 +40,7 @@ public class SysCodeDictServiceImpl implements SysCodeDictService {
      * @return
      */
     @Override
-    public ResponseModelBootstrapTable main(DataBootstrapTable dbt,SysCodeDict sysCodeDict) {
+    public ResponseModelBootstrapTable main(DataBootstrapTable dbt, SysCodeDict sysCodeDict) {
         // 初始化返回对象
         ResponseModelBootstrapTable model = new ResponseModelBootstrapTable();
 

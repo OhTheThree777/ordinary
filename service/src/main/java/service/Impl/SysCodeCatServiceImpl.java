@@ -1,15 +1,16 @@
 package service.Impl;
 
-import cn.imfc.common.model.DataBootstrapTable;
-import cn.imfc.common.model.ResponseModelBootstrapTable;
-import cn.imfc.common.util.Page;
-import cn.imfc.mapper.mapper.sys.SysCodeCatMapper;
-import cn.imfc.mapper.model.sys.SysCodeCat;
-import cn.imfc.sys.service.SysCodeCatService;
+
+import common.model.DataBootstrapTable;
+import common.model.ResponseModelBootstrapTable;
+import common.util.Page;
+import mapper.mapper.sys.SysCodeCatMapper;
+import mapper.model.sys.SysCodeCat;
 import org.apache.ibatis.session.RowBounds;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import service.SysCodeCatService;
 import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
@@ -20,7 +21,6 @@ import java.util.List;
  * Created by r958403448 on 2017/7/27.
  */
 @Service
-@com.alibaba.dubbo.config.annotation.Service
 public class SysCodeCatServiceImpl implements SysCodeCatService {
 
     @Resource
@@ -36,7 +36,7 @@ public class SysCodeCatServiceImpl implements SysCodeCatService {
      * SysCodeCatServiceImpl#main(cn.imfc.common.model.DataBootstrapTable)
      */
     @Override
-    public ResponseModelBootstrapTable main(DataBootstrapTable dbt,String catCode,String catName) {
+    public ResponseModelBootstrapTable main(DataBootstrapTable dbt, String catCode, String catName) {
         // 初始化返回对象
         ResponseModelBootstrapTable  model = new ResponseModelBootstrapTable();
             try {

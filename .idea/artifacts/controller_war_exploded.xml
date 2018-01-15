@@ -7,6 +7,9 @@
           <element id="module-output" name="controller" />
         </element>
         <element id="directory" name="lib">
+          <element id="archive" name="controller-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="controller" />
+          </element>
           <element id="archive" name="dao-1.0-SNAPSHOT.jar">
             <element id="module-output" name="dao" />
           </element>

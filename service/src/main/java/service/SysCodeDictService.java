@@ -1,8 +1,8 @@
 package service;
 
-import cn.imfc.common.model.DataBootstrapTable;
-import cn.imfc.common.model.ResponseModelBootstrapTable;
-import cn.imfc.mapper.model.sys.SysCodeDict;
+import common.model.DataBootstrapTable;
+import common.model.ResponseModelBootstrapTable;
+import mapper.model.sys.SysCodeDict;
 
 import java.util.List;
 
