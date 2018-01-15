@@ -1,22 +1,23 @@
 package mapper.model.sys;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
 
 @Table(name = "sys_relation_menu_role")
-public class SysRelationMenuRole {
+public class SysRelationMenuRole implements Serializable {
     /**
      * 唯一标识
      */
     @Id
-    @Column(name = "relation_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer relationId;
+    private Integer id;
 
     /**
      * 菜单id，sys_menu表的menu_id
      */
     @Column(name = "menu_id")
-    private String menuId;
+    private Integer menuId;
 
     /**
      * 角色id，关联sys_roles表role_id
@@ -24,22 +25,24 @@ public class SysRelationMenuRole {
     @Column(name = "role_id")
     private Integer roleId;
 
+    private static final long serialVersionUID = 1L;
+
     /**
      * 获取唯一标识
      *
-     * @return relation_id - 唯一标识
+     * @return id - 唯一标识
      */
-    public Integer getRelationId() {
-        return relationId;
+    public Integer getId() {
+        return id;
     }
 
     /**
      * 设置唯一标识
      *
-     * @param relationId 唯一标识
+     * @param id 唯一标识
      */
-    public void setRelationId(Integer relationId) {
-        this.relationId = relationId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     /**
@@ -47,7 +50,7 @@ public class SysRelationMenuRole {
      *
      * @return menu_id - 菜单id，sys_menu表的menu_id
      */
-    public String getMenuId() {
+    public Integer getMenuId() {
         return menuId;
     }
 
@@ -56,7 +59,7 @@ public class SysRelationMenuRole {
      *
      * @param menuId 菜单id，sys_menu表的menu_id
      */
-    public void setMenuId(String menuId) {
+    public void setMenuId(Integer menuId) {
         this.menuId = menuId;
     }
 

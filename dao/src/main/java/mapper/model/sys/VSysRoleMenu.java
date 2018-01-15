@@ -1,17 +1,22 @@
 package mapper.model.sys;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.persistence.Column;
+import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.*;
 
 @Table(name = "v_sys_role_menu")
-public class VSysRoleMenu {
+public class VSysRoleMenu implements Serializable {
     @Column(name = "role_Id")
-    private Long roleId;
+    private Integer roleId;
 
     @Column(name = "role_Name")
     private String roleName;
 
     @Column(name = "create_Time")
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createTime;
 
     @Column(name = "role_Desc")
@@ -21,13 +26,13 @@ public class VSysRoleMenu {
      * 菜单ID
      */
     @Column(name = "menu_id")
-    private Long menuId;
+    private Integer menuId;
 
     /**
      * 父菜单id
      */
     @Column(name = "parent_id")
-    private String parentId;
+    private Integer parentId;
 
     /**
      * 系统签名，如果有多个系统用此菜单的话可以用该字段区分
@@ -48,7 +53,7 @@ public class VSysRoleMenu {
     private String menuUrl;
 
     /**
-     * 菜单自定义图标路径
+     * 图片路径
      */
     @Column(name = "img_url")
     private String imgUrl;
@@ -77,17 +82,19 @@ public class VSysRoleMenu {
     @Column(name = "relation_id")
     private Integer relationId;
 
+    private static final long serialVersionUID = 1L;
+
     /**
      * @return role_Id
      */
-    public Long getRoleId() {
+    public Integer getRoleId() {
         return roleId;
     }
 
     /**
      * @param roleId
      */
-    public void setRoleId(Long roleId) {
+    public void setRoleId(Integer roleId) {
         this.roleId = roleId;
     }
 
@@ -102,7 +109,7 @@ public class VSysRoleMenu {
      * @param roleName
      */
     public void setRoleName(String roleName) {
-        this.roleName = roleName;
+        this.roleName = roleName == null ? null : roleName.trim();
     }
 
     /**
@@ -130,7 +137,7 @@ public class VSysRoleMenu {
      * @param roleDesc
      */
     public void setRoleDesc(String roleDesc) {
-        this.roleDesc = roleDesc;
+        this.roleDesc = roleDesc == null ? null : roleDesc.trim();
     }
 
     /**
@@ -138,7 +145,7 @@ public class VSysRoleMenu {
      *
      * @return menu_id - 菜单ID
      */
-    public Long getMenuId() {
+    public Integer getMenuId() {
         return menuId;
     }
 
@@ -147,7 +154,7 @@ public class VSysRoleMenu {
      *
      * @param menuId 菜单ID
      */
-    public void setMenuId(Long menuId) {
+    public void setMenuId(Integer menuId) {
         this.menuId = menuId;
     }
 
@@ -156,7 +163,7 @@ public class VSysRoleMenu {
      *
      * @return parent_id - 父菜单id
      */
-    public String getParentId() {
+    public Integer getParentId() {
         return parentId;
     }
 
@@ -165,7 +172,7 @@ public class VSysRoleMenu {
      *
      * @param parentId 父菜单id
      */
-    public void setParentId(String parentId) {
+    public void setParentId(Integer parentId) {
         this.parentId = parentId;
     }
 
@@ -184,7 +191,7 @@ public class VSysRoleMenu {
      * @param signName 系统签名，如果有多个系统用此菜单的话可以用该字段区分
      */
     public void setSignName(String signName) {
-        this.signName = signName;
+        this.signName = signName == null ? null : signName.trim();
     }
 
     /**
@@ -202,7 +209,7 @@ public class VSysRoleMenu {
      * @param menuName 菜单名称
      */
     public void setMenuName(String menuName) {
-        this.menuName = menuName;
+        this.menuName = menuName == null ? null : menuName.trim();
     }
 
     /**
@@ -220,25 +227,25 @@ public class VSysRoleMenu {
      * @param menuUrl 菜单访问路径
      */
     public void setMenuUrl(String menuUrl) {
-        this.menuUrl = menuUrl;
+        this.menuUrl = menuUrl == null ? null : menuUrl.trim();
     }
 
     /**
-     * 获取菜单自定义图标路径
+     * 获取图片路径
      *
-     * @return img_url - 菜单自定义图标路径
+     * @return img_url - 图片路径
      */
     public String getImgUrl() {
         return imgUrl;
     }
 
     /**
-     * 设置菜单自定义图标路径
+     * 设置图片路径
      *
-     * @param imgUrl 菜单自定义图标路径
+     * @param imgUrl 图片路径
      */
     public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
+        this.imgUrl = imgUrl == null ? null : imgUrl.trim();
     }
 
     /**
@@ -292,7 +299,7 @@ public class VSysRoleMenu {
      * @param backgroudColor 此字段暂时不用了
      */
     public void setBackgroudColor(String backgroudColor) {
-        this.backgroudColor = backgroudColor;
+        this.backgroudColor = backgroudColor == null ? null : backgroudColor.trim();
     }
 
     /**

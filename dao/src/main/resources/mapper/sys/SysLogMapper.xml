@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mapper.mapper.sys.SysLogMapper">
-  <resultMap id="BaseResultMap" type="mapper.model.sys.SysLog">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.mapper.sys.SysLogMapper" >
+  <resultMap id="BaseResultMap" type="mapper.model.sys.SysLog" >
     <!--
       WARNING - @mbggenerated
     -->
-    <id column="log_id" jdbcType="BIGINT" property="logId" />
-    <result column="oper_type" jdbcType="VARCHAR" property="operType" />
-    <result column="oper_content" jdbcType="VARCHAR" property="operContent" />
-    <result column="oper_userId" jdbcType="BIGINT" property="operUserid" />
-    <result column="oper_time" jdbcType="TIMESTAMP" property="operTime" />
-    <result column="ip" jdbcType="VARCHAR" property="ip" />
-    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <id column="log_id" property="logId" jdbcType="BIGINT" />
+    <result column="oper_type" property="operType" jdbcType="VARCHAR" />
+    <result column="oper_content" property="operContent" jdbcType="VARCHAR" />
+    <result column="oper_userId" property="operUserid" jdbcType="BIGINT" />
+    <result column="oper_time" property="operTime" jdbcType="TIMESTAMP" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
   </resultMap>
 </mapper>

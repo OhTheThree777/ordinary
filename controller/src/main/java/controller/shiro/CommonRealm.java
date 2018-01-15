@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 import common.util.SysConstants;
+import mapper.mapper.sys.SysUserMapper;
 import mapper.model.sys.SysUser;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -39,7 +40,11 @@ import org.springframework.stereotype.Controller;
 public class CommonRealm extends AuthorizingRealm {
 	private static Logger logger = LoggerFactory.getLogger(CommonRealm.class);
 
+
+	@Autowired
 	private EntityMapper entityMapper;
+	@Autowired
+	private SysUserMapper userMapper;
 
 	public CommonRealm() {
 		setName(SysConstants.SHIRO_REALM_NAME);
@@ -75,8 +80,9 @@ public class CommonRealm extends AuthorizingRealm {
 		String username = upToken.getUsername();
 		// String password = String.copyValueOf(upToken.getPassword());
 		Example example = new Example(SysUser.class);
-		example.createCriteria().andEqualTo("loginname", username);
-		List<SysUser> userList = entityMapper.selectByExample(example);
+		example.createCriteria().andEqualTo("loginName", username);
+		// List<SysUser> userList = entityMapper.selectByExample(example);
+		List<SysUser> userList = userMapper.selectByExample(example);
 		SysUser user = null;
 		if (userList.size() == 0) {
 			throw new AuthenticationException("1");

@@ -10,5 +10,4 @@
     <result column="cat_name" property="catName" jdbcType="VARCHAR" />
     <result column="reamk" property="reamk" jdbcType="VARCHAR" />
   </resultMap>
-
 </mapper>

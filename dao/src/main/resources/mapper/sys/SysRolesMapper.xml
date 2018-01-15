@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mapper.mapper.sys.SysRolesMapper">
-  <resultMap id="BaseResultMap" type="mapper.model.sys.SysRoles">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.mapper.sys.SysRolesMapper" >
+  <resultMap id="BaseResultMap" type="mapper.model.sys.SysRoles" >
     <!--
       WARNING - @mbggenerated
     -->
-    <id column="role_Id" jdbcType="BIGINT" property="roleId" />
-    <result column="role_Name" jdbcType="VARCHAR" property="roleName" />
-    <result column="create_Time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="role_Desc" jdbcType="VARCHAR" property="roleDesc" />
-    <result column="role_type" jdbcType="VARCHAR" property="roleType" />
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="role_name" property="roleName" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="role_desc" property="roleDesc" jdbcType="VARCHAR" />
+    <result column="role_type" property="roleType" jdbcType="VARCHAR" />
   </resultMap>
 </mapper>

@@ -15,7 +15,11 @@
 	<!-- 引入jdbc配置文件 -->
 	<context:property-placeholder location="classpath:conf/dbconfig.properties" />
 
-	<bean id="commonRealm" class="controller.shiro.CommonRealm"/>
+	<bean id="commonRealm" class="controller.shiro.CommonRealm">
+	</bean>
+
+
+
 
 	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
 		<!-- 单realm应用。如果有多个realm，使用‘realms’属性代替 -->

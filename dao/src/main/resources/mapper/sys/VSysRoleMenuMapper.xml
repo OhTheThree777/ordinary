@@ -5,12 +5,12 @@
     <!--
       WARNING - @mbggenerated
     -->
-    <result column="role_Id" property="roleId" jdbcType="BIGINT" />
+    <result column="role_Id" property="roleId" jdbcType="INTEGER" />
     <result column="role_Name" property="roleName" jdbcType="VARCHAR" />
     <result column="create_Time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="role_Desc" property="roleDesc" jdbcType="VARCHAR" />
-    <result column="menu_id" property="menuId" jdbcType="BIGINT" />
-    <result column="parent_id" property="parentId" jdbcType="VARCHAR" />
+    <result column="menu_id" property="menuId" jdbcType="INTEGER" />
+    <result column="parent_id" property="parentId" jdbcType="INTEGER" />
     <result column="sign_name" property="signName" jdbcType="VARCHAR" />
     <result column="menu_name" property="menuName" jdbcType="VARCHAR" />
     <result column="menu_url" property="menuUrl" jdbcType="VARCHAR" />

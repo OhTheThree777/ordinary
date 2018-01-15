@@ -17,6 +17,7 @@
       <module name="controller" target="1.7" />
       <module name="dao" target="1.7" />
       <module name="nmgtc_1" target="1.7" />
+      <module name="RRR" target="1.7" />
       <module name="service" target="1.7" />
     </bytecodeTargetLevel>
   </component>

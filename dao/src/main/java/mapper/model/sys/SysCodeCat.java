@@ -1,14 +1,16 @@
 package mapper.model.sys;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
 
 @Table(name = "sys_code_cat")
-public class SysCodeCat {
+public class SysCodeCat implements Serializable {
     /**
      * 数据字典分类表
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     /**
@@ -27,6 +29,8 @@ public class SysCodeCat {
      * 备注
      */
     private String reamk;
+
+    private static final long serialVersionUID = 1L;
 
     /**
      * 获取数据字典分类表
@@ -61,7 +65,7 @@ public class SysCodeCat {
      * @param catCode 分类编码
      */
     public void setCatCode(String catCode) {
-        this.catCode = catCode;
+        this.catCode = catCode == null ? null : catCode.trim();
     }
 
     /**
@@ -79,7 +83,7 @@ public class SysCodeCat {
      * @param catName 分类名称
      */
     public void setCatName(String catName) {
-        this.catName = catName;
+        this.catName = catName == null ? null : catName.trim();
     }
 
     /**
@@ -97,6 +101,6 @@ public class SysCodeCat {
      * @param reamk 备注
      */
     public void setReamk(String reamk) {
-        this.reamk = reamk;
+        this.reamk = reamk == null ? null : reamk.trim();
     }
 }

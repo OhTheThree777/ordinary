@@ -35,9 +35,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/login.json")
 public class LoginController {
 	private static Logger logger = LoggerFactory.getLogger(LoginController.class);
-	@Autowired
+	@Resource
 	private SysLogMapper sysLogMapper;
-	@Autowired
+	@Resource
 	private SysUserMapper sysUserMapper;
 
 	@RequestMapping()
@@ -61,14 +61,9 @@ public class LoginController {
 			SysLog log=new SysLog();
 			log.setOperTime(new Date());
 			log.setIp(HttpServletTools.getIPFromRequest(request));
-			log.setOperUserid(user.getPid());
 			log.setOperType("1");
 			log.setRemark("用户登陆系统");
 			sysLogMapper.insertSelective(log);
-			long cout=user.getLogincount().longValue();
-			user.setLogincount(cout++);
-			user.setLastlogintime(user.getLogintime());
-			user.setLogintime(new Date());
 			sysUserMapper.updateByPrimaryKeySelective(user);
 			model.setObject(user);
 			model.success("登录成功!");

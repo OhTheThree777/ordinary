@@ -1,44 +1,48 @@
 package mapper.model.sys;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
 
 @Table(name = "sys_relation_user_role")
-public class SysRelationUserRole {
+public class SysRelationUserRole implements Serializable {
     /**
      * 唯一标识
      */
     @Id
-    @Column(name = "relation_id")
-    private Long relationId;
+    private Integer id;
 
     /**
      * 用户id
      */
     @Column(name = "user_id")
-    private Long userId;
+    private Integer userId;
 
     /**
      * 角色id
      */
     @Column(name = "role_id")
-    private Long roleId;
+    private Integer roleId;
+
+    private static final long serialVersionUID = 1L;
 
     /**
      * 获取唯一标识
      *
-     * @return relation_id - 唯一标识
+     * @return id - 唯一标识
      */
-    public Long getRelationId() {
-        return relationId;
+    public Integer getId() {
+        return id;
     }
 
     /**
      * 设置唯一标识
      *
-     * @param relationId 唯一标识
+     * @param id 唯一标识
      */
-    public void setRelationId(Long relationId) {
-        this.relationId = relationId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     /**
@@ -46,7 +50,7 @@ public class SysRelationUserRole {
      *
      * @return user_id - 用户id
      */
-    public Long getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
@@ -55,7 +59,7 @@ public class SysRelationUserRole {
      *
      * @param userId 用户id
      */
-    public void setUserId(Long userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
@@ -64,7 +68,7 @@ public class SysRelationUserRole {
      *
      * @return role_id - 角色id
      */
-    public Long getRoleId() {
+    public Integer getRoleId() {
         return roleId;
     }
 
@@ -73,7 +77,7 @@ public class SysRelationUserRole {
      *
      * @param roleId 角色id
      */
-    public void setRoleId(Long roleId) {
+    public void setRoleId(Integer roleId) {
         this.roleId = roleId;
     }
 }

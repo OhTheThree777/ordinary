@@ -1,12 +1,14 @@
 package mapper.model.sys;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.*;
 
 @Table(name = "sys_log")
-public class SysLog {
+public class SysLog implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "log_id")
     private Long logId;
 
@@ -28,6 +30,8 @@ public class SysLog {
      * 备注
      */
     private String remark;
+
+    private static final long serialVersionUID = 1L;
 
     /**
      * @return log_id
@@ -54,7 +58,7 @@ public class SysLog {
      * @param operType
      */
     public void setOperType(String operType) {
-        this.operType = operType;
+        this.operType = operType == null ? null : operType.trim();
     }
 
     /**
@@ -68,7 +72,7 @@ public class SysLog {
      * @param operContent
      */
     public void setOperContent(String operContent) {
-        this.operContent = operContent;
+        this.operContent = operContent == null ? null : operContent.trim();
     }
 
     /**
@@ -110,7 +114,7 @@ public class SysLog {
      * @param ip
      */
     public void setIp(String ip) {
-        this.ip = ip;
+        this.ip = ip == null ? null : ip.trim();
     }
 
     /**
@@ -128,6 +132,6 @@ public class SysLog {
      * @param remark 备注
      */
     public void setRemark(String remark) {
-        this.remark = remark;
+        this.remark = remark == null ? null : remark.trim();
     }
 }

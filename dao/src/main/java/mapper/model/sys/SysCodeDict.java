@@ -1,11 +1,13 @@
 package mapper.model.sys;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
 
 @Table(name = "sys_code_dict")
-public class SysCodeDict {
+public class SysCodeDict implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     /**
@@ -38,6 +40,8 @@ public class SysCodeDict {
     @Column(name = "dict_state")
     private String dictState;
 
+    private static final long serialVersionUID = 1L;
+
     /**
      * @return id
      */
@@ -67,7 +71,7 @@ public class SysCodeDict {
      * @param dictKey 数据字典健
      */
     public void setDictKey(String dictKey) {
-        this.dictKey = dictKey;
+        this.dictKey = dictKey == null ? null : dictKey.trim();
     }
 
     /**
@@ -85,7 +89,7 @@ public class SysCodeDict {
      * @param dictValue 数据字典值
      */
     public void setDictValue(String dictValue) {
-        this.dictValue = dictValue;
+        this.dictValue = dictValue == null ? null : dictValue.trim();
     }
 
     /**
@@ -103,7 +107,7 @@ public class SysCodeDict {
      * @param catCode 分类编码
      */
     public void setCatCode(String catCode) {
-        this.catCode = catCode;
+        this.catCode = catCode == null ? null : catCode.trim();
     }
 
     /**
@@ -139,6 +143,6 @@ public class SysCodeDict {
      * @param dictState 状态（1:启用,2:禁用）
      */
     public void setDictState(String dictState) {
-        this.dictState = dictState;
+        this.dictState = dictState == null ? null : dictState.trim();
     }
 }
