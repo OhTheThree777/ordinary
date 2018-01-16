@@ -56,7 +56,7 @@
 
 		<property name="mapperLocations">
 			<array>
-				<value>classpath:mapper/sys/*.xml</value>
+				<value>classpath:mappersXML/*.xml</value>
 				<!--TODO-->
 			</array>
 		</property>

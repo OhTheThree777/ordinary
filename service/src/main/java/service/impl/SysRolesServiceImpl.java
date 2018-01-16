@@ -1,4 +1,4 @@
-package service.Impl;
+package service.impl;
 
 import common.model.DataBootstrapTable;
 import common.model.ResponseModelBootstrapTable;
@@ -38,11 +38,11 @@ public class SysRolesServiceImpl implements SysRolesService {
     // 注入Dao层操作对象
     @Resource
     private SysRolesMapper sysRolesMapper;
-    @Autowired
+    @Resource
     private VSysRoleMenuMapper vSysRoleMenuMapper;
-    @Autowired
+    @Resource
     private SysMenuMapper sysMenuMapper;
-    @Autowired
+    @Resource
     private SysRelationMenuRoleMapper sysRelationMenuRoleMapper;
 
     private static Logger logger = LoggerFactory

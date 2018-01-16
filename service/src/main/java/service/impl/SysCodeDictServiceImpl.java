@@ -1,8 +1,10 @@
-package service.Impl;
+package service.impl;
+
 
 import common.model.DataBootstrapTable;
 import common.model.ResponseModelBootstrapTable;
 import common.util.Page;
+import component.SysCodeCache;
 import mapper.mapper.sys.SysCodeDictMapper;
 import mapper.model.sys.SysCodeDict;
 import org.apache.ibatis.session.RowBounds;
@@ -26,10 +28,8 @@ public class SysCodeDictServiceImpl implements SysCodeDictService {
     @Autowired
     private SysCodeDictMapper sysCodeDictMapper;
 
-
-
     @Resource
-    // private SysCodeCache sysCodeCache;
+    private SysCodeCache sysCodeCache;
     private static Logger logger = LoggerFactory
             .getLogger(SysCodeDictServiceImpl.class);
 
@@ -40,7 +40,7 @@ public class SysCodeDictServiceImpl implements SysCodeDictService {
      * @return
      */
     @Override
-    public ResponseModelBootstrapTable main(DataBootstrapTable dbt, SysCodeDict sysCodeDict) {
+    public ResponseModelBootstrapTable main(DataBootstrapTable dbt,SysCodeDict sysCodeDict) {
         // 初始化返回对象
         ResponseModelBootstrapTable model = new ResponseModelBootstrapTable();
 

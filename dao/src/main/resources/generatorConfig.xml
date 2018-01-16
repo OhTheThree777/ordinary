@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+		PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+		"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<classPathEntry
+			location="/Users/ranhongmin/.m2/repository/mysql/mysql-connector-java/5.1.29"/>
+
+	<context id="context1" targetRuntime="MyBatis3Simple">
+		<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin"/>
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+		<plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+			<property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
+			<!-- caseSensitive默认false，当数据库表名区分大小写时，可以将该属性设置为true -->
+			<property name="caseSensitive" value="true"/>
+		</plugin>
+		<!-- Pagination -->
+		<plugin type="common.mybatis.MySqlPaginationPlugin"/>
+
+		<!--<commentGenerator>-->
+		<!--<property name="suppressDate" value="true" />-->
+		<!--<property name="suppressAllComments" value="true" />-->
+		<!--</commentGenerator>-->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+						connectionURL="jdbc:mysql://localhost:3306/ordinary?useUnicode=true&amp;characterEncoding=UTF-8"
+						userId="root" password="5858217r" />
+		<!--1-->
+		<javaModelGenerator targetPackage="mapper.mapper.sys"
+							targetProject="/Users/ranhongmin/Work/Intellij_project/ordinary/dao/src/main/java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<!--2-->
+		<sqlMapGenerator targetPackage="mappersXML.xml"
+						 targetProject="/Users/ranhongmin/Work/Intellij_project/ordinary/dao/src/main/resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+		<!--3-->
+		<javaClientGenerator targetPackage="mapper.model.sys"
+							 targetProject="/Users/ranhongmin/Work/Intellij_project/ordinary/dao/src/main/java" type="XMLMAPPER">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+
+		<!--<table tableName="bet_scheme">-->
+		<!--<generatedKey column ='id' sqlStatement ="mysql" identity ="true"/>-->
+		<!--</table>-->
+		<table tableName="sys_code_cat"/>
+		<table tableName="sys_code_dict"/>
+		<table tableName="sys_log"/>
+		<table tableName="sys_logs"/>
+		<table tableName="sys_menu"/>
+		<table tableName="sys_relation_menu_role"/>
+		<table tableName="sys_relation_user_role"/>
+		<table tableName="sys_roles"/>
+		<table tableName="sys_user"/>
+	</context>
+
+
+</generatorConfiguration>

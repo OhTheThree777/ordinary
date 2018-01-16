@@ -1,4 +1,4 @@
-package service.Impl;
+package service.impl;
 
 import com.github.abel533.entity.EntityMapper;
 import common.model.*;

@@ -28,6 +28,8 @@ import com.github.abel533.entity.Example;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
+import javax.annotation.Resource;
+
 
 /**
  * Shiro 自定义认证对象
@@ -41,9 +43,9 @@ public class CommonRealm extends AuthorizingRealm {
 	private static Logger logger = LoggerFactory.getLogger(CommonRealm.class);
 
 
-	@Autowired
+	@Resource
 	private EntityMapper entityMapper;
-	@Autowired
+	@Resource
 	private SysUserMapper userMapper;
 
 	public CommonRealm() {
@@ -97,7 +99,7 @@ public class CommonRealm extends AuthorizingRealm {
 			SecurityUtils.getSubject().getSession().setTimeout(-1001);
 		}
 		AuthenticationInfo result = new SimpleAuthenticationInfo(
-				user.getLoginname(), user.getPassword(), getName());
+				user.getLoginName(), user.getPassword(), getName());
 
 		return result;
 	}
