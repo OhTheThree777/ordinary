@@ -4,7 +4,7 @@
 		 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_1.xsd"
 		 id="WebApp_ID" version="3.0">
 
-	<display-name>lr_tyss</display-name>
+	<display-name>R</display-name>
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
@@ -37,7 +37,7 @@
 	<!-- String MVC servlet -->
 	<servlet>
 		<description>This is Spring MVC DispatcherServlet</description>
-		<servlet-name>nmgd</servlet-name>
+		<servlet-name>R</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<description>SpringContext</description>
@@ -48,7 +48,7 @@
 		<async-supported>true</async-supported>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>nmgd</servlet-name>
+		<servlet-name>R</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	<!-- 阿里巴巴 druid 数据监控 -->

@@ -57,11 +57,11 @@ function loginSuccessful() {
 	$('#e_platform_page').fadeIn('slow');
 	// 跳转页面
 	// location.reload('console_I.html');
-	if("1"==currentUser.userJob){
+	// if("1"==currentUser.userJob){
 		window.location.href = "consoleTabs.html";
-	}else{
-		window.location.href = "main";
-	}
+	// }else{
+	// 	window.location.href = "main";
+	// }
 	$('middle-box text-center loginscreen  animated fadeInDown')
 			.fadeOut('slow');
 

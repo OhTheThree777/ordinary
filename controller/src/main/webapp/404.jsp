@@ -17,7 +17,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-<title>蓝睿UI框架 - 404 页面</title>
+<title>内蒙古体彩信息管理系统 - 404 页面</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 

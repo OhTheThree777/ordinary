@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            //获取ajax
+            $.ajax({
+                url : 'http://lcp.isport.nm.cn:9002/cmsServerAction/mainFlash.json',
+                data :{
+
+                },
+                dataType : 'json',
+                beforeSend : function(d) {
+
+                },
+                success : function(data) {
+                    alert(data.msg)
+                }
+            });
+        });
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
